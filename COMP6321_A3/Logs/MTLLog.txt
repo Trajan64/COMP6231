@@ -1,0 +1,346 @@
+2016-11-27T20:10:40.444-05:00------------SERVER MTL CREATED ------------
+2016-11-27T20:50:20.880-05:00------------SERVER MTL CREATED ------------
+2016-11-27T20:51:35.383-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 1 1)
+2016-11-27T20:51:58.993-05:00bookFlight(d, e, 232, 232, NDL, 27/11/2016, Economy)
+2016-11-27T21:04:31.941-05:00------------SERVER MTL CREATED ------------
+2016-11-27T21:05:23.917-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 1 1)
+2016-11-27T21:05:47.597-05:00bookFlight(v, d, 22, 23, NDL, 27/11/2016, Economy)
+2016-11-27T21:13:37.461-05:00------------SERVER MTL CREATED ------------
+2016-11-27T21:14:12.338-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 1 1)
+2016-11-27T21:14:30.951-05:00bookFlight(f, s, 1231, 123123, NDL, 27/11/2016, Economy)
+2016-11-27T21:15:48.770-05:00------------SERVER MTL CREATED ------------
+2016-11-27T21:16:26.345-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 1 1)
+2016-11-27T21:16:46.976-05:00bookFlight(, d, 123, 213, NDL, 27/11/2016, Economy)
+2016-11-27T21:20:20.586-05:00------------SERVER MTL CREATED ------------
+2016-11-27T21:21:02.219-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 1 1)
+2016-11-27T21:21:19.138-05:00bookFlight(d, e, 23, 23, NDL, 27/11/2016, Economy)
+2016-11-27T22:08:55.335-05:00------------SERVER MTL CREATED ------------
+2016-11-27T22:09:57.324-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 1 1)
+2016-11-27T22:10:40.817-05:00bookFlight(f, e, 1232323, 1, NDL, 27/11/2016, Economy)
+2016-11-27T22:10:40.818-05:00 Passenger added: e4ce4c512-2c41-469c-9d64-9a022a60c7ad: f e 1232323 1 NDL 27/11/2016 Flight: 6a801658-3d1d-4181-b630-f6bc0bf7637a Economy
+2016-11-27T22:15:25.325-05:00getBookedFlightCount(Economy)
+2016-11-27T22:40:20.153-05:00------------SERVER MTL CREATED ------------
+2016-11-27T22:41:09.667-05:00editFlightRecord(0, Create, MTL NDL 27/11/2017 13:00 1 1 1)
+2016-11-27T22:41:58.958-05:00bookFlight(v, f, f, f, NDL, 27/11/2016, Economy)
+2016-11-27T22:42:49.290-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 1 1)
+2016-11-27T22:43:05.356-05:00bookFlight(v, f, 2, 2, NDL, 27/11/2016, Economy)
+2016-11-27T22:43:05.357-05:00 Passenger added: f82b5afcd-8285-422e-9cd8-8b9208b6ed70: v f 2 2 NDL 27/11/2016 Flight: bdef3b4d-3a6f-4a98-91c7-5abbc25242f9 Economy
+2016-11-27T22:43:42.379-05:00transferReservation(f82b5afcd-8285-422e-9cd8-8b9208b6ed70, MTL, WST)
+2016-11-27T22:46:13.544-05:00------------SERVER MTL CREATED ------------
+2016-11-27T22:46:58.510-05:00getBookedFlightCount(Economy)
+2016-11-27T22:47:21.234-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 1 1)
+2016-11-27T22:47:59.489-05:00bookFlight(v, f, g, g, NDL, 27/11/2016, Economy)
+2016-11-27T22:47:59.491-05:00 Passenger added: f45ebc338-3064-4069-b524-7035e4e1aa40: v f g g NDL 27/11/2016 Flight: 668b436a-dc7b-4bc2-bce4-7de920ba8857 Economy
+2016-11-27T22:48:21.701-05:00transferReservation(f45ebc338-3064-4069-b524-7035e4e1aa40, MTL, WST)
+2016-11-27T22:48:45.873-05:00bookFlight(f, g, g, g, NDL, 27/11/2016, Economy)
+2016-11-27T22:48:45.934-05:00 Passenger added: g6cb8fa45-0891-4d58-877d-c61d9aac586f: f g g g NDL 27/11/2016 Flight: 668b436a-dc7b-4bc2-bce4-7de920ba8857 Economy
+2016-11-27T22:49:00.993-05:00getBookedFlightCount(Economy)
+2016-11-27T23:03:05.395-05:00------------SERVER MTL CREATED ------------
+2016-11-27T23:03:44.905-05:00getBookedFlightCount(Economy)
+2016-11-27T23:04:01.778-05:00editFlightRecord(ert, Economy, 1)
+2016-11-27T23:04:24.711-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 1 1)
+2016-11-27T23:05:37.434-05:00editFlightRecord(er, Economy, 1)
+2016-11-27T23:06:10.303-05:00bookFlight(f, g, h, d, NDL, 27/11/2016, Economy)
+2016-11-27T23:06:10.329-05:00 Passenger added: ga67af546-a28c-4775-97ae-85b6d6a52548: f g h d NDL 27/11/2016 Flight: 5b27fabe-b105-42a3-939c-628485541d5c Economy
+2016-11-27T23:06:37.709-05:00editFlightRecord(5b27fabe-b105-42a3-939c-628485541d5c, Economy, 2)
+2016-11-27T23:07:46.647-05:00editFlightRecord(5b27fabe-b105-42a3-939c-628485541d5c, Seats, 2 1 1)
+2016-11-27T23:08:58.294-05:00editFlightRecord(System.out.println("Difference, Economy, 1)
+2016-11-27T23:10:53.792-05:00------------SERVER MTL CREATED ------------
+2016-11-27T23:11:32.400-05:00editFlightRecord(0, Create, MTL NDL 26/11/2017 13:00 1 0 0)
+2016-11-27T23:12:01.229-05:00editFlightRecord(2, Economy, 2)
+2016-11-27T23:21:04.173-05:00editFlightRecord(23423, Economy, 1)
+2016-11-27T23:27:33.894-05:00------------SERVER MTL CREATED ------------
+2016-11-27T23:28:11.891-05:00editFlightRecord(0, Create, MTL NDL 26/11/2016 13:00 1 1 1)
+2016-11-27T23:29:55.416-05:00editFlightRecord(55621ec1-df44-4813-be25-e1ce2ac9a2af, Economy, 2)
+2016-11-27T23:44:35.184-05:00------------SERVER MTL CREATED ------------
+2016-11-27T23:45:10.935-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 1 1)
+2016-11-27T23:45:10.989-05:00 Flight added: Flight number: 29f9da58-1a0b-42df-a500-61504d1c7a25 Departure date: 27/11/2016 Departure time: 13:00
+2016-11-27T23:45:47.013-05:00editFlightRecord(29f9da58-1a0b-42df-a500-61504d1c7a25, Economy, 2)
+2016-11-27T23:48:03.815-05:00------------SERVER MTL CREATED ------------
+2016-11-27T23:48:44.484-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 0 0)
+2016-11-27T23:48:44.501-05:00 Flight added: Flight number: 851e0131-d45f-4aef-86f3-9c1c70af5b85 Departure date: 27/11/2016 Departure time: 13:00
+2016-11-27T23:49:16.860-05:00editFlightRecord(851e0131-d45f-4aef-86f3-9c1c70af5b85, Economy, 2)
+2016-11-27T23:49:44.491-05:00bookFlight(g, f, f, f, WST, 27/11/2016, Economy)
+2016-11-27T23:50:21.123-05:00bookFlight(f, f, f, f, NDL, 26/11/2017, Economy)
+2016-11-27T23:50:41.904-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-27T23:50:41.905-05:00 Passenger added: 13ff456d7-1fe1-471d-83ae-0fcb3834a917: 1 1 1 1 NDL 27/11/2016 Flight: 851e0131-d45f-4aef-86f3-9c1c70af5b85 Economy
+2016-11-27T23:51:00.293-05:00bookFlight(2, 2, 2, 2, NDL, 26/11/2016, Economy)
+2016-11-27T23:53:57.805-05:00------------SERVER MTL CREATED ------------
+2016-11-27T23:54:51.805-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 0 0)
+2016-11-27T23:54:51.822-05:00 Flight added: Flight number: cfe35f0b-77d1-4b6b-bd26-dba43a96b480 Departure date: 27/11/2016 Departure time: 13:00 Seats 1 0 0
+2016-11-27T23:55:27.938-05:00editFlightRecord(cfe35f0b-77d1-4b6b-bd26-dba43a96b480, Economy, 2)
+2016-11-27T23:55:51.193-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-27T23:55:51.196-05:00 Passenger added: 1167f3bcb-85a6-4f5a-8b23-0b2be042693d: 1 1 1 1 NDL 27/11/2016 Flight: cfe35f0b-77d1-4b6b-bd26-dba43a96b480 Economy
+2016-11-27T23:56:09.432-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-27T23:56:54.794-05:00getBookedFlightCount(Economy)
+2016-11-28T00:03:05.998-05:00------------SERVER MTL CREATED ------------
+2016-11-28T00:03:54.548-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 0 0)
+2016-11-28T00:03:54.829-05:00 Flight added: Flight number: 0cd16d9e-0cb3-4169-bb92-d78d602071b1 Departure date: 27/11/2016 Departure time: 13:00 Seats 1 0 0
+2016-11-28T00:04:21.981-05:00editFlightRecord(0cd16d9e-0cb3-4169-bb92-d78d602071b1, Economy, 2)
+2016-11-28T00:04:39.355-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T00:04:39.357-05:00 Passenger added: 1609e0c7e-f4f3-47d9-87c5-c1410f6fee25: 1 1 1 1 NDL 27/11/2016 Flight: 0cd16d9e-0cb3-4169-bb92-d78d602071b1 Economy
+2016-11-28T00:05:02.950-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T00:05:02.951-05:00 Passenger added: 1924748bd-0a0a-4208-839e-15e3b4457fa8: 1 1 1 1 NDL 27/11/2016 Flight: 0cd16d9e-0cb3-4169-bb92-d78d602071b1 Economy
+2016-11-28T00:05:19.037-05:00bookFlight(1, 1, 1, 1, NDL, 26/11/2017, Economy)
+2016-11-28T00:05:29.385-05:00getBookedFlightCount(Economy)
+2016-11-28T00:06:10.564-05:00editFlightRecord(0cd16d9e-0cb3-4169-bb92-d78d602071b1, Economy, 1)
+2016-11-28T00:06:20.732-05:00getBookedFlightCount(Economy)
+2016-11-28T00:30:25.999-05:00------------SERVER MTL CREATED ------------
+2016-11-28T00:31:06.170-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 0 0)
+2016-11-28T00:31:06.391-05:00 Flight added: Flight number: de26cc32-b8cb-45fd-aec0-59ed57ae13d0 Departure date: 27/11/2016 Departure time: 13:00 Seats 1 0 0
+2016-11-28T00:31:23.024-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T00:31:23.046-05:00 Passenger added: 1362c84ab-b67c-4129-9ed4-988c491c2484: 1 1 1 1 NDL 27/11/2016 Flight: de26cc32-b8cb-45fd-aec0-59ed57ae13d0 Economy
+2016-11-28T00:31:31.115-05:00getBookedFlightCount(Economy)
+2016-11-28T00:31:59.879-05:00editFlightRecord(de26cc32-b8cb-45fd-aec0-59ed57ae13d0, Economy, 0)
+2016-11-28T00:32:07.572-05:00getBookedFlightCount(Economy)
+2016-11-28T00:35:02.882-05:00------------SERVER MTL CREATED ------------
+2016-11-28T00:35:42.290-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 0 0)
+2016-11-28T00:35:42.306-05:00 Flight added: Flight number: 6c0a107f-d313-4075-8830-f975b474027b Departure date: 27/11/2016 Departure time: 13:00 Seats 1 0 0
+2016-11-28T00:35:55.226-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T00:35:55.227-05:00 Passenger added: 18470cb44-883e-41be-b47d-b8ebf7511794: 1 1 1 1 NDL 27/11/2016 Flight: 6c0a107f-d313-4075-8830-f975b474027b Economy
+2016-11-28T00:36:07.528-05:00getBookedFlightCount(Economy)
+2016-11-28T00:36:52.691-05:00editFlightRecord(6c0a107f-d313-4075-8830-f975b474027b, Economy, 0)
+2016-11-28T00:39:03.401-05:00------------SERVER MTL CREATED ------------
+2016-11-28T00:39:36.337-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 0 0)
+2016-11-28T00:39:36.423-05:00 Flight added: Flight number: c021b01b-8b94-4abb-be93-23ac283fcefd Departure date: 27/11/2016 Departure time: 13:00 Seats 1 0 0
+2016-11-28T00:39:49.814-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T00:39:49.815-05:00 Passenger added: 1f6ef062f-a38d-4165-8b17-8f11054e8e43: 1 1 1 1 NDL 27/11/2016 Flight: c021b01b-8b94-4abb-be93-23ac283fcefd Economy
+2016-11-28T00:40:14.731-05:00editFlightRecord(1f6ef062f-a38d-4165-8b17-8f11054e8e43, Economy, 0)
+2016-11-28T00:43:03.290-05:00------------SERVER MTL CREATED ------------
+2016-11-28T00:43:43.293-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 0 0)
+2016-11-28T00:43:43.368-05:00 Flight added: Flight number: 6035ff12-888d-48d9-8efa-bf300a64f115 Departure date: 27/11/2016 Departure time: 13:00 Seats 1 0 0
+2016-11-28T00:44:03.597-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T00:44:03.654-05:00 Passenger added: 1ba0fd9a7-c7cf-4319-826d-38afd6d1d377: 1 1 1 1 NDL 27/11/2016 Flight: 6035ff12-888d-48d9-8efa-bf300a64f115 Economy
+2016-11-28T00:44:11.418-05:00getBookedFlightCount(Economy)
+2016-11-28T00:44:40.237-05:00editFlightRecord(6035ff12-888d-48d9-8efa-bf300a64f115, Economy, 0)
+2016-11-28T00:52:06.767-05:00------------SERVER MTL CREATED ------------
+2016-11-28T00:52:43.038-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 0 0)
+2016-11-28T00:52:43.143-05:00 Flight added: Flight number: cc9158d5-893b-4ad3-a943-15e74d6800ae Departure date: 27/11/2016 Departure time: 13:00 Seats 1 0 0
+2016-11-28T00:53:02.344-05:00bookFlight(t, l, m, g, NDL, 26/11/2017, Economy)
+2016-11-28T00:53:23.992-05:00bookFlight(w, w, w, w, NDL, 27/11/2016, Economy)
+2016-11-28T00:53:24.003-05:00 Passenger added: wbede5da0-c6d6-48d3-af08-a7bbcd13837e: w w w w NDL 27/11/2016 Flight: cc9158d5-893b-4ad3-a943-15e74d6800ae Economy
+2016-11-28T00:53:31.904-05:00getBookedFlightCount(Economy)
+2016-11-28T00:54:04.064-05:00editFlightRecord(wbede5da0-c6d6-48d3-af08-a7bbcd13837e, Economy, 0)
+2016-11-28T00:54:45.707-05:00editFlightRecord(cc9158d5-893b-4ad3-a943-15e74d6800ae, Economy, 0)
+2016-11-28T00:59:12.625-05:00------------SERVER MTL CREATED ------------
+2016-11-28T00:59:54.456-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 0 0)
+2016-11-28T00:59:54.534-05:00 Flight added: Flight number: 74a4e1e2-4d57-4b7b-83a0-1a257204e72f Departure date: 27/11/2016 Departure time: 13:00 Seats 1 0 0
+2016-11-28T01:00:10.830-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T01:00:10.864-05:00 Passenger added: 1953b9efe-4b83-46e5-936b-a8df8f68ba97: 1 1 1 1 NDL 27/11/2016 Flight: 74a4e1e2-4d57-4b7b-83a0-1a257204e72f Economy
+2016-11-28T01:00:40.278-05:00editFlightRecord(74a4e1e2-4d57-4b7b-83a0-1a257204e72f, Economy, 0)
+2016-11-28T01:13:36.952-05:00------------SERVER MTL CREATED ------------
+2016-11-28T01:14:17.602-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 0 0)
+2016-11-28T01:14:17.781-05:00 Flight added: Flight number: e440a33a-0781-42df-b15b-28c2d9275fe4 Departure date: 27/11/2016 Departure time: 13:00 Seats 1 0 0
+2016-11-28T01:14:39.149-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T01:14:39.192-05:00 Passenger added: 1e414022e-b4c3-471a-867e-d6c7d80710d8: 1 1 1 1 NDL 27/11/2016 Flight: e440a33a-0781-42df-b15b-28c2d9275fe4 Economy
+2016-11-28T01:15:02.247-05:00editFlightRecord(e440a33a-0781-42df-b15b-28c2d9275fe4, Economy, 0)
+2016-11-28T01:19:24.307-05:00------------SERVER MTL CREATED ------------
+2016-11-28T01:19:56.553-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 0 0)
+2016-11-28T01:19:56.691-05:00 Flight added: Flight number: 83ddb0a9-7df8-480b-8ba3-85aa51b9f8c9 Departure date: 27/11/2016 Departure time: 13:00 Seats 1 0 0
+2016-11-28T01:20:18.676-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T01:20:18.712-05:00 Passenger added: 1a8ecfcb5-ee5d-4582-9309-29fae2dbe81f: 1 1 1 1 NDL 27/11/2016 Flight: 83ddb0a9-7df8-480b-8ba3-85aa51b9f8c9 Economy
+2016-11-28T01:20:43.031-05:00editFlightRecord(83ddb0a9-7df8-480b-8ba3-85aa51b9f8c9, Economy, 0)
+2016-11-28T01:25:23.605-05:00------------SERVER MTL CREATED ------------
+2016-11-28T01:26:11.773-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 0 0)
+2016-11-28T01:26:11.907-05:00 Flight added: Flight number: 17737ab8-1163-42c4-9214-698b16db684a Departure date: 27/11/2016 Departure time: 13:00 Seats 1 0 0
+2016-11-28T01:26:30.533-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T01:26:30.560-05:00 Passenger added: 16b81f332-0fb4-4ba4-8ba5-e5af85e7cdfe: 1 1 1 1 NDL 27/11/2016 Flight: 17737ab8-1163-42c4-9214-698b16db684a Economy
+2016-11-28T01:26:59.105-05:00editFlightRecord(17737ab8-1163-42c4-9214-698b16db684a, Economy, 0)
+2016-11-28T01:39:39.691-05:00------------SERVER MTL CREATED ------------
+2016-11-28T01:40:16.652-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 0 0)
+2016-11-28T01:40:16.686-05:00 Flight added: Flight number: 4dbd3b37-afdb-4b73-9e80-5d3f1f5e56f2 Departure date: 27/11/2016 Departure time: 13:00 Seats 1 0 0
+2016-11-28T01:40:31.533-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T01:40:31.534-05:00 Passenger added: 13698b948-17de-42ab-bd41-42ccb21ca11b: 1 1 1 1 NDL 27/11/2016 Flight: 4dbd3b37-afdb-4b73-9e80-5d3f1f5e56f2 Economy
+2016-11-28T01:40:57.462-05:00editFlightRecord(4dbd3b37-afdb-4b73-9e80-5d3f1f5e56f2, Economy, 0)
+2016-11-28T01:47:32.187-05:00------------SERVER MTL CREATED ------------
+2016-11-28T01:48:07.975-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 0 0)
+2016-11-28T01:48:08.064-05:00 Flight added: Flight number: a5eceee4-4438-4425-a033-eb0afc50d3c2 Departure date: 27/11/2016 Departure time: 13:00 Seats 1 0 0
+2016-11-28T01:48:20.625-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T01:48:20.629-05:00 Passenger added: 12be51976-8197-403b-80b3-e9c37c9931a5: 1 1 1 1 NDL 27/11/2016 Flight: a5eceee4-4438-4425-a033-eb0afc50d3c2 Economy
+2016-11-28T01:48:46.259-05:00editFlightRecord(a5eceee4-4438-4425-a033-eb0afc50d3c2, Economy, 0)
+2016-11-28T01:52:05.683-05:00------------SERVER MTL CREATED ------------
+2016-11-28T01:52:41.717-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 0 0)
+2016-11-28T01:52:41.755-05:00 Flight added: Flight number: 5422e225-b46f-49c3-9486-9e18dd2dc605 Departure date: 27/11/2016 Departure time: 13:00 Seats 1 0 0
+2016-11-28T01:52:56.159-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T01:52:56.160-05:00 Passenger added: 1190fc0dd-1c6d-4580-a73f-583192661d07: 1 1 1 1 NDL 27/11/2016 Flight: 5422e225-b46f-49c3-9486-9e18dd2dc605 Economy
+2016-11-28T01:53:26.415-05:00editFlightRecord(5422e225-b46f-49c3-9486-9e18dd2dc605, Economy, 0)
+2016-11-28T01:56:44.491-05:00------------SERVER MTL CREATED ------------
+2016-11-28T01:58:09.025-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 0 0)
+2016-11-28T01:58:09.203-05:00 Flight added: Flight number: d5204747-619c-467b-8a5f-663c79020b2d Departure date: 27/11/2016 Departure time: 13:00 Seats 1 0 0
+2016-11-28T01:58:21.747-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T01:58:21.749-05:00 Passenger added: 1e624dca0-a4b7-41fe-9b98-e759c16f4e6e: 1 1 1 1 NDL 27/11/2016 Flight: d5204747-619c-467b-8a5f-663c79020b2d Economy
+2016-11-28T01:58:43.435-05:00editFlightRecord(d5204747-619c-467b-8a5f-663c79020b2d, Economy, 0)
+2016-11-28T01:58:54.621-05:00getBookedFlightCount(Economy)
+2016-11-28T01:59:26.727-05:00editFlightRecord(d5204747-619c-467b-8a5f-663c79020b2d, Economy, 2)
+2016-11-28T02:00:02.531-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T02:00:02.532-05:00 Passenger added: 105393d28-0d34-404c-b060-2247f257b20e: 1 1 1 1 NDL 27/11/2016 Flight: d5204747-619c-467b-8a5f-663c79020b2d Economy
+2016-11-28T02:00:23.270-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T02:00:23.272-05:00 Passenger added: 1893e7c99-6ea7-4f3b-97fa-73ff62ac6f3e: 1 1 1 1 NDL 27/11/2016 Flight: d5204747-619c-467b-8a5f-663c79020b2d Economy
+2016-11-28T02:00:32.371-05:00getBookedFlightCount(Economy)
+2016-11-28T02:00:56.766-05:00editFlightRecord(d5204747-619c-467b-8a5f-663c79020b2d, Economy, 3)
+2016-11-28T02:01:18.225-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T02:01:18.292-05:00 Passenger added: 131b9742a-9065-4c58-8e09-ca71669e3ffc: 1 1 1 1 NDL 27/11/2016 Flight: d5204747-619c-467b-8a5f-663c79020b2d Economy
+2016-11-28T02:01:27.560-05:00getBookedFlightCount(Economy)
+2016-11-28T02:01:49.329-05:00editFlightRecord(d5204747-619c-467b-8a5f-663c79020b2d, Economy, 2)
+2016-11-28T02:07:45.955-05:00------------SERVER MTL CREATED ------------
+2016-11-28T02:08:55.952-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 0 0)
+2016-11-28T02:08:55.994-05:00 Flight added: Flight number: 09eea762-9d2b-4bc9-abc2-8b698076a160 Departure date: 27/11/2016 Departure time: 13:00 Seats 1 0 0
+2016-11-28T02:09:08.949-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2-16, Economy)
+2016-11-28T02:09:24.109-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T02:09:24.111-05:00 Passenger added: 17ae44438-5c0f-42a8-bbde-3b6d9783d89d: 1 1 1 1 NDL 27/11/2016 Flight: 09eea762-9d2b-4bc9-abc2-8b698076a160 Economy
+2016-11-28T02:09:54.480-05:00editFlightRecord(09eea762-9d2b-4bc9-abc2-8b698076a160, Economy, 0)
+2016-11-28T02:10:06.730-05:00getBookedFlightCount(Economy)
+2016-11-28T02:10:29.947-05:00editFlightRecord(09eea762-9d2b-4bc9-abc2-8b698076a160, Economy, 2)
+2016-11-28T02:10:42.887-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T02:10:42.888-05:00 Passenger added: 189374258-9dc0-4970-ad42-87da99d337f2: 1 1 1 1 NDL 27/11/2016 Flight: 09eea762-9d2b-4bc9-abc2-8b698076a160 Economy
+2016-11-28T02:10:56.159-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T02:10:56.230-05:00 Passenger added: 18eae961c-ca96-4a42-8f30-619e62b78662: 1 1 1 1 NDL 27/11/2016 Flight: 09eea762-9d2b-4bc9-abc2-8b698076a160 Economy
+2016-11-28T02:11:05.682-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T02:11:05.683-05:00 Passenger added: 15c6d61e6-3767-4157-bcbb-a2d448207bb8: 1 1 1 1 NDL 27/11/2016 Flight: 09eea762-9d2b-4bc9-abc2-8b698076a160 Economy
+2016-11-28T02:11:32.836-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T02:11:32.836-05:00 Passenger added: 10d66e178-80c9-4496-b9de-721fca9492c7: 1 1 1 1 NDL 27/11/2016 Flight: 09eea762-9d2b-4bc9-abc2-8b698076a160 Economy
+2016-11-28T02:11:41.436-05:00getBookedFlightCount(Economy)
+2016-11-28T02:21:11.170-05:00------------SERVER MTL CREATED ------------
+2016-11-28T02:21:59.047-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 0 0)
+2016-11-28T02:21:59.100-05:00 Flight added: Flight number: f6a24194-c28f-437e-af1e-85722c7486ea Departure date: 27/11/2016 Departure time: 13:00 Seats 1 0 0
+2016-11-28T02:22:21.739-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T02:22:21.740-05:00 Passenger added: 169b27a21-c1a4-44b1-a726-7dd8b574352d: 1 1 1 1 NDL 27/11/2016 Flight: f6a24194-c28f-437e-af1e-85722c7486ea Economy
+2016-11-28T02:22:37.742-05:00bookFlight(1, 11, 11, 1, NDL, 27/11/2016, Economy)
+2016-11-28T02:22:37.838-05:00 Passenger added: 1dce81793-cb3b-4505-b12f-6a38d19d2cf4: 1 11 11 1 NDL 27/11/2016 Flight: f6a24194-c28f-437e-af1e-85722c7486ea Economy
+2016-11-28T02:27:27.005-05:00------------SERVER MTL CREATED ------------
+2016-11-28T02:28:06.752-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 0 0)
+2016-11-28T02:28:06.771-05:00 Flight added: Flight number: 5d2e9bad-8dd2-4e03-b744-cd522ae7c2a6 Departure date: 27/11/2016 Departure time: 13:00 Seats 1 0 0
+2016-11-28T02:28:27.078-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T02:28:27.080-05:00 Passenger added: 1d72b93b6-8341-44a3-acef-f3c867e4006a: 1 1 1 1 NDL 27/11/2016 Flight: 5d2e9bad-8dd2-4e03-b744-cd522ae7c2a6 Economy
+2016-11-28T02:28:38.195-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T02:29:19.854-05:00editFlightRecord(5d2e9bad-8dd2-4e03-b744-cd522ae7c2a6, Economy, 2)
+2016-11-28T02:29:40.010-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T02:29:40.012-05:00 Passenger added: 103a964ee-7448-449b-8d20-b3971a09149e: 1 1 1 1 NDL 27/11/2016 Flight: 5d2e9bad-8dd2-4e03-b744-cd522ae7c2a6 Economy
+2016-11-28T02:29:50.842-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T02:29:59.760-05:00getBookedFlightCount(Economy)
+2016-11-28T02:30:16.239-05:00editFlightRecord(5d2e9bad-8dd2-4e03-b744-cd522ae7c2a6, Economy, 1)
+2016-11-28T02:30:24.472-05:00getBookedFlightCount(Economy)
+2016-11-28T02:47:11.238-05:00------------SERVER MTL CREATED ------------
+2016-11-28T02:47:28.541-05:00------------SERVER MTL CREATED ------------
+2016-11-28T02:48:06.922-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 2 0 0)
+2016-11-28T02:48:06.941-05:00 Flight added: Flight number: cf96dea2-b2c1-430b-b4e9-6e2504bb303f Departure date: 27/11/2016 Departure time: 13:00 Seats 2 0 0
+2016-11-28T02:48:21.222-05:00bookFlight(1, 1, 1, 11, NDL, 27/11/2016, Economy)
+2016-11-28T02:48:21.226-05:00 Passenger added: 14cccbcd8-b7c9-4a57-baa9-9bfce5ece80c: 1 1 1 11 NDL 27/11/2016 Flight: cf96dea2-b2c1-430b-b4e9-6e2504bb303f Economy
+2016-11-28T02:48:34.251-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T02:53:28.957-05:00------------SERVER MTL CREATED ------------
+2016-11-28T02:54:22.356-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 0 0)
+2016-11-28T02:54:22.454-05:00 Flight added: Flight number: 7f601978-0b5e-44de-a236-84f1e63cb6b9 Departure date: 27/11/2016 Departure time: 13:00 Seats 1 0 0
+2016-11-28T02:54:50.748-05:00editFlightRecord(7f601978-0b5e-44de-a236-84f1e63cb6b9, Economy, 2)
+2016-11-28T02:55:04.207-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T02:55:04.242-05:00 Passenger added: 1d315c508-35ef-4565-8350-5c64f24188b7: 1 1 1 1 NDL 27/11/2016 Flight: 7f601978-0b5e-44de-a236-84f1e63cb6b9 Economy
+2016-11-28T02:55:14.970-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T03:00:42.324-05:00------------SERVER MTL CREATED ------------
+2016-11-28T03:01:22.602-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 0 0)
+2016-11-28T03:01:22.638-05:00 Flight added: Flight number: ec09f3b4-f1ca-499f-8ea5-0b4ee9dcb883 Departure date: 27/11/2016 Departure time: 13:00 Seats 1 0 0
+2016-11-28T03:01:51.614-05:00editFlightRecord(ec09f3b4-f1ca-499f-8ea5-0b4ee9dcb883, Economy, 2)
+2016-11-28T03:02:02.451-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T03:02:02.452-05:00 Passenger added: 1b3b8acf1-7d3c-40ee-b752-b143e6191947: 1 1 1 1 NDL 27/11/2016 Flight: ec09f3b4-f1ca-499f-8ea5-0b4ee9dcb883 Economy
+2016-11-28T03:02:13.975-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T03:03:43.484-05:00------------SERVER MTL CREATED ------------
+2016-11-28T03:04:15.600-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 0 0)
+2016-11-28T03:04:15.639-05:00 Flight added: Flight number: 50ce1fc7-7f2d-4e73-b051-4327023adcae Departure date: 27/11/2016 Departure time: 13:00 Seats 1 0 0
+2016-11-28T03:04:35.174-05:00editFlightRecord(50ce1fc7-7f2d-4e73-b051-4327023adcae, Economy, 2)
+2016-11-28T03:05:22.452-05:00------------SERVER MTL CREATED ------------
+2016-11-28T03:05:58.090-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 0 0)
+2016-11-28T03:05:58.125-05:00 Flight added: Flight number: 9680a2f2-b5d0-4570-ae18-89e36921f11b Departure date: 27/11/2016 Departure time: 13:00 Seats 1 0 0
+2016-11-28T03:06:21.736-05:00editFlightRecord(9680a2f2-b5d0-4570-ae18-89e36921f11b, Economy, 2)
+2016-11-28T03:08:40.579-05:00bookFlight(1, 1, 1, 11, NDL, 27/11/2016, Economy)
+2016-11-28T03:08:40.634-05:00 Passenger added: 18e04db73-e541-4962-a33b-9a8717ba7633: 1 1 1 11 NDL 27/11/2016 Flight: 9680a2f2-b5d0-4570-ae18-89e36921f11b Economy
+2016-11-28T03:08:50.957-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T03:15:19.186-05:00------------SERVER MTL CREATED ------------
+2016-11-28T03:15:58.485-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 0 0)
+2016-11-28T03:15:58.523-05:00 Flight added: Flight number: b404534c-732c-4141-9be5-b591b3a50f89 Departure date: 27/11/2016 Departure time: 13:00 Seats 1 0 0
+2016-11-28T03:16:24.007-05:00editFlightRecord(b404534c-732c-4141-9be5-b591b3a50f89, Economy, 2)
+2016-11-28T03:16:52.142-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T03:16:52.209-05:00 Passenger added: 196f4cd54-523d-425c-986e-e50171077953: 1 1 1 1 NDL 27/11/2016 Flight: b404534c-732c-4141-9be5-b591b3a50f89 Economy
+2016-11-28T03:17:02.832-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T03:17:02.875-05:00 Passenger added: 10bceb3a2-6fa2-4fc8-80c2-21e339d48d8d: 1 1 1 1 NDL 27/11/2016 Flight: b404534c-732c-4141-9be5-b591b3a50f89 Economy
+2016-11-28T03:17:12.565-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T03:17:12.588-05:00 Passenger added: 1329389fc-93db-419c-8c44-60934c651969: 1 1 1 1 NDL 27/11/2016 Flight: b404534c-732c-4141-9be5-b591b3a50f89 Economy
+2016-11-28T03:18:25.100-05:00------------SERVER MTL CREATED ------------
+2016-11-28T03:18:58.932-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 0 0)
+2016-11-28T03:18:58.966-05:00 Flight added: Flight number: 81c01e76-eb59-48da-80ba-20c1854cd258 Departure date: 27/11/2016 Departure time: 13:00 Seats 1 0 0
+2016-11-28T03:19:25.236-05:00editFlightRecord(81c01e76-eb59-48da-80ba-20c1854cd258, Economy, 2)
+2016-11-28T03:19:36.546-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T03:19:36.550-05:00 Passenger added: 12bf1f093-909b-488c-84d0-47d4c5079c57: 1 1 1 1 NDL 27/11/2016 Flight: 81c01e76-eb59-48da-80ba-20c1854cd258 Economy
+2016-11-28T03:19:52.508-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T03:19:52.531-05:00 Passenger added: 10301f1a4-624f-47c7-bdb2-06d7915f50de: 1 1 1 1 NDL 27/11/2016 Flight: 81c01e76-eb59-48da-80ba-20c1854cd258 Economy
+2016-11-28T03:20:01.414-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T03:20:13.171-05:00getBookedFlightCount(Economy)
+2016-11-28T03:20:34.830-05:00editFlightRecord(81c01e76-eb59-48da-80ba-20c1854cd258, Economy, 1)
+2016-11-28T03:20:42.698-05:00getBookedFlightCount(Economy)
+2016-11-28T03:21:18.144-05:00editFlightRecord(81c01e76-eb59-48da-80ba-20c1854cd258, Delete, )
+2016-11-28T03:25:05.344-05:00------------SERVER MTL CREATED ------------
+2016-11-28T03:25:55.013-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 0 0)
+2016-11-28T03:25:55.051-05:00 Flight added: Flight number: f1dc3592-cb77-4510-b59b-90473b13cb33 Departure date: 27/11/2016 Departure time: 13:00 Seats 1 0 0
+2016-11-28T03:26:05.160-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T03:26:05.161-05:00 Passenger added: 10a3ce924-e3fe-4e26-9eac-91e752d538f6: 1 1 1 1 NDL 27/11/2016 Flight: f1dc3592-cb77-4510-b59b-90473b13cb33 Economy
+2016-11-28T03:26:29.123-05:00editFlightRecord(f1dc3592-cb77-4510-b59b-90473b13cb33, Delete, )
+2016-11-28T03:27:43.551-05:00------------SERVER MTL CREATED ------------
+2016-11-28T03:28:17.038-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 0 0)
+2016-11-28T03:28:17.072-05:00 Flight added: Flight number: ef9839b7-679f-4d04-b955-2dff55e4bb2c Departure date: 27/11/2016 Departure time: 13:00 Seats 1 0 0
+2016-11-28T03:28:37.714-05:00editFlightRecord(ef9839b7-679f-4d04-b955-2dff55e4bb2c, Delete, )
+2016-11-28T03:30:28.897-05:00------------SERVER MTL CREATED ------------
+2016-11-28T03:31:00.235-05:00editFlightRecord(2, Delete, )
+2016-11-28T03:31:26.950-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 0 0)
+2016-11-28T03:31:27.106-05:00 Flight added: Flight number: 18732d51-14b5-486e-8c6b-a1ffcd756113 Departure date: 27/11/2016 Departure time: 13:00 Seats 1 0 0
+2016-11-28T03:31:46.383-05:00editFlightRecord(18732d51-14b5-486e-8c6b-a1ffcd756113, Delete, )
+2016-11-28T03:32:02.806-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T03:32:32.956-05:00editFlightRecord(0, Create, MTL NDL 27/11/2016 13:00 1 0 0)
+2016-11-28T03:32:32.971-05:00 Flight added: Flight number: ee88ad1e-9154-4ce9-bbe1-9c04e5ffa13a Departure date: 27/11/2016 Departure time: 13:00 Seats 1 0 0
+2016-11-28T03:32:48.058-05:00bookFlight(1, 1, 1, 1, NDL, 27/11/2016, Economy)
+2016-11-28T03:32:48.095-05:00 Passenger added: 174a597b6-923b-4691-987a-4269ba9c209b: 1 1 1 1 NDL 27/11/2016 Flight: ee88ad1e-9154-4ce9-bbe1-9c04e5ffa13a Economy
+2016-11-28T03:32:55.438-05:00getBookedFlightCount(Economy)
+2016-11-28T03:33:26.628-05:00editFlightRecord(18732d51-14b5-486e-8c6b-a1ffcd756113, Delete, )
+2016-11-28T03:33:54.391-05:00editFlightRecord(ee88ad1e-9154-4ce9-bbe1-9c04e5ffa13a, Delete, )
+2016-11-28T03:34:15.803-05:00getBookedFlightCount(Economy)
+2016-11-28T03:34:51.193-05:00editFlightRecord(0, Create, MTL NDL 26/11/2017 13:00 1 0 0)
+2016-11-28T03:34:51.267-05:00 Flight added: Flight number: fc3378d0-024b-46c7-80de-74e498473893 Departure date: 26/11/2017 Departure time: 13:00 Seats 1 0 0
+2016-11-28T03:35:18.031-05:00editFlightRecord(fc3378d0-024b-46c7-80de-74e498473893, Date, 27/11/2016)
+2016-11-28T03:37:38.860-05:00------------SERVER MTL CREATED ------------
+2016-11-28T03:38:27.709-05:00editFlightRecord(0, Create, MTL NDL 26/11/2016 13:00 1 0 0)
+2016-11-28T03:38:27.912-05:00 Flight added: Flight number: e97b3bea-aa97-49c6-afef-fecba1f466bd Departure date: 26/11/2016 Departure time: 13:00 Seats 1 0 0
+2016-11-28T03:39:10.237-05:00bookFlight(1, 1, 1, 1, NDL, 26/11/2016, Economy)
+2016-11-28T03:39:10.254-05:00 Passenger added: 17e332253-2a0a-4ca9-ba82-7aa81d4a017b: 1 1 1 1 NDL 26/11/2016 Flight: e97b3bea-aa97-49c6-afef-fecba1f466bd Economy
+2016-11-28T03:39:46.993-05:00editFlightRecord(e97b3bea-aa97-49c6-afef-fecba1f466bd, Date, 27/11/2016)
+2016-11-28T03:40:27.499-05:00transferReservation(17e332253-2a0a-4ca9-ba82-7aa81d4a017b, MTL, WST)
+2016-11-28T03:40:57.748-05:00editFlightRecord(12, Economy, 1)
+2016-11-28T03:41:05.214-05:00getBookedFlightCount(Economy)
+2016-11-28T22:02:07.150-05:00------------SERVER MTL CREATED ------------
+2016-11-28T22:06:22.064-05:00editFlightRecord(0, Create, MTL WST 28/11/2016 13:00 1 1 1)
+2016-11-28T22:06:22.102-05:00 Flight added: Flight number: d1959ffe-f2b0-4537-9bc4-dd738af1852f Departure date: 28/11/2016 Departure time: 13:00 Seats 1 1 1
+2016-11-28T22:08:51.743-05:00bookFlight(v, h, 3456 st, 5146666666, WST, 28/11/2016, Business)
+2016-11-28T22:08:51.746-05:00 Passenger added: hd965f5d9-6d1f-4b7b-8407-b838172bb061: v h 3456 st 5146666666 WST 28/11/2016 Flight: d1959ffe-f2b0-4537-9bc4-dd738af1852f Business
+2016-11-28T22:09:27.494-05:00bookFlight(b, h, 234 st, 5141111111, WST, 28/11/2016, Economy)
+2016-11-28T22:09:27.501-05:00 Passenger added: h0c56a7bf-f835-4f71-ac45-90557fb2d1aa: b h 234 st 5141111111 WST 28/11/2016 Flight: d1959ffe-f2b0-4537-9bc4-dd738af1852f Economy
+2016-11-28T22:15:11.170-05:00------------SERVER MTL CREATED ------------
+2016-11-28T22:15:48.583-05:00editFlightRecord(0, Create, MTL WST 28/11/2016 13:00 1 1 1)
+2016-11-28T22:15:48.607-05:00 Flight added: Flight number: 10370dd3-9866-41ca-9071-20d7a54f3939 Departure date: 28/11/2016 Departure time: 13:00 Seats 1 1 1
+2016-11-28T22:16:40.899-05:00bookFlight(v, h, 234 st, 5141111111, WST, 28/11/2016, Business)
+2016-11-28T22:16:40.900-05:00 Passenger added: h3226433d-0e60-45aa-83bc-a56450f65cd4: v h 234 st 5141111111 WST 28/11/2016 Flight: 10370dd3-9866-41ca-9071-20d7a54f3939 Business
+2016-11-28T22:17:04.077-05:00bookFlight(b, h, 123 st, 5142222222, WST, 28/11/2016, Economy)
+2016-11-28T22:17:04.078-05:00 Passenger added: h8a046b9d-9543-4d78-a7f0-cc3331897be4: b h 123 st 5142222222 WST 28/11/2016 Flight: 10370dd3-9866-41ca-9071-20d7a54f3939 Economy
+2016-11-28T22:21:08.547-05:00------------SERVER MTL CREATED ------------
+2016-11-28T22:22:38.292-05:00editFlightRecord(0, Create, MTL WST 28/11/2016 13:00 10 10 10)
+2016-11-28T22:22:38.317-05:00 Flight added: Flight number: 0b5eac57-edf2-42a1-8d12-a7b7f93feacc Departure date: 28/11/2016 Departure time: 13:00 Seats 10 10 10
+2016-11-28T22:23:40.288-05:00bookFlight(v, h, 123st, 11111111111, WST, 28/11/2016, Business)
+2016-11-28T22:23:40.289-05:00 Passenger added: h4e62c7e5-646b-48fd-b4c9-43d0dc11d151: v h 123st 11111111111 WST 28/11/2016 Flight: 0b5eac57-edf2-42a1-8d12-a7b7f93feacc Business
+2016-11-28T22:24:18.374-05:00bookFlight(b, h, 123st, 22222222222, WST, 28/11/2016, Economy)
+2016-11-28T22:24:18.376-05:00 Passenger added: h7b8e5794-5261-4473-aa9b-910924684ffd: b h 123st 22222222222 WST 28/11/2016 Flight: 0b5eac57-edf2-42a1-8d12-a7b7f93feacc Economy
+2016-11-28T22:25:41.279-05:00 Passenger added: hc57f0bb4-17c0-435f-8656-5b3bf3b779fe: c h 234st 55555555555 WST 28/11/2016 Flight: 0b5eac57-edf2-42a1-8d12-a7b7f93feacc Economy
+2016-11-28T22:25:55.029-05:00getBookedFlightCount()
+2016-11-28T22:29:20.006-05:00getBookedFlightCount()
+2016-11-28T22:29:59.591-05:00transferReservation(hc57f0bb4-17c0-435f-8656-5b3bf3b779fe, MTL, NDL)
+2016-11-28T22:31:51.413-05:00transferReservation(h7b8e5794-5261-4473-aa9b-910924684ffd, MTL, NDL)
+2016-11-28T22:32:18.321-05:00transferReservation(h4e62c7e5-646b-48fd-b4c9-43d0dc11d151, MTL, NDL)
+2016-11-28T22:32:47.880-05:00getBookedFlightCount()
+2016-11-28T22:39:44.535-05:00getBookedFlightCount(Business)
+2016-11-28T22:40:12.362-05:00 Passenger added: ha3bb9de1-7bc9-4a0e-ba96-f53abd59ab16: v h 123st 11111111111 WST 28/11/2016 Flight: 0b5eac57-edf2-42a1-8d12-a7b7f93feacc Business
+2016-11-28T22:41:12.466-05:00transferReservation(hc57f0bb4-17c0-435f-8656-5b3bf3b779fe, MTL, NDL)
+2016-11-28T22:41:26.259-05:00getBookedFlightCount(Economy)
+2016-11-28T22:41:36.696-05:00getBookedFlightCount(Business)

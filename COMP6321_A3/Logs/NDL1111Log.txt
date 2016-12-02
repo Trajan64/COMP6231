@@ -1,0 +1,7 @@
+2016-11-28T22:06:54.641-05:00 SUCCESS: Create flight NDL WST 28/11/2016 13:00 1 1 1
+2016-11-28T22:16:13.681-05:00 SUCCESS: Create flight NDL WST 28/11/2016 13:00 1 1 1
+2016-11-28T22:19:00.040-05:00 FAILED Transferring reservation for passenger 1 from NDL to WST 
+2016-11-28T22:23:06.390-05:00 SUCCESS: Create flight NDL WST 28/11/2016 13:00 10 10 10
+2016-11-28T22:25:41.286-05:00 SUCCESS Transferring reservation for passenger h8f30cae6-3413-4f72-a2a5-815dd01c88b8 from NDL to MTL 
+2016-11-28T22:26:59.007-05:00 FAILED: NDL1111 92939724-0dc1-4d1e-859e-b7d3f4568e06 seats in Economy: 0 
+2016-11-28T22:40:12.372-05:00 SUCCESS Transferring reservation for passenger hbe6d2b3b-209b-4d66-8119-25e521dc66b6 from NDL to MTL 

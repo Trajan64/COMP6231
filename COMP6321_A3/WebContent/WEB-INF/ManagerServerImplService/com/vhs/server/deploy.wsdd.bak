@@ -1,0 +1,48 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ManagerServerImplService WSDL service -->
+
+  <service name="ManagerServerImpl" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://server.vhs.com"/>
+      <parameter name="wsdlServiceElement" value="ManagerServerImplService"/>
+      <parameter name="schemaQualified" value="http://server.vhs.com"/>
+      <parameter name="wsdlServicePort" value="ManagerServerImpl"/>
+      <parameter name="className" value="com.vhs.server.ManagerServerImplSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="ManagerServerImpl"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getBookedFlightCount" qname="operNS:getBookedFlightCount" xmlns:operNS="http://server.vhs.com" returnQName="retNS:getBookedFlightCountReturn" xmlns:retNS="http://server.vhs.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:recordType" xmlns:pns="http://server.vhs.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="bookFlight" qname="operNS:bookFlight" xmlns:operNS="http://server.vhs.com" returnQName="retNS:bookFlightReturn" xmlns:retNS="http://server.vhs.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:firstName" xmlns:pns="http://server.vhs.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:lastName" xmlns:pns="http://server.vhs.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:address" xmlns:pns="http://server.vhs.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:phone" xmlns:pns="http://server.vhs.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:destination" xmlns:pns="http://server.vhs.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:date" xmlns:pns="http://server.vhs.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:classType" xmlns:pns="http://server.vhs.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="transferReservation" qname="operNS:transferReservation" xmlns:operNS="http://server.vhs.com" returnQName="retNS:transferReservationReturn" xmlns:retNS="http://server.vhs.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:passengerID" xmlns:pns="http://server.vhs.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:currentCity" xmlns:pns="http://server.vhs.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:otherCity" xmlns:pns="http://server.vhs.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="editFlightRecord" qname="operNS:editFlightRecord" xmlns:operNS="http://server.vhs.com" returnQName="retNS:editFlightRecordReturn" xmlns:retNS="http://server.vhs.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:recordID" xmlns:pns="http://server.vhs.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:fieldName" xmlns:pns="http://server.vhs.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:newValue" xmlns:pns="http://server.vhs.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="transferReservation getBookedFlightCount bookFlight editFlightRecord"/>
+
+  </service>
+</deployment>
