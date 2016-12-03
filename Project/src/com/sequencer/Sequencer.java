@@ -1,7 +1,7 @@
 package com.sequencer;
 
 import java.util.LinkedList;
-import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.TimeoutException;
 
 import com.reliableudp.OperationMessage;
@@ -16,7 +16,7 @@ public class Sequencer extends Thread implements OperationMessageProcessorInterf
 	private	ReplicaManagerInformation[]	m_replicaManagers;
 	private	int							m_requestId;
 	private	ReliableUDPListener			m_listener;
-	private	Queue<OperationMessage>		m_requestQueue;
+	private	ConcurrentLinkedQueue<OperationMessage>		m_requestQueue;
 	private SynchronizedLogger synchronizedLogger;
 	public Sequencer(ReplicaManagerInformation[] replicaManagers, int outPort) {
 		
@@ -25,7 +25,7 @@ public class Sequencer extends Thread implements OperationMessageProcessorInterf
 		m_listener = new ReliableUDPListener(this, outPort);
 		m_listener.start();
 		synchronizedLogger = new SynchronizedLogger("Sequencer");
-		m_requestQueue =  new LinkedList<OperationMessage>();
+		m_requestQueue =  new ConcurrentLinkedQueue<OperationMessage>();
 		
 	}
 	
@@ -44,7 +44,7 @@ public class Sequencer extends Thread implements OperationMessageProcessorInterf
 		while (true) {
 			
 			// Serve all the requests in the queue until queue is empty.
-			while (m_requestQueue.size()>0) {
+			while (!m_requestQueue.isEmpty()) {
 				System.out.println("MANDEEP-------------------------");
 				OperationMessage message = m_requestQueue.poll();
 				
