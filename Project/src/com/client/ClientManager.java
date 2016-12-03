@@ -7,10 +7,10 @@ import org.omg.CORBA.ORB;
 import org.omg.CosNaming.NamingContextExt;
 import org.omg.CosNaming.NamingContextExtHelper;
 
-import com.frontend.FrontEnd;
-import com.utils.SynchronizedLogger;
-
+import FlightReservationApp.FlightReservation;
 import FlightReservationApp.FlightReservationHelper;
+
+import com.utils.SynchronizedLogger;
 
 
 public class ClientManager {
@@ -19,7 +19,7 @@ public class ClientManager {
 	@SuppressWarnings("unused")
 	private String m_managerCity;
 	private String m_location;
-	private FrontEnd m_server;
+	private FlightReservation m_server;
 	
 	private SynchronizedLogger m_logger; 
 	
@@ -86,18 +86,18 @@ public class ClientManager {
 	
 	
 	
-	private void setCORBA(serverName) throws Exception {
+	private void setCORBA(String serverName) throws Exception {
 		
 		try {
 		
 			//int port = server.getPort();
-			String name = server.getCity();
+			//String name = server.getCity();
 								
 			
 			org.omg.CORBA.Object objRef = m_orb.resolve_initial_references("NameService");
 			NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
 			
-			m_server = FlightReservationHelper.narrow(ncRef.resolve_str(name));
+			m_server = FlightReservationHelper.narrow(ncRef.resolve_str(serverName));
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -105,7 +105,7 @@ public class ClientManager {
 		
 	}
 	
-	private ServerInformation getServerInformationFromCity(String cityStr) {
+	/*private ServerInformation getServerInformationFromCity(String cityStr) {
 		
 		int i;
 		for (i = 0; m_serverInformations[i] != null; i++) {
@@ -118,7 +118,7 @@ public class ClientManager {
 		System.out.println(cityStr + " is not a valid city");
 		return null;
 		
-	}
+	}*/
 	
 	
 	private String generateRandomString(int length) {
@@ -188,21 +188,21 @@ public class ClientManager {
 						}
 						
 						// Check if city is valid.
-						ServerInformation server = getServerInformationFromCity(managerCity);
+						//ServerInformation server = getServerInformationFromCity(managerCity);
 						
-						if (server == null) {
+						/*if (server == null) {
 							return false;
-						}
+						}*/
 						
 						// Store the informations about the manager.
 						m_managerId = managerId;
 						m_managerCity = managerCity;
 						
 						// Setup the connection.
-						setCORBA(server);
+						setCORBA(m_managerCity);
 						
 						// Setup logger.
-						m_logger = new MyLogger("Manager_" + managerId);
+						m_logger = new SynchronizedLogger("Manager_" + managerId);
 						
 						m_logger.log("------------");
 						message = "Manager " + m_managerId + " logged in.";
@@ -219,18 +219,18 @@ public class ClientManager {
 					if (command[1].equals("passenger")) {
 						
 						String cityStr = command[2];
-						ServerInformation server = getServerInformationFromCity(cityStr);
+						//ServerInformation server = getServerInformationFromCity(cityStr);
 						
-						if (server == null) {
+						/*if (server == null) {
 							System.out.println("Unrecognized city");
 							return false;
 						}
-						
+						*/
 						// City is valid. Setup the CORBA connection with the designated city server.
-						setCORBA(server);
+						setCORBA(cityStr);
 						
 						// Setup logger.
-						m_logger = new MyLogger("Passenger_" + generateRandomString(12));
+						m_logger = new SynchronizedLogger("Passenger_" + generateRandomString(12));
 						
 						m_logger.log("------------");
 						message = "Passenger from " + cityStr + " logged in.";
@@ -277,7 +277,7 @@ public class ClientManager {
 						String currentCity = command[2];
 						String otherCity = command[3];
 						
-						String serverReply = m_server.transferReservation(passengerId, currentCity, otherCity);
+						String serverReply = m_server.transferReservation(passengerId+"", currentCity, otherCity);
 						
 						System.out.println(serverReply);
 						m_logger.log(serverReply);
@@ -304,7 +304,7 @@ public class ClientManager {
 							return false;
 						}
 						
-						String serverReply = m_server.getBookedFlight(recordType);
+						String serverReply = m_server.getBookedFlightCount(recordType+"");
 						
 						System.out.println(serverReply);
 						m_logger.log(serverReply);
@@ -333,7 +333,7 @@ public class ClientManager {
 						String fieldName = command[2];
 						String newValue = command[3];
 												
-						String serverReply = m_server.editFlightRecord(recordId, fieldName, newValue);
+						String serverReply = m_server.editFlightRecord(recordId+"", fieldName, newValue);
 						
 						System.out.println(serverReply);
 						m_logger.log(serverReply);
@@ -375,7 +375,7 @@ public class ClientManager {
 								
 								//Flight newFlight = new Flight(recordId, m_location, destination, seatsFirstClass, seatsBuisnessClass, seatsEconomyClass, timeOfDeparture);
 								
-								String serverReply = m_server.editFlightRecord(recordId, "create", flightCreationString);
+								String serverReply = m_server.editFlightRecord(recordId+"", "create", flightCreationString);
 								
 								System.out.println(serverReply);
 								m_logger.log(serverReply);
@@ -408,7 +408,7 @@ public class ClientManager {
 							return false;
 						}
 						
-						String serverReply = m_server.editFlightRecord(recordId, "delete", null);
+						String serverReply = m_server.editFlightRecord(recordId+"", "delete", null);
 
 						System.out.println(serverReply);
 						m_logger.log(serverReply);
@@ -446,7 +446,7 @@ public class ClientManager {
 						
 						
 												
-						String serverReply = m_server.bookFlight(firstName, lastName, address, phone, destination, date, classType);
+						String serverReply = m_server.bookFlight(firstName, lastName, address, phone, destination, date, classType+"");
 
 						System.out.println(serverReply);
 						m_logger.log(serverReply);

@@ -94,6 +94,7 @@ public class SystemInitializer extends Thread {
 		
 		ContactInformation sequencerInformation = new ContactInformation(localhost, SEQUENCER_PORT);
 		Sequencer sequencer = new Sequencer(replicaManagerInformations, SEQUENCER_PORT);
+		sequencer.start();
 		
 		ReplicaManager replicaManager1 = new ReplicaManager(m_mode, 0, REPLICA_MANAGER_1_PORT, STARTING_IMPLEMENTATION_REPLICA_1, replica1, replicaManagerInformations, sequencerInformation);
 		ReplicaManager replicaManager2 = new ReplicaManager(m_mode, 1, REPLICA_MANAGER_2_PORT, STARTING_IMPLEMENTATION_REPLICA_2, replica2, replicaManagerInformations, sequencerInformation);

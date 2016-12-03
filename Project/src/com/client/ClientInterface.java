@@ -124,7 +124,7 @@ public class ClientInterface {
 			*/
 			
 			
-			if (args[0].equals("-killservers")) {
+			/*if (args[0].equals("-killservers")) {
 				
 				
 				ServerInformationExtractor servInfExtract = new ServerInformationExtractor();
@@ -151,7 +151,7 @@ public class ClientInterface {
 					
 				}
 				
-			}
+			}*/
 			
 			
 		}
