@@ -8,7 +8,9 @@ import org.omg.CORBA.ORB;
 import com.replicamanager.ReplicaManagerInformation;
 import com.utils.ContactInformation;
 
-public class FrontEnd {
+import FlightReservationApp.FlightReservationPOA;
+
+public class FrontEnd extends FlightReservationPOA {
 
 	private String 							m_city;
 	private	int								m_mode;
@@ -18,7 +20,7 @@ public class FrontEnd {
 	private	InetAddress						m_address;
 	
 	
-	FrontEnd(int mode, String city, ReplicaManagerInformation[] replicaManagers, ContactInformation sequencerInformation, InetAddress address) {
+	public FrontEnd(int mode, String city, ReplicaManagerInformation[] replicaManagers, ContactInformation sequencerInformation, InetAddress address) {
 		
 		m_mode = mode;
 		m_city = city;
@@ -67,9 +69,9 @@ public class FrontEnd {
 	}
 	
 	
-	public String getBookedFlight(String recordType) {
+	public String getBookedFlightCount(String recordType) {
 		
-		Request request = new Request("getBookedFlight");
+		Request request = new Request("getBookedFlightCount");
 		request.addArgument(recordType);
 
 		FrontEndRequestSender requester = new FrontEndRequestSender(m_mode, m_city, m_replicaManagers, m_sequencerInformation, request.getComponents(), m_address);
@@ -112,6 +114,5 @@ public class FrontEnd {
 		m_orb = orb;
 		
 	}
-
 
 }

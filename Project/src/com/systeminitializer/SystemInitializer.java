@@ -3,13 +3,24 @@ package com.systeminitializer;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
+import org.omg.CORBA.ORB;
+import org.omg.CosNaming.NameComponent;
+import org.omg.CosNaming.NamingContextExt;
+import org.omg.CosNaming.NamingContextExtHelper;
+import org.omg.PortableServer.POA;
+import org.omg.PortableServer.POAHelper;
+
+import com.frontend.FrontEnd;
 import com.replica.ReplicaClient;
 import com.replicamanager.ReplicaManager;
 import com.replicamanager.ReplicaManagerInformation;
 import com.sequencer.Sequencer;
 import com.utils.ContactInformation;
 
-public class SystemInitializer {
+import FlightReservationApp.FlightReservation;
+import FlightReservationApp.FlightReservationHelper;
+
+public class SystemInitializer extends Thread {
 
 	public static final int	MODE_ERROR_RECOVERY = 0;
 	public static final int MODE_HIGH_AVAILABILITY = 1;
@@ -29,10 +40,20 @@ public class SystemInitializer {
 	private static final int STARTING_IMPLEMENTATION_REPLICA_1 = ReplicaClient.IMPLEMENTATION_MANDEEP;
 	private static final int STARTING_IMPLEMENTATION_REPLICA_2 = ReplicaClient.IMPLEMENTATION_MANDEEP;
 	private static final int STARTING_IMPLEMENTATION_REPLICA_3 = ReplicaClient.IMPLEMENTATION_MANDEEP;
+
+	private String	m_city;
+	private ReplicaManagerInformation[] m_replicaManagerInformations;
+	private	ContactInformation	m_sequencer;
 	
-	/**
-	 * @param args
-	 */
+	public SystemInitializer(String city, ReplicaManagerInformation[] replicaManagerInformations, ContactInformation sequencer) {
+		
+		m_city = city;
+		m_replicaManagerInformations = replicaManagerInformations;
+		m_sequencer = sequencer;
+		
+	}
+	
+
 	public static void main(String[] args) {
 		//public ReplicaManagerInformation(InetAddress address, int port, int id, ContactInformation replicaClientInformation) {
 
@@ -100,7 +121,64 @@ public class SystemInitializer {
 			ReplicaManager replicaManager =  replicaManagers[i];
 			replicaManager.start();
 		}
+		
+		String[] cities = {"MTL", "WST", "NDL"};
+		
+		int i;
+		for (i = 0; i < cities.length; i++) {
+								
+			// Start the servers
+			SystemInitializer serverInit = new SystemInitializer(cities[i], replicaManagerInformations, sequencerInformation);
+			serverInit.start();			
+		}
 
+		
+
+	}
+	
+	
+	public void run() {
+		
+		String city = m_city;
+		System.out.println("Attempting to start server at " + city);
+		
+		InetAddress localhost = null;
+		try {
+			localhost = InetAddress.getByName("localhost");
+		} catch (UnknownHostException e1) {
+			e1.printStackTrace();
+		}
+		
+		try {
+		
+			String[] argv = {"-ORBInitialPort", "1050", "-ORBInitialHost", "localhost"};
+			
+			ORB orb = ORB.init(argv, null);
+			POA rootPOA = POAHelper.narrow(orb.resolve_initial_references("RootPOA"));
+			rootPOA.the_POAManager().activate();
+			
+			FrontEnd server = new FrontEnd(m_mode, city, m_replicaManagerInformations, m_sequencer, localhost);
+			
+			org.omg.CORBA.Object ref = rootPOA.servant_to_reference(server);
+			FlightReservation href = FlightReservationHelper.narrow(ref);
+			
+			org.omg.CORBA.Object objRef = orb.resolve_initial_references("NameService");
+			NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
+			
+			NameComponent path[] = ncRef.to_name(city);
+			ncRef.rebind(path, href);
+			
+			server.start(orb);
+						
+			orb.run();
+			System.out.println("ServerInit: Shutting down server at " + city);
+			
+		}
+		
+		catch (Exception e) {
+			e.printStackTrace(System.out);
+		}
+		
 	}
 
 }
