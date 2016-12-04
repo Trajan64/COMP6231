@@ -15,6 +15,9 @@ import com.reliableudp.OperationMessage;
 import com.reliableudp.OperationMessageProcessorInterface;
 import com.reliableudp.ReliableUDPListener;
 import com.reliableudp.ReliableUDPSender;
+import com.replica.vhs.StartServerMTL;
+import com.replica.vhs.StartServerNDL;
+import com.replica.vhs.StartServerWST;
 import com.replicamanager.ReplicaManagerInformation;
 import com.server.FlightReservationImplMtl;
 import com.server.FlightReservationImplNdl;
@@ -119,6 +122,32 @@ public class ReplicaClient extends Thread implements OperationMessageProcessorIn
 
 			}
 		break;
+		
+		case IMPLEMENTATION_VALERIE:
+			switch (city) {
+			case "MTL":
+				StartServerMTL serverImplMtl = new StartServerMTL();
+				Thread threadMTL = new Thread(serverImplMtl);
+				threadMTL.start();
+				break;
+
+			case "WST":
+
+				StartServerWST serverImplWst = new StartServerWST();
+				Thread threadWST = new Thread(serverImplWst);
+				threadWST.start();
+
+				break;
+			case "NDL":
+				StartServerNDL serverImplNdl = new StartServerNDL();
+				Thread threadNDL = new Thread(serverImplNdl);
+				threadNDL.start();
+				break;
+
+			default:
+				break;
+
+			}
 		}
 		
 		

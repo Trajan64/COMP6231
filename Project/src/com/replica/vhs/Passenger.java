@@ -23,10 +23,10 @@ public class Passenger {
 		this.date = "";
 		this.classType = "";
 		this.flightNo = "";
-		passengerId = "@" + java.util.UUID.randomUUID().toString();
+		passengerId = "";
 	}
 	
-	public Passenger(String firstName, String lastName, String address, String phone, String destination,
+	public Passenger(String passengerId, String firstName, String lastName, String address, String phone, String destination,
 			String date, String classType, String flightNo){
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -36,7 +36,7 @@ public class Passenger {
 		this.date = date;
 		this.classType = classType;
 		this.flightNo = flightNo;
-		passengerId = lastName.charAt(0) + java.util.UUID.randomUUID().toString();
+		this.passengerId = passengerId;
 	}
 	
 	public String getFirstName(){

@@ -6,21 +6,20 @@ import java.util.ArrayList;
 public class Flight {
 
 
-	private String recordId;
+	private String flightId;
 	private String departureCity;
 	private String destinationCity;
 	private String departureDate;
-	private String departureTime;
+	
 	private ArrayList<ArrayList<Passenger>> passengerList = new ArrayList<ArrayList<Passenger>>(3); 
 	private int[] seatsAvailable = new int[3];
 
 	
 	public Flight(){
-		this.recordId = java.util.UUID.randomUUID().toString();
+		this.flightId = "";
 		departureCity = "";
 		destinationCity = "";
 		departureDate = "";
-		departureTime = "";
 		
 		this.passengerList.add(new ArrayList<Passenger>());
 		this.passengerList.add(new ArrayList<Passenger>());
@@ -33,14 +32,14 @@ public class Flight {
 
 	}
 	
-	public Flight(String departureCity,String arrivalCity,String departureDate,String departureTime,
-			int economySeats,int businessSeats,int firstSeats){
+	public Flight(String recordId, String departureCity,String arrivalCity,String departureDate,
+			int businessSeats, int economySeats,int firstSeats){
 		
-		this.recordId = java.util.UUID.randomUUID().toString();
+		this.flightId = recordId ;
 		this.departureCity = departureCity;
 		this.destinationCity = arrivalCity;
 		this.departureDate = departureDate;
-		this.departureTime = departureTime;
+		
 		this.passengerList.add(new ArrayList<Passenger>(economySeats));
 		this.passengerList.add(new ArrayList<Passenger>(businessSeats));
 		this.passengerList.add(new ArrayList<Passenger>(firstSeats));
@@ -51,8 +50,8 @@ public class Flight {
 
 		
 	}
-	public String getRecordId(){
-		return this.recordId;
+	public String getFlightId(){
+		return this.flightId;
 	}
 	//No setter as manager can only make modifications to flights in their location
 	public String getDepartureCity(){
@@ -70,12 +69,7 @@ public class Flight {
 	public void setDepartureDate(String departureDate){
 		this.departureDate = departureDate;
 	}
-	public String getDepartureTime(){
-		return this.departureTime;
-	}
-	public void setDepartureTime(String departureTime){
-		this.departureTime = departureTime;
-	}
+
 	public int getNumberSeatsAvailable(String classType){
 		switch(classType){
 			case "Economy":
@@ -157,7 +151,7 @@ public class Flight {
 	}
 	
 	public String toString(){
-		return "Flight number: " + this.recordId + " Departure date: " + this.departureDate + " Departure time: " + this.departureTime +
+		return "Flight number: " + this.flightId + " Departure date: " + this.departureDate +
 				" Seats " + seatsAvailable[0] + " " + seatsAvailable[1] + " " + seatsAvailable[2];
 	}
 }

@@ -1,4 +1,5 @@
 package com.replica.vhs;
+import FlightReservationApp.*;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -12,26 +13,32 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-
-import org.omg.CORBA.ORB;
+import org.omg.CORBA.*;
 
 import com.server.FlightReservationConstants;
 
-import FlightReservationApp.*;
 
-public class ServerWST extends FlightReservationPOA{
+
+public class ServerVHSImpl extends FlightReservationPOA{
 	
 	public enum Cities {MTL, NDL, WST};
 	
 	private HashMap<Character, List<Passenger>> passengerDatabase;
 	private HashMap<Cities, List<Flight>> flightDatabase;
+	private String serverCity;
 	
-	public final String CITY = "WST";
-	public final int PORT = 6795;
+	private static long ids = 0;
 	
+	public synchronized static long getNextId() {
+		ids++;
+		return ids;
+	}
 	
 	public ORB orb;
-
+	
+	public void start(ORB orb_val){
+		orb = orb_val;
+	}
 	
 private class UDPThread implements Runnable{
 		
@@ -91,38 +98,39 @@ private class UDPThread implements Runnable{
 		
 	}
 	
-	public ServerWST(){
-		this.passengerDatabase = new HashMap<Character, List<Passenger>>();
-		this.flightDatabase = new HashMap<Cities, List<Flight>>();
-
+	public ServerVHSImpl(){
 		
-		HelperFunctions.writeToLog(this.CITY, "------------SERVER " + this.CITY +
-				" CREATED ------------\n");
-		
-		this.startUDPServer(PORT);
 	}
 	
+	public ServerVHSImpl(String serverCity){
+		this.passengerDatabase = new HashMap<Character, List<Passenger>>();
+		this.flightDatabase = new HashMap<Cities, List<Flight>>();
+		this.serverCity = serverCity;
+		
+		HelperFunctions.writeToLog(this.serverCity, "------------SERVER " + this.serverCity +
+				" CREATED ------------\n");
+		
+	}
 
 	@Override
 	public String bookFlight(String firstName, String lastName, String address, String phone, String destination,
 			String date,String classType) {
 		
-		
-		String recordId =null;
+		String recordId = null;
 		switch(classType){
-		
-		case FlightReservationConstants.BUSINESS_CLASS:
-			recordId = FlightReservationConstants.BUSINESS_CLASS + HelperFunctions.getNextId();
-			break;
 			
-		case FlightReservationConstants.ECONOMY_CLASS:
-		recordId = FlightReservationConstants.ECONOMY_CLASS + HelperFunctions.getNextId();
-		break;
-		
-		case FlightReservationConstants.FIRST_CLASS:
-			recordId = FlightReservationConstants.FIRST_CLASS + HelperFunctions.getNextId();
-			break; 
+			case FlightReservationConstants.BUSINESS_CLASS:
+				recordId = FlightReservationConstants.BUSINESS_CLASS + getNextId();
+				break;
+				
+			case FlightReservationConstants.ECONOMY_CLASS:
+				recordId = FlightReservationConstants.ECONOMY_CLASS + getNextId();
+				break;
 			
+			case FlightReservationConstants.FIRST_CLASS:
+				recordId = FlightReservationConstants.FIRST_CLASS+ getNextId();
+				break; 
+				
 			default:
 				recordId = "Default"+ HelperFunctions.getNextId();
 				break;
@@ -131,7 +139,7 @@ private class UDPThread implements Runnable{
 		
 		//create passenger
 		Passenger curr = new Passenger(recordId, firstName, lastName, address, phone, destination, date, classType, "");
-		HelperFunctions.writeToLog(this.CITY, "bookFlight(" + firstName + ", " +lastName + ", " + address + ", " +
+		HelperFunctions.writeToLog(this.serverCity, "bookFlight(" + firstName + ", " +lastName + ", " + address + ", " +
 				phone + ", " + destination + ", " + date + ", " + classType + ")\n");
 		
 		
@@ -140,6 +148,8 @@ private class UDPThread implements Runnable{
 				return reserveFlightForBooking(flightDatabase.get(Cities.MTL), curr, false) ? "Flight booking successful" : "false";
 			case "NDL":
 				return reserveFlightForBooking(flightDatabase.get(Cities.NDL), curr, false) ?  "Flight booking successful" : "false";
+			case "WST":
+				return reserveFlightForBooking(flightDatabase.get(Cities.WST), curr, false) ? "Flight booking successful" : "false";
 			default:
 				return "false";
 		}
@@ -152,15 +162,29 @@ private class UDPThread implements Runnable{
 	@Override
 	public String getBookedFlightCount(String recordType) {
 		
-		HelperFunctions.writeToLog(this.CITY, "getBookedFlightCount(" + recordType + ")\n");
+		HelperFunctions.writeToLog(this.serverCity, "getBookedFlightCount(" + recordType + ")\n");
 		
 		byte[] m = recordType.getBytes();
 		InetAddress aHost;
 		try {
 			aHost = InetAddress.getByName("localhost");
 		
-			int serverPort1 = 6793;
-			int serverPort2 = 6794;
+			int serverPort1 = 0;
+			int serverPort2 = 0;
+			switch(this.serverCity){
+				case "MTL":
+					serverPort1 = 6794;
+					serverPort2 = 6795;
+					break;
+				case "NDL":
+					serverPort1 = 6793;
+					serverPort2 = 6795;
+					break;
+				case "WST":
+					serverPort1 = 6793;
+					serverPort2 = 6794;
+					break;
+			}
 			
 			int currServBooked = getBookedFlightByClassType(recordType);
 			
@@ -172,7 +196,7 @@ private class UDPThread implements Runnable{
 			
 			
 			
-			return this.CITY + ": " + currServBooked +
+			return this.serverCity + ": " + currServBooked +
 					" " + requestThread1.getReply() + " " + requestThread2.getReply();
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
@@ -186,7 +210,7 @@ private class UDPThread implements Runnable{
 	public String editFlightRecord(String recordID, String fieldName, String newValue) {
 		
 		
-		HelperFunctions.writeToLog(this.CITY, "editFlightRecord(" + recordID + ", " + fieldName + ", " + 
+		HelperFunctions.writeToLog(this.serverCity, "editFlightRecord(" + recordID + ", " + fieldName + ", " + 
 				newValue + ")\n");
 		
 		//---------------------------------CREATE FLIGHT----------------------------------
@@ -198,7 +222,7 @@ private class UDPThread implements Runnable{
 			Flight newFlight = new Flight(flightDetails[0],flightDetails[1],flightDetails[2],flightDetails[3],
 					Integer.parseInt(flightDetails[4]),Integer.parseInt(flightDetails[5]),Integer.parseInt(flightDetails[6]));
 			
-			if(newFlight.getDestinationCity().equals(CITY)){
+			if(newFlight.getDestinationCity().equals(serverCity)){
 				return "false";
 			}
 			
@@ -207,6 +231,9 @@ private class UDPThread implements Runnable{
 					return createFlight(Cities.MTL, newFlight) ? "Succesfully created flight." : "false" ;
 				case "NDL":
 					return createFlight(Cities.NDL, newFlight) ? "Succesfully created flight." : "false" ;
+					
+				case "WST":
+					return createFlight(Cities.WST, newFlight) ? "Succesfully created flight." : "false" ;
 				default:
 					return "false";
 				
@@ -265,7 +292,6 @@ private class UDPThread implements Runnable{
 	        }
 	        return "false";
 		}
-
 		return "false";
 	}
 	
@@ -287,7 +313,7 @@ private class UDPThread implements Runnable{
 				System.out.println("Request: " +  new String(request.getData(), request.getOffset(), request.getLength()) + " length: " + request_message.length);
 				
 				if(request_message.length == 1){
-					switch(this.CITY){
+					switch(serverCity){
 					case "MTL":
 						replyMessage = "MTL;" + (getBookedFlightByClassType(new String(request.getData(), request.getOffset(), request.getLength())));
 						buffer = replyMessage.getBytes();
@@ -323,10 +349,32 @@ private class UDPThread implements Runnable{
 					if(city != null){
 						System.out.println("Creating passenger in server");
 						
-						Passenger person = new Passenger(request_message[2], request_message[3],
+						String recordId = null;
+						switch(request_message[9]){
+						
+							case FlightReservationConstants.BUSINESS_CLASS:
+								recordId = FlightReservationConstants.BUSINESS_CLASS + getNextId();
+								break;
+							
+							case FlightReservationConstants.ECONOMY_CLASS:
+								recordId = FlightReservationConstants.ECONOMY_CLASS + getNextId();
+								break;
+						
+							case FlightReservationConstants.FIRST_CLASS:
+								recordId = FlightReservationConstants.FIRST_CLASS+ getNextId();
+								break; 
+							
+							default:
+								recordId = "Default"+ HelperFunctions.getNextId();
+								break;
+						}
+						
+						
+						
+						Passenger person = new Passenger(recordId, request_message[3],
 									request_message[4], request_message[5], request_message[6], 
 									request_message[7], request_message[8], request_message[9], request_message[10]);
-
+						
 						if(flightDatabase.get(city) != null){
 							successful = reserveFlightForBooking(flightDatabase.get(city), person, true);
 						} else System.out.print("Flight does not exist in database ");
@@ -358,7 +406,7 @@ private class UDPThread implements Runnable{
 	public String transferReservation(String passengerID, String currentCity, String otherCity) {
 		
 		
-		HelperFunctions.writeToLog(this.CITY, "transferReservation(" + passengerID + ", " + currentCity + ", " + 
+		HelperFunctions.writeToLog(this.serverCity, "transferReservation(" + passengerID + ", " + currentCity + ", " + 
 				otherCity + ")\n");
 		
 		System.out.println("Attempting to transfer reservation...");
@@ -410,7 +458,7 @@ private class UDPThread implements Runnable{
                 					while(iteratorFlight.hasNext() && !flightFound){
                 						Map.Entry<Cities, List<Flight>> entryFlight = iteratorFlight.next();
                 						for(int i = 0; i < entryFlight.getValue().size(); i++){
-                							if((entryFlight.getValue().get(i).getFlightId()).equals(recordID)){
+                							if(entryFlight.getValue().get(i).getFlightId() == recordID){
                 								entry.getValue().remove(j);
                 								
                 								entryFlight.getValue().get(i).removePassenger(classTypeInt(classType), recordID);
@@ -446,7 +494,7 @@ private class UDPThread implements Runnable{
 				tmp.add(newFlight);
 				flightDatabase.put(serverCity, tmp);
 				
-				HelperFunctions.writeToLog(this.CITY, " Flight added: " + newFlight.toString() + "\n");
+				HelperFunctions.writeToLog(this.serverCity, " Flight added: " + newFlight.toString() + "\n");
 					
 				return true;
 			}
@@ -456,7 +504,7 @@ private class UDPThread implements Runnable{
 			
 				flightDatabase.get(serverCity).add(newFlight);
 		
-				HelperFunctions.writeToLog(this.CITY, " Flight added: " + newFlight.toString() + "\n");
+				HelperFunctions.writeToLog(this.serverCity, " Flight added: " + newFlight.toString() + "\n");
 
 				
 				return true;
@@ -499,7 +547,7 @@ private class UDPThread implements Runnable{
 		
 		return false;
 	}
-
+	
 	protected boolean modifySeatsByClass(String recordID, String classType, int seats){
 		
 		int classDiff = 0;
@@ -706,4 +754,7 @@ private class UDPThread implements Runnable{
 		orb.shutdown(false);
 		
 	}
+
+	
+
 }

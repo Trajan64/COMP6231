@@ -15,6 +15,8 @@ import java.util.Map;
 
 import org.omg.CORBA.ORB;
 
+import com.server.FlightReservationConstants;
+
 import FlightReservationApp.*;
 
 
@@ -27,6 +29,7 @@ public class ServerNDL extends FlightReservationPOA {
 	
 	public final String CITY = "NDL";
 	public final int PORT = 6794;
+
 	
 	public ORB orb;
 	
@@ -100,13 +103,35 @@ private class UDPThread implements Runnable{
 		
 	}
 	
+	
+	
 
 	@Override
 	public String bookFlight(String firstName, String lastName, String address, String phone, String destination,
 			String date,String classType) {
 		
+		String recordId = null;
+		switch(classType){
+			
+			case FlightReservationConstants.BUSINESS_CLASS:
+				recordId = FlightReservationConstants.BUSINESS_CLASS +HelperFunctions.getNextId();
+				break;
+				
+			case FlightReservationConstants.ECONOMY_CLASS:
+				recordId = FlightReservationConstants.ECONOMY_CLASS +HelperFunctions.getNextId();
+				break;
+			
+			case FlightReservationConstants.FIRST_CLASS:
+				recordId = FlightReservationConstants.FIRST_CLASS+ HelperFunctions.getNextId();
+				break; 
+				
+			default:
+				recordId = "Default"+ HelperFunctions.getNextId();
+				break;
+		}
+		
 		//create passenger
-		Passenger curr = new Passenger(firstName, lastName, address, phone, destination, date, classType, "");
+		Passenger curr = new Passenger(recordId, firstName, lastName, address, phone, destination, date, classType, "");
 		HelperFunctions.writeToLog(this.CITY, "bookFlight(" + firstName + ", " +lastName + ", " + address + ", " +
 				phone + ", " + destination + ", " + date + ", " + classType + ")\n");
 		
@@ -173,7 +198,7 @@ private class UDPThread implements Runnable{
 		
 		//---------------------------------CREATE FLIGHT----------------------------------
 		if(fieldName.equals("Create")){
-			String flightDetails[] = newValue.split("\\s+");
+			String flightDetails[] = newValue.split(",");
 			if(flightDetails.length < 7){
 				return "false";
 			}
@@ -207,7 +232,7 @@ private class UDPThread implements Runnable{
 		//------------------------------------MODIFY NUMBER OF SEATS------------------------------
 		
 		//Modify seats by class
-		else if(fieldName.equals("Economy") || fieldName.equals("Business") || fieldName.equals("First Class")){
+		else if(fieldName.equals("Economy") || fieldName.equals("Business") || fieldName.equals("First")){
 			int seats = Integer.parseInt(newValue);
 			if(seats < 0 ) return "false";
 			
@@ -222,7 +247,7 @@ private class UDPThread implements Runnable{
 			while(iteratorFlight.hasNext() && !flightFound){
 				Map.Entry<Cities, List<Flight>> entryFlight = iteratorFlight.next();
 				for(int i = 0; i < entryFlight.getValue().size(); i++){
-					if(entryFlight.getValue().get(i).getRecordId().equals(recordID)){
+					if(entryFlight.getValue().get(i).getFlightId().equals(recordID)){
 						flightFound = true;
 						synchronized(entryFlight.getValue().get(i)){
 							entryFlight.getValue().get(i).setDepartureDate(newValue);
@@ -249,24 +274,6 @@ private class UDPThread implements Runnable{
 	        return "false";
 		}
 		
-		//------------------------------------MODIFY TIME OF DEPARTURE------------------------------
-		else if(fieldName.equals("Time")){
-			boolean flightFound = false;
-			Iterator<Map.Entry<Cities, List<Flight>>> iteratorFlight = flightDatabase.entrySet().iterator();
-			while(iteratorFlight.hasNext() && !flightFound){
-				Map.Entry<Cities, List<Flight>> entryFlight = iteratorFlight.next();
-				for(int i = 0; i < entryFlight.getValue().size(); i++){
-					if(entryFlight.getValue().get(i).getRecordId().equals(recordID)){
-						flightFound = true;
-						synchronized(entryFlight.getValue().get(i)){
-							entryFlight.getValue().get(i).setDepartureTime(newValue);
-							return "Successfully modified time of departure";
-						}
-					}
-				}
-			}
-			return "false";
-		}
 		return "false";
 	}
 	
@@ -282,7 +289,7 @@ private class UDPThread implements Runnable{
 				request.setLength(1024);
 				aSocket.receive(request);
 				
-				String request_message[] = new String(request.getData(), request.getOffset(), request.getLength()).split("\\s+");
+				String request_message[] = new String(request.getData(), request.getOffset(), request.getLength()).split(",");
 				String replyMessage = "";
 				
 				System.out.println("Request: " +  new String(request.getData(), request.getOffset(), request.getLength()) + " length: " + request_message.length);
@@ -314,7 +321,7 @@ private class UDPThread implements Runnable{
 						
 						Passenger person = new Passenger(request_message[2], request_message[3],
 									request_message[4], request_message[5], request_message[6], 
-									request_message[7], request_message[8], request_message[9]);
+									request_message[7], request_message[8], request_message[9], request_message[11]);
 
 						if(flightDatabase.get(city) != null){
 							successful = reserveFlightForBooking(flightDatabase.get(city), person, true);
@@ -399,7 +406,7 @@ private class UDPThread implements Runnable{
                 					while(iteratorFlight.hasNext() && !flightFound){
                 						Map.Entry<Cities, List<Flight>> entryFlight = iteratorFlight.next();
                 						for(int i = 0; i < entryFlight.getValue().size(); i++){
-                							if((entryFlight.getValue().get(i).getRecordId()).equals(recordID)){
+                							if((entryFlight.getValue().get(i).getFlightId()).equals(recordID)){
                 								entry.getValue().remove(j);
                 								
                 								entryFlight.getValue().get(i).removePassenger(classTypeInt(classType), recordID);
@@ -475,7 +482,7 @@ private class UDPThread implements Runnable{
 			while(iteratorFlight.hasNext() && !flightRemoved){
 				Map.Entry<Cities, List<Flight>> entryFlight = iteratorFlight.next();
 				for(int i = 0; i < entryFlight.getValue().size(); i++){
-					if(entryFlight.getValue().get(i).getRecordId().equals(recordID)){
+					if(entryFlight.getValue().get(i).getFlightId().equals(recordID)){
 						entryFlight.getValue().remove(i);
 						flightRemoved = true;
 						System.out.println("Removing flight...");
@@ -502,7 +509,7 @@ private class UDPThread implements Runnable{
 			Map.Entry<Cities, List<Flight>> entryFlight = iteratorFlight.next();
 			for(int i = 0; i < entryFlight.getValue().size(); i++){
 				System.out.println("Trying to find a matching flight...");
-				if(entryFlight.getValue().get(i).getRecordId().equals(recordID)){
+				if(entryFlight.getValue().get(i).getFlightId().equals(recordID)){
 					
 					synchronized(entryFlight.getValue()){
 						
@@ -576,7 +583,7 @@ private class UDPThread implements Runnable{
 		
 		synchronized(passengerDatabase){
 			Iterator<Map.Entry<Character, List<Passenger>>> iteratorPassenger = passengerDatabase.entrySet().iterator();
-			if(classType.equals("Economy") || classType.equals("Business") || classType.equals("First Class")){
+			if(classType.equals("Economy") || classType.equals("Business") || classType.equals("First")){
 		        while(iteratorPassenger.hasNext()){
 		            Map.Entry<Character, List<Passenger>> entry = iteratorPassenger.next();
 		            for(int j = 0; j < entry.getValue().size(); j++){
@@ -624,7 +631,7 @@ private class UDPThread implements Runnable{
 							cityFlights.get(i).setNumberSeats(person.getClassType(),
 									-1 * (cityFlights.get(i).getNumberSeatsAvailable(person.getClassType()) -1));
 							
-							person.setFlightNo(cityFlights.get(i).getRecordId());
+							person.setFlightNo(cityFlights.get(i).getFlightId());
 							cityFlights.get(i).addPassengers(classTypeInt(person.getClassType()), person);
 							
 	
@@ -683,7 +690,7 @@ private class UDPThread implements Runnable{
 				return 0;
 			case "Business":
 				return 1;
-			case "First Class":
+			case "First":
 				return 2;
 		}
 		return -1;
