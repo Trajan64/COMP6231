@@ -100,7 +100,7 @@ public class FlightReservationImplNdl implements Runnable {
 			NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
 
 			// bind the Object Reference in Naming
-			String name = "ndl";
+			String name = Constants.NDL;
 			NameComponent path[] = ncRef.to_name(name);
 			ncRef.rebind(path, sref);
 

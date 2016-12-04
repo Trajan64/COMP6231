@@ -99,7 +99,7 @@ public class FlightReservationImplMtl implements Runnable {
 			NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
 
 			// bind the Object Reference in Naming
-			String name = "mtl";
+			String name = Constants.MTL;
 			NameComponent path[] = ncRef.to_name(name);
 			ncRef.rebind(path, sref);
 

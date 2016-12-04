@@ -243,13 +243,13 @@ public class FlightReservationImpl extends FlightReservationPOA implements Runna
 			
 			switch(otherCity){
 			
-			case "mtl":
+			case Constants.MTL:
 				otherCityUdpServerPort=Constants.MTL_UDP_SERVER_PORT;
 				break;
-			case "wst":
+			case Constants.WST:
 				otherCityUdpServerPort=Constants.WST_UDP_SERVER_PORT;
 				break;
-			case "ndl":
+			case Constants.NDL:
 				otherCityUdpServerPort=Constants.NDL_UDP_SERVER_PORT;
 				break;
 			
