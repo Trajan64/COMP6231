@@ -4,6 +4,12 @@ import java.util.LinkedList;
 import java.util.concurrent.TimeoutException;
 
 import org.omg.CORBA.ORB;
+import org.omg.CORBA.ORBPackage.InvalidName;
+import org.omg.CosNaming.NamingContextExt;
+import org.omg.CosNaming.NamingContextExtHelper;
+
+import FlightReservationApp.FlightReservation;
+import FlightReservationApp.FlightReservationHelper;
 
 import com.reliableudp.OperationMessage;
 import com.reliableudp.OperationMessageProcessorInterface;
@@ -17,10 +23,12 @@ import com.systeminitializer.SystemInitializer;
 import com.utils.ContactInformation;
 import com.utils.SynchronizedLogger;
 
+import flightReservationApp.ServerInit;
+
 public class ReplicaClient extends Thread implements OperationMessageProcessorInterface {
 
 	private int							m_currentImplementationId;
-//	private	DRFSInterface				m_implementation;
+	private	FlightReservation				m_implementation;
 	private	int							m_port;
 	private ReliableUDPListener			m_listener;
 	private ReplicaManagerInformation	m_parentReplicaManagerInformation;
@@ -78,32 +86,39 @@ public class ReplicaClient extends Thread implements OperationMessageProcessorIn
 		
 		switch(implementationId){
 		
+		case IMPLEMENTATION_JEROME:
+			
+			ServerInit serverThread = new ServerInit(city, city + "_" + implementationId);
+			serverThread.start();
+			break;
+			
 		case IMPLEMENTATION_MANDEEP:
 
-			switch(city){
-		case "MTL":
-			FlightReservationImplMtl flightReservationImplMtl = new FlightReservationImplMtl();
-			Thread t = new Thread(flightReservationImplMtl);
-			t.start();
-			break;
-			
-		case "WST":
-			
-			FlightReservationImplWst FlightReservationImplWst = new FlightReservationImplWst();
-			Thread t1 = new Thread(FlightReservationImplWst);
-			t1.start();
-			
-			break;
-		case "NDL":
-			FlightReservationImplNdl FlightReservationImplNdl = new FlightReservationImplNdl();
-			Thread t2 = new Thread(FlightReservationImplNdl);
-			t2.start();
-			break;	
-			default: 
-			break;	
-			
+			switch (city) {
+			case "MTL":
+				FlightReservationImplMtl flightReservationImplMtl = new FlightReservationImplMtl();
+				Thread threadMTL = new Thread(flightReservationImplMtl);
+				threadMTL.start();
+				break;
+
+			case "WST":
+
+				FlightReservationImplWst FlightReservationImplWst = new FlightReservationImplWst();
+				Thread threadWST = new Thread(FlightReservationImplWst);
+				threadWST.start();
+
+				break;
+			case "NDL":
+				FlightReservationImplNdl FlightReservationImplNdl = new FlightReservationImplNdl();
+				Thread threadNDL = new Thread(FlightReservationImplNdl);
+				threadNDL.start();
+				break;
+
+			default:
+				break;
+
 			}
-		
+		break;
 		}
 		
 		
@@ -172,61 +187,68 @@ public class ReplicaClient extends Thread implements OperationMessageProcessorIn
 	
 	
 	private	String callMethod(String toCity, String methodName, String[] args) {
-		
+		FlightReservation server = null;
 		// Get the reference to the appropriate city DRFS.
-//		org.omg.CORBA.Object objRef = m_orb.resolve_initial_references("NameService");
-//		NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
+		org.omg.CORBA.Object objRef;
+		try {
+			objRef = m_orb.resolve_initial_references("NameService");
+			NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
+			
+			 server = FlightReservationHelper.narrow(ncRef.resolve_str(toCity + "_" + m_currentImplementationId));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-//		Server server = serverHelper.narrow(ncRef.resolve_str(name));
 				
 		String response = null;
 		
 		// Call the appropriate method.
-//		if (methodName.equals("bookFlight")) {
-//			
-//			String 	firstName = args[0];
-//			String 	lastName = args[1];
-//			String 	address = args[2];
-//			String 	phone = args[3];
-//			String 	destination = args[4];
-//			String 	date = args[5];
-//			int		classType = Integer.parseInt(args[6]);
-//			
-//			response = server.bookFlight(firstName, lastName, address, phone, destination, date, classType);
-//			
-//		}
-//		
-//		if (methodName.equals("getBookedFlight")) {
-//			
-//			int recordType = Integer.parseInt(args[0]);
-//			
-//			response = server.getBookedFlight(recordType);
-//			
-//		}
-//		
-//		if (methodName.equals("editFlightRecord")) {
-//			
-//			int recordId = Integer.parseInt(args[0]);
-//			String fieldName = args[1];
-//			String newValue = args[2];
-//			
-//			response = server.editFlightRecord(recordId, fieldName, newValue);
-//			
-//		}
-//		
-//		if (methodName.equals("transferReservation")) {
-//			
-//			int passengerId = Integer.parseInt(args[0]);
-//			String currentCity = args[1];
-//			String otherCity = args[2];
-//			
-//			response = server.transferReservation(passengerId, currentCity, otherCity);
-//			
-//			
-//		}
+		if (methodName.equals("bookFlight")) {
+			
+			String 	firstName = args[0];
+			String 	lastName = args[1];
+			String 	address = args[2];
+			String 	phone = args[3];
+			String 	destination = args[4];
+			String 	date = args[5];
+			int		classType = Integer.parseInt(args[6]);
+			
+			response = server.bookFlight(firstName, lastName, address, phone, destination, date, classType+"");
+			
+		}
 		
-		return "response";
-		//return response;
+		if (methodName.equals("getBookedFlight")) {
+			
+			int recordType = Integer.parseInt(args[0]);
+			
+			response = server.getBookedFlightCount(recordType+"");
+			
+		}
+		
+		if (methodName.equals("editFlightRecord")) {
+			
+			int recordId = Integer.parseInt(args[0]);
+			String fieldName = args[1];
+			String newValue = args[2];
+			
+			response = server.editFlightRecord(recordId+"", fieldName, newValue);
+			
+		}
+		
+		if (methodName.equals("transferReservation")) {
+			
+			int passengerId = Integer.parseInt(args[0]);
+			String currentCity = args[1];
+			String otherCity = args[2];
+			
+			response = server.transferReservation(passengerId+"", currentCity, otherCity);
+			
+			
+		}
+		
+		//return "response";
+		return response;
 		
 	}
 	

@@ -9,10 +9,12 @@ import org.omg.PortableServer.POAHelper;
 
 public class ServerInit extends Thread {
 	
-	String m_name;
+	private String m_city;
+	private String m_name;
 	
-	ServerInit(String name) {
+	public ServerInit(String city, String name) {
 		
+		m_city = city;
 		m_name = name;
 		
 	}
@@ -32,7 +34,7 @@ public class ServerInit extends Thread {
 		for (i = 0; servers[i] != null; i++) {
 								
 			// Start the servers
-			ServerInit serverInit = new ServerInit(servers[i].getCity());
+			ServerInit serverInit = new ServerInit(servers[i].getCity(), "");
 			serverInit.start();			
 		}
 
@@ -43,8 +45,9 @@ public class ServerInit extends Thread {
 	
 	public void run() {
 		
-		String city = m_name;
-		System.out.println("Attempting to start server at " + city);
+		String city = m_city;
+		String name = m_name;
+		System.out.println("Attempting to start server at " + city + " with naming sevice name:" + name);
 		
 		try {
 		
@@ -63,13 +66,13 @@ public class ServerInit extends Thread {
 			org.omg.CORBA.Object objRef = orb.resolve_initial_references("NameService");
 			NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
 			
-			NameComponent path[] = ncRef.to_name(city);
+			NameComponent path[] = ncRef.to_name(name);
 			ncRef.rebind(path, href);
 			
 			server.start(orb);
 						
 			orb.run();
-			System.out.println("ServerInit: Shutting down server at " + city);
+			System.out.println("ServerInit: Shutting down server at " + city + " with naming service: " + name);
 			
 		}
 		

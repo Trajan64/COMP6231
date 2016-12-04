@@ -5,6 +5,7 @@ import java.net.UnknownHostException;
 import java.util.LinkedList;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.TimeoutException;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import com.reliableudp.OperationMessage;
 import com.reliableudp.OperationMessageProcessorInterface;
@@ -25,8 +26,8 @@ public class FrontEndRequestSender implements OperationMessageProcessorInterface
 	private	int								m_listeningPort;
 	private	ConcurrentLinkedQueue<OperationMessage>	m_responseBuffer;
 	private	ReliableUDPListener				m_listener;
-	private	int								m_numOfRMs;
-	private int								m_numOfResponses;
+	private	AtomicInteger					m_numOfRMs;
+	private AtomicInteger					m_numOfResponses ;
 	
 	private String							m_methodName;
 	
@@ -38,8 +39,9 @@ public class FrontEndRequestSender implements OperationMessageProcessorInterface
 		m_mode = mode;
 		m_replicaManagers = replicaManagers;
 		m_sequencerInformation = sequencerInformation;
-		
-		m_numOfRMs = replicaManagers.length;
+		m_numOfRMs = new AtomicInteger(3);
+		m_numOfResponses = new AtomicInteger();
+		//m_numOfRMs = replicaManagers.length;
 		
 		// Setup listener.
 		m_listener = new ReliableUDPListener(this);
@@ -171,14 +173,14 @@ public class FrontEndRequestSender implements OperationMessageProcessorInterface
 		
 			m_logger.log("Gathering responses in error recovery code..");
 			
-			while (m_numOfResponses < m_numOfRMs) { continue; }
+			while (m_numOfResponses.intValue() < m_numOfRMs.intValue()) { continue; }
 			
 			m_logger.log("Received expected amount of responses");
 
 			
 			// The method response of getBookedFlight require re-formatting to ensure that they have all the same formats.
 			Response[] responses = new Response[3];
-			for (int i = 0; i < m_numOfResponses; i++) {
+			for (int i = 0; i < m_numOfResponses.intValue(); i++) {
 				responses[i] = new Response(m_responseBuffer.poll(), m_methodName);
 				m_logger.log("Response " + i + ": " + responses[i].getResponse());
 
@@ -188,14 +190,14 @@ public class FrontEndRequestSender implements OperationMessageProcessorInterface
 			// We have gathered the responses from all (available) the replica managers.
 			
 			// Check the number of available replicas.
-			if (m_numOfRMs == 2) {
+			if (m_numOfRMs.intValue() == 2) {
 				m_logger.log("Only two replicas are up and have responded. Sending either one of the two results.");
 				// If only two replicas are available, then we only send the result from either of the two.
 				return responses[0].getResponse();
 				
 			}
 			
-			if (m_numOfRMs == 3) {
+			if (m_numOfRMs.intValue() == 3) {
 				m_logger.log("Three responss were gathered. We need to verify if we have an erroneous response.");
 				// If all the replicas are available, then we compare the three responses.
 				// If one mismatch happens, then the system should send a message to the replica that failed indicating it of the software failure.
@@ -253,7 +255,7 @@ public class FrontEndRequestSender implements OperationMessageProcessorInterface
 		if (m_mode == SystemInitializer.MODE_HIGH_AVAILABILITY) {
 			
 			// We fetch the fastest reply.
-			while (m_numOfResponses < 1) { continue; }
+			while (m_numOfResponses.intValue() < 1) { continue; }
 			
 			
 			
@@ -284,7 +286,8 @@ public class FrontEndRequestSender implements OperationMessageProcessorInterface
 				
 				// An RM is currently undergonig a restart.
 				// We cannot expect a reply from it.
-				m_numOfRMs--;
+				m_numOfRMs.decrementAndGet();
+			//	m_numOfRMs.intValue()--;
 				
 				return new OperationMessage(OperationMessage.ACK);
 			
@@ -294,11 +297,12 @@ public class FrontEndRequestSender implements OperationMessageProcessorInterface
 				
 				// We have received a response from one of the replica managers.
 				
-				if (m_numOfResponses < m_numOfRMs) {
+				if (m_numOfResponses.intValue() < m_numOfRMs.intValue()) {
 					
 					// Not all responses gathered. We need to wait.
 					m_responseBuffer.add(request);
-					m_numOfResponses++;
+					m_numOfResponses.incrementAndGet();
+					//m_numOfResponses++;
 					m_logger.log("Response counter updated:" + m_numOfResponses + ". Expected number of responses is: " + m_numOfRMs);
 					
 					return new OperationMessage(OperationMessage.ACK);
