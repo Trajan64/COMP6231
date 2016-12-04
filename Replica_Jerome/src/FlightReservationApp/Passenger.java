@@ -1,4 +1,4 @@
-package flightReservationApp;
+package FlightReservationApp;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -6,16 +6,16 @@ public class Passenger implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private int	   	m_id;
+	private String	   	m_id;
 	private String 	m_firstName;
 	private String 	m_lastName;
 	private String 	m_address;
 	private String 	m_phone;
 	private String 	m_destination;
 	private Date 	m_date;
-	private int		m_classType;
+	private String		m_classType;
 	
-	Passenger(int id, String firstName, String lastName, String address, String phone, String destination, Date date, int classType) {
+	Passenger(String id, String firstName, String lastName, String address, String phone, String destination, Date date, String classType) {
 
 		/*
 		synchronized (Passenger.class) {
@@ -70,13 +70,13 @@ public class Passenger implements Serializable {
 		return m_date;
 	}
 	
-	public int getClassType() {
+	public String getClassType() {
 		
 		return m_classType;
 		
 	}
 	
-	public int getId() {
+	public String getId() {
 		
 		return m_id;
 	}

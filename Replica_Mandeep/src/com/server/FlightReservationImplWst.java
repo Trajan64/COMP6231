@@ -15,9 +15,15 @@ import com.config.Constants;
 
 
 public class FlightReservationImplWst implements Runnable{
-public static void main(String[] args) {
-		
-	FlightReservationImplWst flightReservationImplWst = new FlightReservationImplWst();
+
+	public String id = "";
+	
+	public FlightReservationImplWst(String id) {
+		this.id= id;
+	}
+	
+	public static void main(String[] args) {
+		FlightReservationImplWst flightReservationImplWst = new FlightReservationImplWst("1");
 		Thread thread = new Thread(flightReservationImplWst);
 		thread.start();
 	}
@@ -100,7 +106,7 @@ public static void main(String[] args) {
 			NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
 
 			// bind the Object Reference in Naming
-			String name = Constants.WST;
+			String name = Constants.WST+"_"+id;
 			NameComponent path[] = ncRef.to_name(name);
 			ncRef.rebind(path, sref);
 

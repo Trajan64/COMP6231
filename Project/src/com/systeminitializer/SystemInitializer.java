@@ -25,13 +25,13 @@ public class SystemInitializer extends Thread {
 	public static final int	MODE_ERROR_RECOVERY = 0;
 	public static final int MODE_HIGH_AVAILABILITY = 1;
 	
-	private static final int REPLICA_1_PORT	= 7750;
-	private static final int REPLICA_2_PORT	= 7751;
-	private static final int REPLICA_3_PORT	= 7752;
+	public static final int REPLICA_1_PORT	= 7750;
+	public static final int REPLICA_2_PORT	= 7751;
+	public static final int REPLICA_3_PORT	= 7752;
 	
-	private static final int REPLICA_MANAGER_1_PORT	= 8000;
-	private static final int REPLICA_MANAGER_2_PORT	= 8001;
-	private static final int REPLICA_MANAGER_3_PORT	= 8002;
+	public static final int REPLICA_MANAGER_1_PORT	= 8000;
+	public static final int REPLICA_MANAGER_2_PORT	= 8001;
+	public static final int REPLICA_MANAGER_3_PORT	= 8002;
 	
 	private static final int SEQUENCER_PORT = 8060;
 

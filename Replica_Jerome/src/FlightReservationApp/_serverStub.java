@@ -1,4 +1,4 @@
-package flightReservationApp;
+package FlightReservationApp;
 
 /**
  * Interface definition: server.
@@ -18,7 +18,7 @@ public class _serverStub extends org.omg.CORBA.portable.ObjectImpl
      return _ids_list;
     }
 
-    private final static Class _opsClass = flightReservationApp.serverOperations.class;
+    private final static Class _opsClass = FlightReservationApp.serverOperations.class;
 
     /**
      * Operation bookFlight
@@ -63,7 +63,7 @@ public class _serverStub extends org.omg.CORBA.portable.ObjectImpl
                 org.omg.CORBA.portable.ServantObject _so = _servant_preinvoke("bookFlight",_opsClass);
                 if (_so == null)
                    continue;
-                flightReservationApp.serverOperations _self = (flightReservationApp.serverOperations) _so.servant;
+                FlightReservationApp.serverOperations _self = (FlightReservationApp.serverOperations) _so.servant;
                 try
                 {
                     return _self.bookFlight( firstName,  lastName,  address,  phone,  destination,  date,  classType);
@@ -113,7 +113,7 @@ public class _serverStub extends org.omg.CORBA.portable.ObjectImpl
                 org.omg.CORBA.portable.ServantObject _so = _servant_preinvoke("getBookedFlight",_opsClass);
                 if (_so == null)
                    continue;
-                flightReservationApp.serverOperations _self = (flightReservationApp.serverOperations) _so.servant;
+                FlightReservationApp.serverOperations _self = (FlightReservationApp.serverOperations) _so.servant;
                 try
                 {
                     return _self.getBookedFlight( recordType);
@@ -165,7 +165,7 @@ public class _serverStub extends org.omg.CORBA.portable.ObjectImpl
                 org.omg.CORBA.portable.ServantObject _so = _servant_preinvoke("editFlightRecord",_opsClass);
                 if (_so == null)
                    continue;
-                flightReservationApp.serverOperations _self = (flightReservationApp.serverOperations) _so.servant;
+                FlightReservationApp.serverOperations _self = (FlightReservationApp.serverOperations) _so.servant;
                 try
                 {
                     return _self.editFlightRecord( recordID,  fieldName,  newValue);
@@ -217,7 +217,7 @@ public class _serverStub extends org.omg.CORBA.portable.ObjectImpl
                 org.omg.CORBA.portable.ServantObject _so = _servant_preinvoke("transferReservation",_opsClass);
                 if (_so == null)
                    continue;
-                flightReservationApp.serverOperations _self = (flightReservationApp.serverOperations) _so.servant;
+                FlightReservationApp.serverOperations _self = (FlightReservationApp.serverOperations) _so.servant;
                 try
                 {
                     return _self.transferReservation( passengerID,  currentCity,  otherCity);
@@ -265,7 +265,7 @@ public class _serverStub extends org.omg.CORBA.portable.ObjectImpl
                 org.omg.CORBA.portable.ServantObject _so = _servant_preinvoke("stop",_opsClass);
                 if (_so == null)
                    continue;
-                flightReservationApp.serverOperations _self = (flightReservationApp.serverOperations) _so.servant;
+                FlightReservationApp.serverOperations _self = (FlightReservationApp.serverOperations) _so.servant;
                 try
                 {
                     _self.stop();

@@ -53,7 +53,10 @@ public class OperationMessage {
 	
 	public static final int		RMUNAVAILABLE =						12;
 	public static final String 	RMUNAVAILABLE_STR =					"RMUNAVAILABLE";
+	
+	public static final int 	KILL_TEST =							13;
 
+	public static final int		TEST_ERROR = 						14;
 	
 	private static final String	SEPERATORTOKEN = " ";
 	

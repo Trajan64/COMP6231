@@ -1,4 +1,4 @@
-package flightReservationApp;
+package FlightReservationApp;
 
 import org.omg.CORBA.ORB;
 import org.omg.CosNaming.NameComponent;

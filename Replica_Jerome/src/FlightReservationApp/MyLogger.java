@@ -1,4 +1,4 @@
-package flightReservationApp;
+package FlightReservationApp;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
