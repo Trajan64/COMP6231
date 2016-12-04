@@ -1,4 +1,4 @@
-package com.replicamanager;
+/*package com.replicamanager;
 
 import org.omg.CORBA.ORB;
 import org.omg.CORBA.ORBPackage.InvalidName;
@@ -62,8 +62,8 @@ public class ReplicaClient  {
 	private void initializeDRFSAtCity(int implementationId, String city) {
 		
 		
-		/*POA rootPOA = POAHelper.narrow(m_orb.resolve_initial_references("RootPOA"));
-		rootPOA.the_POAManager().activate();*/
+		POA rootPOA = POAHelper.narrow(m_orb.resolve_initial_references("RootPOA"));
+		rootPOA.the_POAManager().activate();
 		
 		FlightReservationImpl server;
 		
@@ -89,9 +89,9 @@ public class ReplicaClient  {
 					FlightReservationImplMtl flightReservationImplMtl = new FlightReservationImplMtl();
 					Thread t = new Thread(flightReservationImplMtl);
 					t.start();
-					/*server = new FlightReservationImpl("Mtl", MTL_UDP_SERVER_PORT, 
+					server = new FlightReservationImpl("Mtl", MTL_UDP_SERVER_PORT, 
 							WST_UDP_SERVER_PORT, NDL_UDP_SERVER_PORT);
-					startOrb(server, "mtl");*/
+					startOrb(server, "mtl");
 					break;
 					
 				case "wst":
@@ -99,9 +99,9 @@ public class ReplicaClient  {
 					FlightReservationImplWst FlightReservationImplWst = new FlightReservationImplWst();
 					Thread t1 = new Thread(FlightReservationImplWst);
 					t1.start();
-					/*server = new FlightReservationImpl("Wst", WST_UDP_SERVER_PORT, 
+					server = new FlightReservationImpl("Wst", WST_UDP_SERVER_PORT, 
 							NDL_UDP_SERVER_PORT, MTL_UDP_SERVER_PORT);
-					startOrb(server, "wst");*/
+					startOrb(server, "wst");
 					break;
 					
 				case "ndl":
@@ -116,7 +116,7 @@ public class ReplicaClient  {
 		
 		}
 		
-		/*org.omg.CORBA.Object ref = rootPOA.servant_to_reference(server);
+		org.omg.CORBA.Object ref = rootPOA.servant_to_reference(server);
 		server href = serverHelper.narrow(ref);
 		
 		org.omg.CORBA.Object objRef = m_orb.resolve_initial_references("NameService");
@@ -127,7 +127,7 @@ public class ReplicaClient  {
 		
 		server.start(m_orb);
 					
-		m_orb.run();*/
+		m_orb.run();
 
 	}
 	
@@ -143,9 +143,9 @@ public class ReplicaClient  {
 			rootpoa.the_POAManager().activate();
 
 			// create servant and register it with the ORB
-			/*FlightReservationImpl server = new FlightReservationImpl("Mtl", Constants.MTL_UDP_SERVER_PORT, 
+			FlightReservationImpl server = new FlightReservationImpl("Mtl", Constants.MTL_UDP_SERVER_PORT, 
 					Constants.WST_UDP_SERVER_PORT, Constants.NDL_UDP_SERVER_PORT);
-			*/
+			
 			server.setORB(orb);
 			server.start();
 
@@ -181,7 +181,7 @@ public class ReplicaClient  {
 		System.out.println(name+"Mtl Server Exiting ...");
 	}
 	
-	/*private	String callMethod(String toCity, String methodName, String[] args) {
+	private	String callMethod(String toCity, String methodName, String[] args) {
 		
 		// Get the reference to the appropriate city DRFS.
 		org.omg.CORBA.Object objRef = m_orb.resolve_initial_references("NameService");
@@ -239,10 +239,10 @@ public class ReplicaClient  {
 		return response;
 		
 	}
-	*/
 	
 	
-	/*public OperationMessage processRequest(OperationMessage request) {
+	
+	public OperationMessage processRequest(OperationMessage request) {
 	
 		// Possible operations:
 		
@@ -298,7 +298,7 @@ public class ReplicaClient  {
 			return new OperationMessage(OperationMessage.ACK);
 		}
 		
-	}*/
+	}
 	
 	public static void main(String[] args) {
 		ReplicaClient replicaClient = new ReplicaClient(2, 12);
@@ -308,3 +308,4 @@ public class ReplicaClient  {
 	}
 
 }
+*/

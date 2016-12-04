@@ -1,4 +1,4 @@
-package flightReservationApp;
+package FlightReservationApp;
 
 /**
  * Interface definition: server.

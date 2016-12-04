@@ -1,4 +1,4 @@
-package flightReservationApp;
+package FlightReservationApp;
 
 import java.util.Date;
 import java.util.Random;

@@ -1,4 +1,4 @@
-package com.replica;
+	package com.replica;
 
 import java.util.LinkedList;
 import java.util.concurrent.TimeoutException;
@@ -10,6 +10,7 @@ import org.omg.CosNaming.NamingContextExtHelper;
 
 import FlightReservationApp.FlightReservation;
 import FlightReservationApp.FlightReservationHelper;
+import FlightReservationApp.ServerInit;
 
 import com.reliableudp.OperationMessage;
 import com.reliableudp.OperationMessageProcessorInterface;
@@ -22,8 +23,6 @@ import com.server.FlightReservationImplWst;
 import com.systeminitializer.SystemInitializer;
 import com.utils.ContactInformation;
 import com.utils.SynchronizedLogger;
-
-import flightReservationApp.ServerInit;
 
 public class ReplicaClient extends Thread implements OperationMessageProcessorInterface {
 
@@ -38,6 +37,8 @@ public class ReplicaClient extends Thread implements OperationMessageProcessorIn
 	public static final int 					IMPLEMENTATION_VALERIE = 1;
 	public static final int 					IMPLEMENTATION_MANDEEP = 2;
 	
+	private boolean m_erroneousBehavior;
+	
 	private String[]			m_cities = 		{"MTL", "WST", "NDL"};
 	
 	private	ORB					m_orb;
@@ -46,6 +47,9 @@ public class ReplicaClient extends Thread implements OperationMessageProcessorIn
 	
 	
 	public ReplicaClient(int implementationId, int outPort, ReplicaManagerInformation parentReplicaManagerInformation, int mode) {
+		
+
+		m_erroneousBehavior = false;
 		
 		loadImplementation(implementationId);
 		m_port = outPort;
@@ -86,30 +90,30 @@ public class ReplicaClient extends Thread implements OperationMessageProcessorIn
 		
 		switch(implementationId){
 		
-		case IMPLEMENTATION_JEROME:
+		/*case IMPLEMENTATION_JEROME:
 			
 			ServerInit serverThread = new ServerInit(city, city + "_" + implementationId);
 			serverThread.start();
-			break;
+			break;*/
 			
 		case IMPLEMENTATION_MANDEEP:
 
 			switch (city) {
 			case "MTL":
-				FlightReservationImplMtl flightReservationImplMtl = new FlightReservationImplMtl();
+				FlightReservationImplMtl flightReservationImplMtl = new FlightReservationImplMtl(implementationId+"");
 				Thread threadMTL = new Thread(flightReservationImplMtl);
 				threadMTL.start();
 				break;
 
 			case "WST":
 
-				FlightReservationImplWst FlightReservationImplWst = new FlightReservationImplWst();
+				FlightReservationImplWst FlightReservationImplWst = new FlightReservationImplWst(implementationId+"");
 				Thread threadWST = new Thread(FlightReservationImplWst);
 				threadWST.start();
 
 				break;
 			case "NDL":
-				FlightReservationImplNdl FlightReservationImplNdl = new FlightReservationImplNdl();
+				FlightReservationImplNdl FlightReservationImplNdl = new FlightReservationImplNdl(implementationId+"");
 				Thread threadNDL = new Thread(FlightReservationImplNdl);
 				threadNDL.start();
 				break;
@@ -294,7 +298,20 @@ public class ReplicaClient extends Thread implements OperationMessageProcessorIn
 			
 			m_logger.log("Request received.");
 			
-			String response = unmarshallAndProcessRequest(request);
+			String response;
+			
+			if (m_erroneousBehavior = true) { 
+				
+				m_logger.log("Responding with errneous data.");
+				 response = "errorneous output"; 
+				
+			}
+			
+			else {
+				
+				 response = unmarshallAndProcessRequest(request);
+				
+			}
 			
 			m_logger.log("Response from [unmarshallAndProcessRequest] method is: " +response);
 			
@@ -346,7 +363,13 @@ public class ReplicaClient extends Thread implements OperationMessageProcessorIn
 			// We only have to reply with an acknowledgment.
 			return new OperationMessage(OperationMessage.ACK);
 			
+		case OperationMessage.TEST_ERROR:
 			
+			m_erroneousBehavior = true;
+			m_logger.log("Replica set to respond with erroneous responses from requests.");
+			
+			return new OperationMessage(OperationMessage.ACK);
+	
 		default:
 			
 			// We should not go through here.

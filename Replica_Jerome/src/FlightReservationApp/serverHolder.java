@@ -1,4 +1,4 @@
-package flightReservationApp;
+package FlightReservationApp;
 
 /**
  * Holder class for : server
@@ -11,7 +11,7 @@ final public class serverHolder
     /**
      * Internal server value
      */
-    public flightReservationApp.server value;
+    public FlightReservationApp.server value;
 
     /**
      * Default constructor
@@ -23,7 +23,7 @@ final public class serverHolder
      * Constructor with value initialisation
      * @param initial the initial value
      */
-    public serverHolder(flightReservationApp.server initial)
+    public serverHolder(FlightReservationApp.server initial)
     {
         value = initial;
     }

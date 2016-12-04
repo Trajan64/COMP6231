@@ -1,22 +1,19 @@
-package flightReservationApp;
+package FlightReservationApp;
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
-import java.net.SocketException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedList;
 
 import org.omg.CORBA.ORB;
 
-public class ServerImpl extends serverPOA {
+public class ServerImpl extends FlightReservationPOA {
 
 	private 	String 										m_city;
 	public 		HashMap<Character, LinkedList<Passenger>> 	passengerRecords;
@@ -27,6 +24,7 @@ public class ServerImpl extends serverPOA {
 	private		MyLogger									m_logger;
 	public		int											m_passengerCounter;
 	private		ORB											m_orb;
+	private static long ids = 0;
 	
 	private final static int	MAX_FLIGHTS	= 			1024;
 	
@@ -40,7 +38,7 @@ public class ServerImpl extends serverPOA {
 	
 	@Override
 	public String bookFlight(String firstName, String lastName, String address, String phone, String destination,
-			String date, int classType)  {
+			String date, String classType)  {
 		
 		m_logger.log("- bookFlight called with arguments: (" + firstName + ", " + lastName + ", " + address + ", " + phone + ", " + destination + ", " + date + ", " + classType + ")");
 		
@@ -49,13 +47,16 @@ public class ServerImpl extends serverPOA {
 		// Convert date string to a Date object.
 		Date properDate = fromStringToDate(date);
 		
+		String intClassType = classType;
+		
 		if (properDate == null) {
 			message = "Badly formed date.";
 		}
 		
+		
 		else {
 		
-			BookingInformation bookingInformation = addPassengerToFlight(firstName, lastName, address, phone, destination, properDate, classType);
+			BookingInformation bookingInformation = addPassengerToFlight(firstName, lastName, address, phone, destination, properDate, intClassType);
 			
 			
 			// Prepare reply message based on status of booking operation.
@@ -122,7 +123,7 @@ public class ServerImpl extends serverPOA {
 	
 	@SuppressWarnings("unused")
 	private BookingInformation addPassengerToFlight(String firstName, String lastName, String address, String phone, String destination,
-			Date date, int classType) {
+			Date date, String classType) {
 		
 		boolean flightFoundNoSeatsAvaialble = false;		
 		
@@ -156,9 +157,30 @@ public class ServerImpl extends serverPOA {
 					if (flightToScan.getAvailableSeatsForClassType(classType) > 0) {
 						
 						// We found a flight.
+						String recordId =null;
+						switch(classType){
 						
+						case FlightReservationConstants.BUSINESS_CLASS:
+							recordId = FlightReservationConstants.BUSINESS_CLASS +getNextId();
+							break;
+							
+						case FlightReservationConstants.ECONOMY_CLASS:
+						recordId = FlightReservationConstants.ECONOMY_CLASS +getNextId();
+						break;
+						
+						case FlightReservationConstants.FIRST_CLASS:
+							recordId = FlightReservationConstants.FIRST_CLASS+getNextId();
+							break; 
+							
+							default:
+								recordId = "Default"+getNextId();
+								break;
+						}
+						
+						
+						System.out.println("Record Id for passenger :: "+recordId);
 						// We first create a new passenger entry and append it to the passenger record.
-						Passenger newPassenger = new Passenger(generatePassengerId(), firstName, lastName, address, phone, destination, date, classType);
+						Passenger newPassenger = new Passenger(recordId, firstName, lastName, address, phone, destination, date, classType);
 						// Retrieve LinkedList from hashMap based on first letter of first name.
 						char key = lastName.charAt(0);
 						LinkedList<Passenger> list = (LinkedList<Passenger>) passengerRecords.get(key);
@@ -233,8 +255,9 @@ public class ServerImpl extends serverPOA {
 	
 	
 		
-	public int countBookedFlight(int recordType) {
+	public int countBookedFlight(String recordType) {
 		
+		String intRecordype = recordType;
 		int count = 0;
 		
 		synchronized (flightRecords) {
@@ -246,7 +269,7 @@ public class ServerImpl extends serverPOA {
 					
 					// If there is a flight at the given index.
 					// Accumulate the number of the registered passengers for seats of the given class type.
-					count = count + flightRecords[i].getRegisteredSeatsForClassType(recordType);
+					count = count + flightRecords[i].getRegisteredSeatsForClassType(intRecordype);
 					
 				}
 				
@@ -256,7 +279,7 @@ public class ServerImpl extends serverPOA {
 	
 		}
 		
-		m_logger.log("Counting booked records for " + Flight.seatConstantToString(recordType) + " (" + recordType + ") " + "type: " + count);
+		m_logger.log("Counting booked records for " + Flight.seatConstantToString(intRecordype) + " (" + intRecordype + ") " + "type: " + count);
 		return count;
 		
 	}
@@ -264,7 +287,7 @@ public class ServerImpl extends serverPOA {
 	
 
 	@Override
-	public String getBookedFlight(int recordType) {
+	public String getBookedFlightCount(String recordType) {
 		
 		m_logger.log("- getBookedFlight called with arguments: (" + recordType + ")");
 		
@@ -321,12 +344,14 @@ public class ServerImpl extends serverPOA {
 	
 	
 	@Override
-	public String editFlightRecord(int recordId, String fieldName, String newValue) {
+	public String editFlightRecord(String recordId, String fieldName, String newValue) {
 		
 		m_logger.log("- editFlightRecord called with arguments: (" + recordId + ", " + fieldName + ", " + newValue.toString() + ")");
 		
 		String message;
 		Flight flight;
+		
+		int intRecordId = Integer.parseInt(recordId);
 		
 		if (fieldName.equals("create")) {
 			
@@ -338,14 +363,15 @@ public class ServerImpl extends serverPOA {
 				
 				try {
 					
-					String[] flightInfo = newValue.split(" ");
+					String[] flightInfo = newValue.split(",");
 					
 					int flightRecordId = Integer.parseInt(flightInfo[0]);
 					String flightLocation = flightInfo[1];
 					String flightDestination = flightInfo[2];
-					int flightSeatsFirstClass = Integer.parseInt(flightInfo[3]);
-					int flightSeatsBuisnessClass = Integer.parseInt(flightInfo[4]);
-					int flightSeatsEconomyClass = Integer.parseInt(flightInfo[5]);
+					
+					int flightSeatsBuisnessClass = Integer.parseInt(flightInfo[3]);
+					int flightSeatsEconomyClass = Integer.parseInt(flightInfo[4]);
+					int flightSeatsFirstClass = Integer.parseInt(flightInfo[5]);
 					
 					Date flightTimeOfDeparture = fromStringToDate(flightInfo[6]);
 					if (flightTimeOfDeparture == null) {
@@ -377,7 +403,7 @@ public class ServerImpl extends serverPOA {
 					
 						
 				createFlight(flight);
-				message = "Flight created with ID: " + recordId;
+				message = "Flight created with ID: " + intRecordId;
 				return message;
 				
 			}
@@ -385,12 +411,12 @@ public class ServerImpl extends serverPOA {
 				
 		}
 
-		flight = getFlightFromID(recordId);
+		flight = getFlightFromID(intRecordId);
 		
 		
 		if (flight == null) {
 			
-			return reportFlightNotFound(recordId);
+			return reportFlightNotFound(intRecordId);
 			
 		}
 		
@@ -400,13 +426,13 @@ public class ServerImpl extends serverPOA {
 			
 			synchronized (flight) {
 				
-				if (!deleteFlight(recordId)) {
+				if (!deleteFlight(intRecordId)) {
 					
 					// Flight was deleted in between.
-					return reportFlightNotFound(recordId);
+					return reportFlightNotFound(intRecordId);
 				}
 				
-				message = "Flight with ID: " + recordId + " has been successfully deleted";
+				message = "Flight with ID: " + intRecordId + " has been successfully deleted";
 				return message;
 				
 			}
@@ -426,14 +452,14 @@ public class ServerImpl extends serverPOA {
 				}
 				
 				// Convert attribute to a constant int.
-				int classType = 0;
+				String classType = "";
 				if (fieldName.equals("seatsFirstClass")) { classType = Flight.FIRSTCLASS; }
 				if (fieldName.equals("seatsBuisnessClass")) { classType = Flight.BUISNESSCLASS; }
 				if (fieldName.equals("seatsEconomyClass")) { classType = Flight.ECONOMYCLASS; }
 				
 				// Update the number of seats and log the information.
 				updateSeats(flight, classType, seatsValue);
-				return fieldName + " attribute for flight ID " + recordId + " has now the value :" + newValue;
+				return fieldName + " attribute for flight ID " + intRecordId + " has now the value :" + newValue;
 				
 			}
 			
@@ -454,8 +480,8 @@ public class ServerImpl extends serverPOA {
 				flight.setTimeOfDeparture(date);
 				
 				// As we changed the date of the flight, all the passengers previously booked for that flight must be removed.
-				deletePassengersFromFlight(flight, Flight.ALLCLASS, flight.getPassengers().size());
-				message = "timeOfDeparture attribute for flight ID " + recordId + " has now the value :" + newValue;
+				deletePassengersFromFlight(flight,  flight.getPassengers().size(), Flight.ALLCLASS);
+				message = "timeOfDeparture attribute for flight ID " + intRecordId + " has now the value :" + newValue;
 				return message;
 	
 			}
@@ -488,7 +514,7 @@ public class ServerImpl extends serverPOA {
 	}
 
 	
-	private void updateSeats(Flight flight, int classType, int newNumOfSeats) {
+	private void updateSeats(Flight flight, String classType, int newNumOfSeats) {
 		
 		int currentNumOfRegisteredSeats = flight.getRegisteredSeatsForClassType(classType);
 		int currentNumOfSeats = flight.getSeatsForClassType(classType);
@@ -513,7 +539,7 @@ public class ServerImpl extends serverPOA {
 	
 	
 	
-	private void deletePassengersFromFlight(Flight flight, int numOfPassengers, int classType) {
+	private void deletePassengersFromFlight(Flight flight, int numOfPassengers, String classType) {
 		
 		int k = 0;
 		LinkedList<Passenger> flightPassengers = flight.getPassengers();
@@ -662,9 +688,11 @@ public class ServerImpl extends serverPOA {
 	}
 	
 	
-	public String transferReservation(int passengerID, String currentCity, String otherCity) {
+	public String transferReservation(String passengerID, String currentCity, String otherCity) {
 		
 		m_logger.log("- transferReservation called with arguments: (" + passengerID + ", " + currentCity + ", " + otherCity + ")");
+		
+		int intPassengerID = Integer.parseInt(passengerID);
 		
 		// Locate passenger's current city.
 		ServerInformation currentCityServerInformation = locateServer(currentCity);
@@ -746,7 +774,7 @@ public class ServerImpl extends serverPOA {
 	
 	
 	
-	private Passenger getPassengerRecordFromID(int passengerID) {
+	private Passenger getPassengerRecordFromID(String passengerID) {
 		
 		int i;
 		Passenger currentPassenger;
@@ -772,7 +800,7 @@ public class ServerImpl extends serverPOA {
 	}
 	
 	
-	private void removePassengerFromFlight(int passengerId) {
+	private void removePassengerFromFlight(String passengerId) {
 		
 		Passenger passenger = null;
 		
@@ -798,14 +826,14 @@ public class ServerImpl extends serverPOA {
 				for (j = 0; j < passengers.size(); j++) {
 					
 					passenger = passengers.get(j);
-					if (passenger.getId() == passengerId) {
+					if (passenger.getId().equalsIgnoreCase(passengerId)) {
 						
 						// Remove passenger from list.
 						passengers.remove(passenger);
 						m_logger.log("Passenger with ID " + passenger.getId() + " removed from flight with ID " + currentFlight.getId());
 						
 						// Update seats on the flight.
-						int classType = passenger.getClassType();
+						String classType = passenger.getClassType();
 						
 						int numOfRegisteredSeats = currentFlight.getRegisteredSeatsForClassType(classType);
 						currentFlight.setRegisteredSeatForClassType(classType, numOfRegisteredSeats - 1);
@@ -834,7 +862,7 @@ public class ServerImpl extends serverPOA {
 	}	
 	
 	
-	public String requestTransferReservationFromCurrentCity(int passengerID, String otherCity) {
+	public String requestTransferReservationFromCurrentCity(String passengerID, String otherCity) {
 		
 		m_logger.log("Received transfer reservation request to " + otherCity + " for passenger with ID " + passengerID);
 		
@@ -975,6 +1003,11 @@ public class ServerImpl extends serverPOA {
 		
 		m_orb.shutdown(true);
 
+	}
+	
+	public synchronized static long getNextId() {
+		ids++;
+		return ids;
 	}
 	
 	

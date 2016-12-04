@@ -1,4 +1,4 @@
-package flightReservationApp;
+package FlightReservationApp;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -79,11 +79,11 @@ public class ServerListener extends Thread {
 			}
 			
 			// Extract the argument (class type).
-			int classType;
+			String classType;
 			
 			try {
-				classType = Integer.parseInt(stringRequest[2]);
-
+				//classType = Integer.parseInt(stringRequest[2]);
+				classType = stringRequest[2];
 			} catch (Exception e) {
 				// Argument is not an integer.
 				return null;
@@ -96,10 +96,10 @@ public class ServerListener extends Thread {
 		
 		if (operation.equals("proceedTransferReservation")) {
 			
-			int passengerId;
+			String passengerId;
 			
 			try {
-				passengerId = Integer.parseInt(stringRequest[2]);
+				passengerId = stringRequest[2];
 
 			} catch (Exception e) {
 				// Argument is not an integer.

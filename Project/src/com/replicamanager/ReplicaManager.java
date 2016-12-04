@@ -591,7 +591,14 @@ public class ReplicaManager extends Thread implements OperationMessageProcessorI
 				// Otherwise no crash was noticed on this particular replica.
 				return new OperationMessage(OperationMessage.FAILCONSENSUSREPLYNEGATIVE);
 				
+			case OperationMessage.KILL_TEST:
 				
+				// Kill the replica for testing purposes.
+				m_replicaClient = null;
+				m_logger.log("LISTENER> Replica client was just killed for testing purposes");
+				
+				return new OperationMessage(OperationMessage.KILL_TEST);
+
 				
 			default:
 				

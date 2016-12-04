@@ -1,4 +1,4 @@
-package flightReservationApp;
+package FlightReservationApp;
 
 /** 
  * Helper class for : server
@@ -12,7 +12,7 @@ public class serverHelper
      * @param a an any
      * @param t server value
      */
-    public static void insert(org.omg.CORBA.Any a, flightReservationApp.server t)
+    public static void insert(org.omg.CORBA.Any a, FlightReservationApp.server t)
     {
         a.insert_Object(t , type());
     }
@@ -23,7 +23,7 @@ public class serverHelper
      * @param a an any
      * @return the extracted server value
      */
-    public static flightReservationApp.server extract( org.omg.CORBA.Any a )
+    public static FlightReservationApp.server extract( org.omg.CORBA.Any a )
     {
         if ( !a.type().equivalent( type() ) )
         {
@@ -31,7 +31,7 @@ public class serverHelper
         }
         try
         {
-            return flightReservationApp.serverHelper.narrow( a.extract_Object() );
+            return FlightReservationApp.serverHelper.narrow( a.extract_Object() );
         }
         catch ( final org.omg.CORBA.BAD_PARAM e )
         {
@@ -73,9 +73,9 @@ public class serverHelper
      * @param istream the input stream
      * @return the readed server value
      */
-    public static flightReservationApp.server read(org.omg.CORBA.portable.InputStream istream)
+    public static FlightReservationApp.server read(org.omg.CORBA.portable.InputStream istream)
     {
-        return(flightReservationApp.server)istream.read_Object(flightReservationApp._serverStub.class);
+        return(FlightReservationApp.server)istream.read_Object(FlightReservationApp._serverStub.class);
     }
 
     /**
@@ -83,7 +83,7 @@ public class serverHelper
      * @param ostream the output stream
      * @param value server value
      */
-    public static void write(org.omg.CORBA.portable.OutputStream ostream, flightReservationApp.server value)
+    public static void write(org.omg.CORBA.portable.OutputStream ostream, FlightReservationApp.server value)
     {
         ostream.write_Object((org.omg.CORBA.portable.ObjectImpl)value);
     }

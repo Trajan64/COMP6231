@@ -15,9 +15,15 @@ import FlightReservationApp.FlightReservationHelper;
 
 public class FlightReservationImplMtl implements Runnable {
 	
+	public String id = "";
+	
+	public FlightReservationImplMtl(String id) {
+		this.id= id;
+	}
+	
 	public static void main(String[] args) {
 		
-		FlightReservationImplMtl flightReservationImplMtl = new FlightReservationImplMtl();
+		FlightReservationImplMtl flightReservationImplMtl = new FlightReservationImplMtl("1");
 		Thread thread = new Thread(flightReservationImplMtl);
 		thread.start();
 	}
@@ -99,7 +105,7 @@ public class FlightReservationImplMtl implements Runnable {
 			NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
 
 			// bind the Object Reference in Naming
-			String name = Constants.MTL;
+			String name = Constants.MTL+"_"+id;
 			NameComponent path[] = ncRef.to_name(name);
 			ncRef.rebind(path, sref);
 

@@ -1,4 +1,4 @@
-package flightReservationApp;
+package FlightReservationApp;
 
 import java.util.Date;
 import java.util.LinkedList;
@@ -18,10 +18,10 @@ public class Flight {
 	private int m_registeredSeatsBuisnessClass;
 	private int m_registeredSeatsEconomyClass;
 	
-	public static final int ALLCLASS = 0;
-	public static final int FIRSTCLASS = 1;
-	public static final int BUISNESSCLASS = 2;
-	public static final int ECONOMYCLASS = 3;
+	public static final String ALLCLASS = "All";
+	public static final String FIRSTCLASS = "First";
+	public static final String BUISNESSCLASS = "Business";
+	public static final String ECONOMYCLASS = "Economy";
 	
 	private LinkedList<Passenger> m_registeredPassengers;
 	
@@ -74,7 +74,7 @@ public class Flight {
 	}
 	
 	
-	public int getAvailableSeatsForClassType(int classType) {
+	public int getAvailableSeatsForClassType(String classType) {
 		
 		switch(classType) {
 			case ALLCLASS:
@@ -123,7 +123,7 @@ public class Flight {
 		
 	}
 	
-	public void setRegisteredSeatForClassType(int classType, int seats) {
+	public void setRegisteredSeatForClassType(String classType, int seats) {
 		
 		switch(classType) {
 			case FIRSTCLASS:	
@@ -140,7 +140,7 @@ public class Flight {
 		}
 	}
 	
-	public void setSeatsForClassType(int classType, int seats) {
+	public void setSeatsForClassType(String classType, int seats) {
 		
 		switch(classType) {
 			case FIRSTCLASS:	
@@ -158,7 +158,7 @@ public class Flight {
 	}
 
 	
-	public int getRegisteredSeatsForClassType(int classType) {
+	public int getRegisteredSeatsForClassType(String classType) {
 		
 		switch(classType) {
 			case ALLCLASS:
@@ -176,7 +176,7 @@ public class Flight {
 		
 	}
 	
-	public int getSeatsForClassType(int classType) {
+	public int getSeatsForClassType(String classType) {
 		
 		switch(classType) {
 			case ALLCLASS:
@@ -194,7 +194,7 @@ public class Flight {
 		
 	}
 	
-	public static String seatConstantToString(int classType) {
+	public static String seatConstantToString(String classType) {
 		
 		switch(classType) {
 			case ALLCLASS:
