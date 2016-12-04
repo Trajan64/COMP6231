@@ -100,7 +100,7 @@ public static void main(String[] args) {
 			NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
 
 			// bind the Object Reference in Naming
-			String name = "wst";
+			String name = Constants.WST;
 			NameComponent path[] = ncRef.to_name(name);
 			ncRef.rebind(path, sref);
 

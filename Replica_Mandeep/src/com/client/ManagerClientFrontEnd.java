@@ -18,6 +18,7 @@ import FlightReservationApp.FlightReservationHelper;
 
 import com.beans.FlightRecord;
 import com.beans.Manager;
+import com.config.Constants;
 import com.server.FlightReservationConstants;
 import com.server.FlightReservationImplMtl;
 import com.server.FlightReservationImplNdl;
@@ -106,22 +107,22 @@ public class ManagerClientFrontEnd {
 				case 1: 
 					System.out.println("Enter Manager ID: ");
 					managerId = keyboard.next();
-					if(managerId.contains("mtl")) 
+					if(managerId.contains(Constants.MTL)) 
 					{  	
-						source="mtl";
+						source=Constants.MTL;
 						loggedIn=true;
-						manager = new Manager("mtl",managerId.substring(3,7),orb);
+						manager = new Manager(Constants.MTL,managerId.substring(3,7),orb);
 						
-					} else if (managerId.contains("wst")) 
+					} else if (managerId.contains(Constants.WST)) 
 					{
-						source="wst";
+						source=Constants.WST;
 						loggedIn=true;
-						manager = new Manager("wst",managerId.substring(3,7),orb);
+						manager = new Manager(Constants.WST,managerId.substring(3,7),orb);
 						
-					} else if (managerId.contains("ndl")) 
-					{	source="ndl";
+					} else if (managerId.contains(Constants.NDL)) 
+					{	source=Constants.NDL;
 						loggedIn=true;
-						manager = new Manager("ndl",managerId.substring(3,7),orb);
+						manager = new Manager(Constants.NDL,managerId.substring(3,7),orb);
 						
 					}
 					else {
@@ -136,18 +137,18 @@ public class ManagerClientFrontEnd {
 					String city ="";
 					city = keyboard.next();
 					
-					if(city.contains("mtl")) 
+					if(city.contains(Constants.MTL)) 
 					{  //source="mtl";
 						passengerLogin = true;
-						server = FlightReservationHelper.narrow(ncRef.resolve_str("mtl"));
-					} else if (city.contains("wst")) 
+						server = FlightReservationHelper.narrow(ncRef.resolve_str(Constants.MTL));
+					} else if (city.contains(Constants.WST)) 
 					{//source="wst";
 						passengerLogin = true;
-						server = FlightReservationHelper.narrow(ncRef.resolve_str("wst"));
-					} else if (city.contains("ndl")) 
+						server = FlightReservationHelper.narrow(ncRef.resolve_str(Constants.WST));
+					} else if (city.contains(Constants.NDL)) 
 					{//source="ndl";
 						passengerLogin = true;
-						server = FlightReservationHelper.narrow(ncRef.resolve_str("ndl"));
+						server = FlightReservationHelper.narrow(ncRef.resolve_str(Constants.NDL));
 					}
 					else {
 						System.out.println("Invalid city");

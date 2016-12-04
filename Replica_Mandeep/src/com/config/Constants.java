@@ -15,4 +15,8 @@ public class Constants {
 	public static final int NDL_UDP_SERVER_PORT = 6792;
 	public static final String NDL_RMI_SERVER_NAME = "Ndl";
 	public static final int NDL_RMI_SERVER_PORT = 2022;
+	
+	public static final String MTL = "MTL";
+	public static final String NDL = "NDL";
+	public static final String WST = "WST";
 }

@@ -10,6 +10,7 @@ import org.omg.CosNaming.NamingContextExtHelper;
 import FlightReservationApp.FlightReservation;
 import FlightReservationApp.FlightReservationHelper;
 
+import com.config.Constants;
 import com.logging.Logger;
 
 public class Manager {
@@ -18,9 +19,9 @@ public class Manager {
 	private String location;
 	private File file;
 
-	public static final String LOCATION_MONTREAL = "mtl";
-	public static final String LOCATION_WASHIGTON = "wst";
-	public static final String LOCATION_NEWDELHI = "ndl";
+	public static final String LOCATION_MONTREAL = "MTL";
+	public static final String LOCATION_WASHIGTON = "WST";
+	public static final String LOCATION_NEWDELHI = "NDL";
 
 	private Logger logger;
 
@@ -39,15 +40,15 @@ public class Manager {
 
 			// resolve the Object Reference in Naming
 
-			if (location.equals("mtl")) {
+			if (location.equals(Constants.MTL)) {
 				server = FlightReservationHelper.narrow(ncRef
-						.resolve_str("mtl"));
-			} else if (location.equals("wst")) {
+						.resolve_str(Constants.MTL));
+			} else if (location.equals(Constants.WST)) {
 				server = FlightReservationHelper.narrow(ncRef
-						.resolve_str("wst"));
-			} else if (location.equals("ndl")) {
+						.resolve_str(Constants.WST));
+			} else if (location.equals(Constants.NDL)) {
 				server = FlightReservationHelper.narrow(ncRef
-						.resolve_str("ndl"));
+						.resolve_str(Constants.NDL));
 			}
 
 			logger = new Logger("logs/client/Manager_" + managerId + ".log");

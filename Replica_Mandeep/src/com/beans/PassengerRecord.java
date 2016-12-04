@@ -24,9 +24,9 @@ public class PassengerRecord  implements Serializable{
 	private Date date;
 	private String flightClass;
 	
-	public static final String LOCATION_MONTREAL = "mtl";
-	public static final String LOCATION_WASHINGTON = "wst";
-	public static final String LOCATION_NEWDELHI = "ndl";
+	public static final String LOCATION_MONTREAL = "MTL";
+	public static final String LOCATION_WASHINGTON = "WST";
+	public static final String LOCATION_NEWDELHI = "NDL";
 
 	public static final String FIELDNAME_LOCATION = "Location";
 	public static final String FIELDNAME_ADDRESS = "Address";
