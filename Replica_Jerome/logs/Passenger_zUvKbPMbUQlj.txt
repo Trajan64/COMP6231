@@ -1,0 +1,4 @@
+07/11/2016 03:22:39 ------------
+07/11/2016 03:22:39 Passenger from WST logged in.
+07/11/2016 03:22:39 Command executed: bookaflight Ann Montes 3674_Rafe_Lane 94388843222 NDL 01/03/2020 1
+07/11/2016 03:22:39 Successfull booking for flight with ID: 3 for class type: first class (1); New passenger record has ID 0

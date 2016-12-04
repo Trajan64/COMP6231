@@ -1,0 +1,4 @@
+login manager NDL0001
+createflight 1 MTL  2 3 4 01/01/2020
+createflight 2 WST  2 3 4 01/02/2020
+createflight 3 MTL  1 2 3 01/03/2020

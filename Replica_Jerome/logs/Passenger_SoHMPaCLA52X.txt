@@ -1,0 +1,4 @@
+07/11/2016 02:21:32 ------------
+07/11/2016 02:21:32 Passenger from MTL logged in.
+07/11/2016 02:21:55 Command executed: bookaflight John Doe 7182_Winchester_St 2654258822 WST 01/01/2020 1
+07/11/2016 02:21:55 Booking failure: No flight found.

@@ -1,0 +1,3 @@
+07/11/2016 00:51:48 ------------
+07/11/2016 00:51:48 Passenger from MTL logged in.
+07/11/2016 00:51:50 Command executed: bookaflight Timothy Franco 924_Hall_Valley_Drive 4654243867 NDL 01/03/2020 2

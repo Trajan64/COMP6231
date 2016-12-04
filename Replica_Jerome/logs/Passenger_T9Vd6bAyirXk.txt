@@ -1,0 +1,4 @@
+07/11/2016 03:40:07 ------------
+07/11/2016 03:40:07 Passenger from WST logged in.
+07/11/2016 03:40:07 Command executed: bookaflight Jorge Moore 4445_Radio_Park_Drive 1228888452 NDL 01/01/2020 1
+07/11/2016 03:40:07 Successfull booking for flight with ID: 1 for class type: first class (1); New passenger record has ID 0

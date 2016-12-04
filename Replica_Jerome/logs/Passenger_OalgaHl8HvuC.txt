@@ -1,0 +1,4 @@
+07/11/2016 03:24:25 ------------
+07/11/2016 03:24:25 Passenger from WST logged in.
+07/11/2016 03:24:25 Command executed: bookaflight Ann Montes 3674_Rafe_Lane 94388843222 NDL 01/03/2020 1
+07/11/2016 03:24:25 Booking failure: Flight found but no seats were available for class type.

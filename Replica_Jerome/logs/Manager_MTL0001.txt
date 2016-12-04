@@ -1,0 +1,116 @@
+07/11/2016 02:48:26 ------------
+07/11/2016 02:48:26 Manager MTL0001 logged in.
+07/11/2016 02:48:26 Command executed: createflight 1 NDL  2 3 4 01/01/2020
+07/11/2016 02:48:27 Flight created with ID: 1
+07/11/2016 02:48:27 Command executed: createflight 2 WST  2 3 4 01/02/2020
+07/11/2016 02:48:27 Flight created with ID: 2
+07/11/2016 02:48:27 Command executed: createflight 3 NDL  1 2 3 01/03/2020
+07/11/2016 02:48:27 Flight created with ID: 3
+07/11/2016 02:48:27 ------------
+07/11/2016 02:48:27 Manager MTL0001 logged in.
+07/11/2016 02:48:27 Command executed: getbookedflightcount 0
+07/11/2016 02:48:27 MTL 3, NDL 2, WST 2
+07/11/2016 02:48:27 Command executed: getbookedflightcount 1
+07/11/2016 02:48:27 MTL 1, NDL 0, WST 2
+07/11/2016 02:48:27 Command executed: getbookedflightcount 2
+07/11/2016 02:48:27 MTL 2, NDL 2, WST 0
+07/11/2016 02:48:27 Command executed: getbookedflightcount 3
+07/11/2016 02:48:27 MTL 0, NDL 0, WST 0
+07/11/2016 02:48:27 ------------
+07/11/2016 02:48:27 Manager MTL0001 logged in.
+07/11/2016 02:48:27 Command executed: editbookflight 3 seatsBuisnessClass 1
+07/11/2016 02:48:27 seatsBuisnessClass attribute for flight ID 3 has now the value :1
+07/11/2016 02:48:27 Command executed: editbookflight 3 timeOfDeparture 1/1/2040
+07/11/2016 02:48:27 timeOfDeparture attribute for flight ID 3 has now the value :1/1/2040
+07/11/2016 02:48:27 Command executed: editbookflight 3 delete 0
+07/11/2016 02:48:27 Flight with ID: 3 has been successfully deleted
+07/11/2016 03:22:38 ------------
+07/11/2016 03:22:38 Manager MTL0001 logged in.
+07/11/2016 03:22:38 Command executed: createflight 1 NDL  2 3 4 01/01/2020
+07/11/2016 03:22:38 Flight created with ID: 1
+07/11/2016 03:22:38 Command executed: createflight 2 WST  2 3 4 01/02/2020
+07/11/2016 03:22:38 Flight created with ID: 2
+07/11/2016 03:22:38 Command executed: createflight 3 NDL  1 2 3 01/03/2020
+07/11/2016 03:22:38 Flight created with ID: 3
+07/11/2016 03:22:39 ------------
+07/11/2016 03:22:39 Manager MTL0001 logged in.
+07/11/2016 03:22:39 Command executed: getbookedflightcount 0
+07/11/2016 03:22:39 MTL 3, NDL 2, WST 2
+07/11/2016 03:22:39 Command executed: getbookedflightcount 1
+07/11/2016 03:22:39 MTL 1, NDL 0, WST 2
+07/11/2016 03:22:39 Command executed: getbookedflightcount 2
+07/11/2016 03:22:39 MTL 2, NDL 2, WST 0
+07/11/2016 03:22:39 Command executed: getbookedflightcount 3
+07/11/2016 03:22:39 MTL 0, NDL 0, WST 0
+07/11/2016 03:22:39 ------------
+07/11/2016 03:22:39 Manager MTL0001 logged in.
+07/11/2016 03:22:39 Command executed: editbookflight 3 seatsBuisnessClass 1
+07/11/2016 03:22:39 seatsBuisnessClass attribute for flight ID 3 has now the value :1
+07/11/2016 03:22:39 Command executed: editbookflight 3 timeOfDeparture 1/1/2040
+07/11/2016 03:22:39 timeOfDeparture attribute for flight ID 3 has now the value :1/1/2040
+07/11/2016 03:22:39 Command executed: editbookflight 3 delete 0
+07/11/2016 03:22:39 Flight with ID: 3 has been successfully deleted
+07/11/2016 03:24:25 ------------
+07/11/2016 03:24:25 Manager MTL0001 logged in.
+07/11/2016 03:24:25 Command executed: createflight 1 NDL  2 3 4 01/01/2020
+07/11/2016 03:24:25 ERROR: Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:24:25 Command executed: createflight 2 WST  2 3 4 01/02/2020
+07/11/2016 03:24:25 ERROR: Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:24:25 Command executed: createflight 3 NDL  1 2 3 01/03/2020
+07/11/2016 03:24:25 Flight created with ID: 3
+07/11/2016 03:26:25 ------------
+07/11/2016 03:26:25 Manager MTL0001 logged in.
+07/11/2016 03:26:25 Command executed: createflight 1 NDL  2 3 4 01/01/2020
+07/11/2016 03:26:25 Flight created with ID: 1
+07/11/2016 03:26:25 Command executed: createflight 2 WST  2 3 4 01/02/2020
+07/11/2016 03:26:25 Flight created with ID: 2
+07/11/2016 03:26:25 Command executed: createflight 3 NDL  1 2 3 01/03/2020
+07/11/2016 03:26:25 Flight created with ID: 3
+07/11/2016 03:34:00 ------------
+07/11/2016 03:34:00 Manager MTL0001 logged in.
+07/11/2016 03:34:00 Command executed: createflight 1 NDL  2 3 4 01/01/2020
+07/11/2016 03:34:00 Flight created with ID: 1
+07/11/2016 03:34:00 Command executed: createflight 2 WST  2 3 4 01/02/2020
+07/11/2016 03:34:00 Flight created with ID: 2
+07/11/2016 03:34:00 Command executed: createflight 3 NDL  1 2 3 01/03/2020
+07/11/2016 03:34:00 Flight created with ID: 3
+07/11/2016 03:40:07 ------------
+07/11/2016 03:40:07 Manager MTL0001 logged in.
+07/11/2016 03:40:07 Command executed: createflight 1 NDL  2 3 4 01/01/2020
+07/11/2016 03:40:07 Flight created with ID: 1
+07/11/2016 03:40:07 Command executed: createflight 2 WST  2 3 4 01/02/2020
+07/11/2016 03:40:07 Flight created with ID: 2
+07/11/2016 03:40:07 Command executed: createflight 3 NDL  1 2 3 01/03/2020
+07/11/2016 03:40:07 Flight created with ID: 3
+07/11/2016 03:40:20 ------------
+07/11/2016 03:40:20 Manager MTL0001 logged in.
+07/11/2016 03:40:20 Command executed: createflight 1 NDL  2 3 4 01/01/2020
+07/11/2016 03:40:20 ERROR: Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:40:20 Command executed: createflight 2 WST  2 3 4 01/02/2020
+07/11/2016 03:40:20 ERROR: Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:40:20 Command executed: createflight 3 NDL  1 2 3 01/03/2020
+07/11/2016 03:40:20 ERROR: Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:42:01 ------------
+07/11/2016 03:42:01 Manager MTL0001 logged in.
+07/11/2016 03:42:01 Command executed: createflight 1 NDL  2 3 4 01/01/2020
+07/11/2016 03:42:01 Flight created with ID: 1
+07/11/2016 03:42:01 Command executed: createflight 2 WST  2 3 4 01/02/2020
+07/11/2016 03:42:01 Flight created with ID: 2
+07/11/2016 03:42:01 Command executed: createflight 3 NDL  1 2 3 01/03/2020
+07/11/2016 03:42:01 Flight created with ID: 3
+07/11/2016 03:45:17 ------------
+07/11/2016 03:45:17 Manager MTL0001 logged in.
+07/11/2016 03:45:17 Command executed: createflight 1 NDL  2 3 4 01/01/2020
+07/11/2016 03:45:17 Flight created with ID: 1
+07/11/2016 03:45:17 Command executed: createflight 2 WST  2 3 4 01/02/2020
+07/11/2016 03:45:17 Flight created with ID: 2
+07/11/2016 03:45:17 Command executed: createflight 3 NDL  1 2 3 01/03/2020
+07/11/2016 03:45:17 Flight created with ID: 3
+07/11/2016 03:52:42 ------------
+07/11/2016 03:52:42 Manager MTL0001 logged in.
+07/11/2016 03:52:42 Command executed: createflight 1 NDL  2 3 4 01/01/2020
+07/11/2016 03:52:42 Flight created with ID: 1
+07/11/2016 03:52:42 Command executed: createflight 2 WST  2 3 4 01/02/2020
+07/11/2016 03:52:42 Flight created with ID: 2
+07/11/2016 03:52:42 Command executed: createflight 3 NDL  1 2 3 01/03/2020
+07/11/2016 03:52:42 Flight created with ID: 3

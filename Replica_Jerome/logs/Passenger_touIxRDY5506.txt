@@ -1,0 +1,4 @@
+07/11/2016 03:34:00 ------------
+07/11/2016 03:34:00 Passenger from NDL logged in.
+07/11/2016 03:34:00 Command executed: bookaflight Dharmendu Veeramany 1245_Tehas_St 4422881122 WST 01/06/2020 2
+07/11/2016 03:34:00 Successfull booking for flight with ID: 5 for class type: buisness class (2); New passenger record has ID 0

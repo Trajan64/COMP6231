@@ -1,0 +1,3 @@
+07/11/2016 02:06:56 ------------
+07/11/2016 02:06:56 Passenger from MTL logged in.
+07/11/2016 02:07:12 Command executed: bookaflight John Doe 7182_Winchester_St 2654258822 WST 01/01/2020 1

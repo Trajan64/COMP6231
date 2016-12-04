@@ -1,0 +1,13 @@
+module flightReservationApp {
+	
+	interface server {
+	
+		string bookFlight(in string firstName, in string lastName, in string address, in string phone, in string destination, in string date, in unsigned long classType);
+		string getBookedFlight(in unsigned long  recordType);
+		string editFlightRecord(in unsigned long recordID, in string fieldName, in string newValue);
+		string transferReservation(in unsigned long passengerID, in string currentCity, in string otherCity);
+		oneway void stop();
+		
+	};
+	
+};

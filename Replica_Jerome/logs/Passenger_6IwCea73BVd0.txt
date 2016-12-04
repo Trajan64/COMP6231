@@ -1,0 +1,4 @@
+07/11/2016 02:48:27 ------------
+07/11/2016 02:48:27 Passenger from MTL logged in.
+07/11/2016 02:48:27 Command executed: bookaflight Jorge Moore  4445_Radio_Park_Drive 6688888822 NDL 01/03/2020 2
+07/11/2016 02:48:27 Booking failure: Flight found but no seats were available for class type.

@@ -1,0 +1,7 @@
+07/11/2016 00:21:04 ------------
+07/11/2016 00:21:04 Manager MTL1111 logged in.
+07/11/2016 00:21:15 Command executed: getbookedflights
+07/11/2016 00:21:18 Command executed: getbookedflight
+07/11/2016 00:21:22 Command executed: getBookedFlights
+07/11/2016 00:21:40 Command executed: getbookedflightcount
+07/11/2016 00:21:47 Command executed: getbookedflightcount 1

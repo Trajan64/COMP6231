@@ -1,0 +1,112 @@
+07/11/2016 02:48:26 ------------
+07/11/2016 02:48:26 Manager NDL0001 logged in.
+07/11/2016 02:48:26 Command executed: createflight 1 MTL  2 3 4 01/01/2020
+07/11/2016 02:48:26 ERROR: Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 02:48:26 Command executed: createflight 2 WST  2 3 4 01/02/2020
+07/11/2016 02:48:26 Flight created with ID: 2
+07/11/2016 02:48:26 Command executed: createflight 3 MTL  1 2 3 01/03/2020
+07/11/2016 02:48:27 ERROR: Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:22:38 ------------
+07/11/2016 03:22:38 Manager NDL0001 logged in.
+07/11/2016 03:22:38 Command executed: createflight 1 MTL  2 3 4 01/01/2020
+07/11/2016 03:22:38 Flight created with ID: 1
+07/11/2016 03:22:38 Command executed: createflight 2 WST  2 3 4 01/02/2020
+07/11/2016 03:22:38 Flight created with ID: 2
+07/11/2016 03:22:38 Command executed: createflight 3 MTL  1 2 3 01/03/2020
+07/11/2016 03:22:38 ERROR: Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:24:25 ------------
+07/11/2016 03:24:25 Manager NDL0001 logged in.
+07/11/2016 03:24:25 Command executed: createflight 1 MTL  2 3 4 01/01/2020
+07/11/2016 03:24:25 ERROR: Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:24:25 Command executed: createflight 2 WST  2 3 4 01/02/2020
+07/11/2016 03:24:25 ERROR: Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:24:25 Command executed: createflight 3 MTL  1 2 3 01/03/2020
+07/11/2016 03:24:25 ERROR: Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:24:25 ------------
+07/11/2016 03:24:25 Manager NDL0001 logged in.
+07/11/2016 03:24:25 Command executed: transferreservation 0 NDL MTL
+07/11/2016 03:24:25 Transfer unsucessfull for passenger with ID 0: no flights found.
+07/11/2016 03:26:25 ------------
+07/11/2016 03:26:25 Manager NDL0001 logged in.
+07/11/2016 03:26:25 Command executed: createflight 1 MTL  2 3 4 01/01/2020
+07/11/2016 03:26:25 Flight created with ID: 1
+07/11/2016 03:26:25 Command executed: createflight 2 WST  2 3 4 01/02/2020
+07/11/2016 03:26:25 Flight created with ID: 2
+07/11/2016 03:26:25 Command executed: createflight 3 MTL  1 2 3 01/03/2020
+07/11/2016 03:26:25 ERROR: Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:26:25 ------------
+07/11/2016 03:26:25 Manager NDL0001 logged in.
+07/11/2016 03:26:25 Command executed: transferreservation 0 NDL MTL
+07/11/2016 03:26:25 Transfer sucessfull for passenger with ID 0: Passenger has now ID 1; booked flight has ID: 7
+07/11/2016 03:34:00 ------------
+07/11/2016 03:34:00 Manager NDL0001 logged in.
+07/11/2016 03:34:00 Command executed: createflight 1 MTL  2 3 4 01/01/2020
+07/11/2016 03:34:00 Flight created with ID: 1
+07/11/2016 03:34:00 Command executed: createflight 2 WST  2 3 4 01/02/2020
+07/11/2016 03:34:00 Flight created with ID: 2
+07/11/2016 03:34:00 Command executed: createflight 3 MTL  1 2 3 01/03/2020
+07/11/2016 03:34:00 ERROR: Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:34:00 ------------
+07/11/2016 03:34:00 Manager NDL0001 logged in.
+07/11/2016 03:34:00 Command executed: transferreservation 0 NDL MTL
+07/11/2016 03:34:00 Transfer sucessfull for passenger with ID 0: Passenger has now ID 1; booked flight has ID: 7
+07/11/2016 03:40:07 ------------
+07/11/2016 03:40:07 Manager NDL0001 logged in.
+07/11/2016 03:40:07 Command executed: createflight 1 MTL  2 3 4 01/01/2020
+07/11/2016 03:40:07 Flight created with ID: 1
+07/11/2016 03:40:07 Command executed: createflight 2 WST  2 3 4 01/02/2020
+07/11/2016 03:40:07 Flight created with ID: 2
+07/11/2016 03:40:07 Command executed: createflight 3 MTL  1 2 3 01/03/2020
+07/11/2016 03:40:07 ERROR: Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:40:08 ------------
+07/11/2016 03:40:08 Manager NDL0001 logged in.
+07/11/2016 03:40:08 Command executed: transferreservation 0 NDL MTL
+07/11/2016 03:40:08 Transfer sucessfull for passenger with ID 0: Passenger has now ID 1; booked flight has ID: 7
+07/11/2016 03:40:20 ------------
+07/11/2016 03:40:20 Manager NDL0001 logged in.
+07/11/2016 03:40:20 Command executed: createflight 1 MTL  2 3 4 01/01/2020
+07/11/2016 03:40:20 ERROR: Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:40:20 Command executed: createflight 2 WST  2 3 4 01/02/2020
+07/11/2016 03:40:20 ERROR: Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:40:20 Command executed: createflight 3 MTL  1 2 3 01/03/2020
+07/11/2016 03:40:20 ERROR: Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:40:21 ------------
+07/11/2016 03:40:21 Manager NDL0001 logged in.
+07/11/2016 03:40:21 Command executed: transferreservation 0 NDL MTL
+07/11/2016 03:40:21 Passenger with ID 0 not found at NDL server.
+07/11/2016 03:42:01 ------------
+07/11/2016 03:42:01 Manager NDL0001 logged in.
+07/11/2016 03:42:01 Command executed: createflight 1 MTL  2 3 4 01/01/2020
+07/11/2016 03:42:01 Flight created with ID: 1
+07/11/2016 03:42:01 Command executed: createflight 2 WST  2 3 4 01/02/2020
+07/11/2016 03:42:01 Flight created with ID: 2
+07/11/2016 03:42:01 Command executed: createflight 3 MTL  1 2 3 01/03/2020
+07/11/2016 03:42:01 ERROR: Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:42:02 ------------
+07/11/2016 03:42:02 Manager NDL0001 logged in.
+07/11/2016 03:42:02 Command executed: transferreservation 0 NDL MTL
+07/11/2016 03:42:02 Transfer sucessfull for passenger with ID 0: Passenger has now ID 1; booked flight has ID: 7
+07/11/2016 03:45:17 ------------
+07/11/2016 03:45:17 Manager NDL0001 logged in.
+07/11/2016 03:45:17 Command executed: createflight 1 MTL  2 3 4 01/01/2020
+07/11/2016 03:45:17 Flight created with ID: 1
+07/11/2016 03:45:17 Command executed: createflight 2 WST  2 3 4 01/02/2020
+07/11/2016 03:45:17 Flight created with ID: 2
+07/11/2016 03:45:17 Command executed: createflight 3 MTL  1 2 3 01/03/2020
+07/11/2016 03:45:17 ERROR: Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:45:17 ------------
+07/11/2016 03:45:17 Manager NDL0001 logged in.
+07/11/2016 03:45:17 Command executed: transferreservation 0 NDL MTL
+07/11/2016 03:45:17 Transfer sucessfull for passenger with ID 0: Passenger has now ID 1; booked flight has ID: 7
+07/11/2016 03:52:42 ------------
+07/11/2016 03:52:42 Manager NDL0001 logged in.
+07/11/2016 03:52:42 Command executed: createflight 1 MTL  2 3 4 01/01/2020
+07/11/2016 03:52:42 Flight created with ID: 1
+07/11/2016 03:52:42 Command executed: createflight 2 WST  2 3 4 01/02/2020
+07/11/2016 03:52:42 Flight created with ID: 2
+07/11/2016 03:52:42 Command executed: createflight 3 MTL  1 2 3 01/03/2020
+07/11/2016 03:52:42 ERROR: Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:52:42 ------------
+07/11/2016 03:52:42 Manager NDL0001 logged in.
+07/11/2016 03:52:42 Command executed: transferreservation 0 NDL MTL
+07/11/2016 03:52:42 Transfer sucessfull for passenger with ID 0: Passenger has now ID 1; booked flight has ID: 7

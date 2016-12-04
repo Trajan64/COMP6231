@@ -1,0 +1,4 @@
+07/11/2016 02:48:27 ------------
+07/11/2016 02:48:27 Passenger from MTL logged in.
+07/11/2016 02:48:27 Command executed: bookaflight David Evans 1360_Perry_Street 7654258424 NDL 01/03/2020 2
+07/11/2016 02:48:27 Successfull booking for flight with ID: 3 for class type: buisness class (2); New passenger record has ID 2

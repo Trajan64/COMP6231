@@ -3,6 +3,7 @@ package com.frontend;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.LinkedList;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.TimeoutException;
 
 import com.reliableudp.OperationMessage;
@@ -21,7 +22,7 @@ public class FrontEndRequestSender implements OperationMessageProcessorInterface
 	private ContactInformation				m_sequencerInformation;
 	
 	private	int								m_listeningPort;
-	private	LinkedList<OperationMessage>	m_responseBuffer;
+	private	ConcurrentLinkedQueue<OperationMessage>	m_responseBuffer;
 	private	ReliableUDPListener				m_listener;
 	private	int								m_numOfRMs;
 	private int								m_numOfResponses;
@@ -41,6 +42,8 @@ public class FrontEndRequestSender implements OperationMessageProcessorInterface
 		m_listener = new ReliableUDPListener(this);
 		m_listeningPort = m_listener.getPort();		
 		m_listener.start();
+		
+		m_responseBuffer = new ConcurrentLinkedQueue<OperationMessage>();
 		
 		m_methodName = requestComponents.get(0);
 		
@@ -154,20 +157,21 @@ public class FrontEndRequestSender implements OperationMessageProcessorInterface
 	
 	public String getReply() {
 		
-		while (m_numOfResponses < m_numOfRMs) { continue; }
-		
-		Response response = null;
-		
-		// The method response of getBookedFlight require re-formatting to ensure that they have all the same formats.
-		Response[] responses = new Response[3];
-		for (int i = 0; i < m_numOfResponses; i++) {
-			responses[i] = new Response(m_responseBuffer.get(i), m_methodName);
-		}
-		
-		
-		// We have gathered the responses from all (available) the replica managers.
+		Response response = null;		
 		
 		if (m_mode == SystemInitializer.MODE_ERROR_RECOVERY) {
+		
+			while (m_numOfResponses < m_numOfRMs) { continue; }
+			
+			
+			// The method response of getBookedFlight require re-formatting to ensure that they have all the same formats.
+			Response[] responses = new Response[3];
+			for (int i = 0; i < m_numOfResponses; i++) {
+				responses[i] = new Response(m_responseBuffer.poll(), m_methodName);
+			}
+			
+			
+			// We have gathered the responses from all (available) the replica managers.
 			
 			// Check the number of available replicas.
 			if (m_numOfRMs == 2) {
@@ -234,7 +238,7 @@ public class FrontEndRequestSender implements OperationMessageProcessorInterface
 			while (m_numOfResponses < 1) { continue; }
 			
 			// We have at least one response inside the buffer.
-			response = new Response(m_responseBuffer.get(0), m_methodName);
+			response = new Response(m_responseBuffer.poll(), m_methodName);
 			
 		}
 

@@ -1,0 +1,4 @@
+07/11/2016 03:22:39 ------------
+07/11/2016 03:22:39 Passenger from MTL logged in.
+07/11/2016 03:22:39 Command executed: bookaflight Timothy Franco 924_Hall_Valley_Drive 4654243867 NDL 01/03/2020 2
+07/11/2016 03:22:39 Booking failure: Flight found but no seats were available for class type.

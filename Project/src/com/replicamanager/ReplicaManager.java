@@ -4,6 +4,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.TimeoutException;
 
 import com.reliableudp.OperationMessage;
@@ -127,14 +128,14 @@ public class ReplicaManager extends Thread implements OperationMessageProcessorI
 	
 	private void restartReplicaClient(int newImplementationId) {
 		
-		m_logger.log("Proceeding to restart replica..");
+		m_logger.log("MAIN THREAD> Proceeding to restart replica..");
 
 		// Set status as unavailable.
 		// Requests to pass to the ReplicaClient instance will only be buffered.
 		m_available = false;
 		
 		if (m_mode == SystemInitializer.MODE_ERROR_RECOVERY) {
-			
+						
 			// We need to empty the request queue from all leftover requests. 
 			// Those requests will not receive a message, and in the case of error recovery, the respective FEs should be informed.
 			
@@ -142,6 +143,9 @@ public class ReplicaManager extends Thread implements OperationMessageProcessorI
 			while (m_listenerIsProcessingRequest) {
 				continue;
 			}
+			m_logger.log("MAIN THREAD> Passing of requests to queue buffer has been switched off..");
+			
+			m_logger.log("MAIN THREAD> Proceeding to clean queue from left-over requests..");
 			
 			// Secondly, we clean the queue from any leftover requests and inform the respective FEs.
 			for (int i = 0; i < m_requestQueue.size(); i++) {
@@ -154,6 +158,8 @@ public class ReplicaManager extends Thread implements OperationMessageProcessorI
 					
 					// Inform the FE that it will not receive a response from this request.
 					notifyUnavavailabilityToFrontEnd(message);
+					
+					m_logger.log("MAIN THREAD> Message removed from queue: " + message.getMessage());
 					
 					// Remove request from queue.
 					m_requestQueue.remove(i);
@@ -172,21 +178,28 @@ public class ReplicaManager extends Thread implements OperationMessageProcessorI
 		m_replicaClient = new ReplicaClient(newImplementationId, m_replicaClientPort, m_replicaManagerInformations[m_id], m_mode);
 		m_replicaClient.start();
 		
-		m_logger.log("\tReplica restarted. Replica uses implementation id " + newImplementationId);
+		m_logger.log("MAIN THREAD> Replica restarted. Replica uses implementation id " + newImplementationId);
 		
 		// Feed past requests to the replica client so that it will have the same state as the other replica clients.
 		ReliableUDPSender sender = new ReliableUDPSender(m_replicaClientInformation.getAddress(), m_replicaClientInformation.getPort());
+		
+		m_logger.log("MAIN THREAD> Proceeding to update replica's state by feeding it past requests..");
 		
 		for (int i = 0; i < m_savedRequests.size(); i++) {
 			
 			OperationMessage request = m_savedRequests.get(i);
 			request.setOpid(OperationMessage.STATEUPDATEREQUEST);
+			
+			m_logger.log("MAIN THREAD> request passed as STATEUPDATEREQUEST to replica client.. request is: " + request);
+			
 			try { sender.send(request); } catch (TimeoutException e) { e.printStackTrace(); }
 			
 		}
 		
 		// Send restarted message to all the other replicamanagers.
 		if (m_mode == SystemInitializer.MODE_HIGH_AVAILABILITY) {
+			
+			m_logger.log("MAIN THREAD> Sending RESTARTED signal to all the other replica managers..");
 			
 			OperationMessage restartedMessage = new OperationMessage(OperationMessage.RESTARTED);
 			
@@ -198,6 +211,8 @@ public class ReplicaManager extends Thread implements OperationMessageProcessorI
 				InetAddress address = m_replicaManagerInformations[i].getAddress();
 				int port = m_replicaManagerInformations[i].getPort();
 				
+				m_logger.log("MAIN THREAD> Sending RESTARTED signal to replica manager with id " + i);
+				
 				ReliableUDPSender senderToRM = new ReliableUDPSender(address, port);
 				try { senderToRM.send(restartedMessage); } catch (TimeoutException e) { e.printStackTrace(); }
 				
@@ -208,6 +223,9 @@ public class ReplicaManager extends Thread implements OperationMessageProcessorI
 		
 		// Switch availability to true.
 		m_available = true;
+		
+		m_logger.log("MAIN THREAD> Replica client has finished restarting and is ready to take in new requests.");
+
 	}
 	
 	
@@ -235,10 +253,14 @@ public class ReplicaManager extends Thread implements OperationMessageProcessorI
 			while (!m_requestQueue.isEmpty()) {
 				
 				OperationMessage message = m_requestQueue.poll();
+
+				m_logger.log("MAIN THREAD> New message in queue to be processed by main thread: " + message.getMessage());
 				
 				switch(message.getOpid()) {
 				
 					case OperationMessage.STATEUPDATEREQUEST:
+						
+						m_logger.log("MAIN THREAD> Passing STATEUPDATEREQUEST to replica client.");
 						
 						sendRequest(message);
 						
@@ -255,6 +277,8 @@ public class ReplicaManager extends Thread implements OperationMessageProcessorI
 						
 					
 					case OperationMessage.SOFTWAREFAILURE:
+						
+						m_logger.log("MAIN THREAD> System has encountered maximum number of software failure. Faulty implementation has id: " + m_currentImplementationId);
 						
 						// Maximum number of error reached: 
 						// We need to restart the replica with another implementation.
@@ -275,10 +299,15 @@ public class ReplicaManager extends Thread implements OperationMessageProcessorI
 							
 						}
 						
+						m_logger.log("MAIN THREAD> New clean implementation has ID: " + m_currentImplementationId);
+
+						
 						restartReplicaClient(implementationToLoad);
 						break;
 		
 					case OperationMessage.REQUEST:
+						
+						m_logger.log("MAIN THREAD> Passing request to replica client.");
 						
 						sendRequest(message);
 						
@@ -324,8 +353,13 @@ public class ReplicaManager extends Thread implements OperationMessageProcessorI
 		int requestId = Integer.parseInt(request.getContentComponents().get(0));
 		LinkedList<OperationMessage> requests = new LinkedList<OperationMessage>();
 		
+		m_logger.log("LISTENER> Request has requestId " + requestId + ". Last validated id is: " + m_previousValidatedRequestId);
+		
 		//TODO: requestIdWe need to keep the first element as being representative of the request id. Change ReplicaClient.
 		if (requestId-1 == m_previousValidatedRequestId) {
+			
+			m_logger.log("LISTENER> Request is the immediate successor of previous request id.");
+			m_logger.log("LISTENER> Proceeding to see if other buffered requests can be freed up..");
 			
 			// Add it to the sequentially ordered list of requests.
 			m_savedRequests.add(request);
@@ -342,6 +376,8 @@ public class ReplicaManager extends Thread implements OperationMessageProcessorI
 					OperationMessage validated = m_requestBuffer.get(id);
 					m_requestBuffer.remove(id);
 					
+					m_logger.log("LISTENER> Request in buffer with id: " + id + "freed from buffer. Message is:" + validated.getMessage());
+					
 					m_savedRequests.add(validated);
 					requests.add(request);
 				}
@@ -354,6 +390,8 @@ public class ReplicaManager extends Thread implements OperationMessageProcessorI
 		}
 		
 		else {
+			
+			m_logger.log("LISTENER> RequestId is not the immediate successor of previous request id. Request was put into the request buffer.");
 			
 			// Only put request in buffer.
 			m_requestBuffer.put(requestId, request);
@@ -369,6 +407,8 @@ public class ReplicaManager extends Thread implements OperationMessageProcessorI
 	// Send an unavailable message to a specific front end.
 	private void notifyUnavavailabilityToFrontEnd(OperationMessage message) {
 		
+		m_logger.log("LISTENER> FE will be notified of unavaiability of the request manager. Request is: " + message.getMessage());
+		
 		LinkedList<String> content = message.getContentComponents();
 		
 		InetAddress frontEndAddress = null;
@@ -378,6 +418,8 @@ public class ReplicaManager extends Thread implements OperationMessageProcessorI
 
 		
 		OperationMessage unavailableMessage = new OperationMessage(OperationMessage.RMUNAVAILABLE);
+		
+		m_logger.log("LISTENER> Sending message to " + frontEndAddress.toString() + ", " + Integer.toString(frontEndPort));
 		
 		ReliableUDPSender sender = new ReliableUDPSender(frontEndAddress, frontEndPort);
 		try { sender.send(unavailableMessage); } catch (TimeoutException e) { e.printStackTrace(); }
@@ -391,21 +433,29 @@ public class ReplicaManager extends Thread implements OperationMessageProcessorI
 	
 	public OperationMessage processRequest(OperationMessage message) {
 		
+		m_logger.log("LISTENER> New message received: " + message.getMessage());
+		
 		switch (message.getOpid()) {
+		
 		
 			case OperationMessage.REQUEST:
 				
 				m_listenerIsProcessingRequest = true;
 				
+				m_logger.log("LISTENER> New message processed as REQUEST.");
+
 				if (m_available) {
 					
+					m_logger.log("LISTENER> Replica manager is available and ready to process the request.");
+
 					LinkedList<OperationMessage> requests = dequeue(message);
 					
 					if (requests != null) {
 						// The requests, and possibly other buffered up past requests have been extracted.
 						// Send all of them into the requestQueue so that it will be processed by the main thread.
 						for (int i = 0; i < requests.size(); i++) {
-							m_requestQueue.add(requests.get(i));
+							m_logger.log("LISTENER> Proceeding to put in request to request queue: " + message.getMessage());
+							m_requestQueue.offer(requests.get(i));
 						}
 						
 					}
@@ -414,6 +464,8 @@ public class ReplicaManager extends Thread implements OperationMessageProcessorI
 				}
 				
 				else {
+					
+					m_logger.log("LISTENER> Replica manager is currently unable to process and get replies from new requests.");
 					
 					// Ensure that the request will not be processed.
 					//TODO: Maybe requests that are after this request in the request buffer could be processed.
@@ -426,6 +478,10 @@ public class ReplicaManager extends Thread implements OperationMessageProcessorI
 					
 						// We should message each of the FEs to let them know they cannot expect the replica manager to respond to those requests.
 						for (int i = 0; i < requests.size(); i++) {
+														
+							// Change request to STATEUPDATEREQUEST.
+							requests.get(i).setOpid(OperationMessage.STATEUPDATEREQUEST);
+							
 							notifyUnavavailabilityToFrontEnd(requests.get(i));
 						}
 					}

@@ -1,0 +1,6 @@
+07/11/2016 02:48:27 ------------
+07/11/2016 02:48:27 Passenger from MTL logged in.
+07/11/2016 02:48:27 Command executed: bookaflight John Doe 7182_Winchester_St 2654258822 NDL 01/01/2020 1
+07/11/2016 02:48:27 Successfull booking for flight with ID: 1 for class type: first class (1); New passenger record has ID 0
+07/11/2016 02:48:27 Command executed: bookaflight John Doe 7182_Winchester_St 2654258822 WST 01/01/2020 1
+07/11/2016 02:48:27 Booking failure: No flight found.
