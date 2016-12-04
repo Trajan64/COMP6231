@@ -118,7 +118,7 @@ public class ReplicaManager extends Thread implements OperationMessageProcessorI
 	
 	public void startReplica() {
 		
-		m_replicaClient = new ReplicaClient(m_currentImplementationId, m_replicaClientPort, m_replicaManagerInformations[m_id], m_mode);
+		m_replicaClient = new ReplicaClient(m_currentImplementationId, m_replicaClientPort, m_replicaManagerInformations[m_id], m_mode, m_id);
 		//m_replicaClient.start();	
 		
 		m_logger.log("Replica started.");
@@ -184,7 +184,7 @@ public class ReplicaManager extends Thread implements OperationMessageProcessorI
 		
 		// Process to restart.
 		m_replicaClient = null;
-		m_replicaClient = new ReplicaClient(newImplementationId, m_replicaClientPort, m_replicaManagerInformations[m_id], m_mode);
+		m_replicaClient = new ReplicaClient(newImplementationId, m_replicaClientPort, m_replicaManagerInformations[m_id], m_mode, m_id);
 		m_replicaClient.start();
 		
 		m_logger.log("MAIN THREAD> Replica restarted. Replica uses implementation id " + newImplementationId);

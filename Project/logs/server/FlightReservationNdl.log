@@ -1,0 +1,5 @@
+Sun Dec 04 05:38:31 EST 2016 : Ndl server ::: Start FlightReservationImpl:: start() method
+Sun Dec 04 05:38:31 EST 2016 : Ndl server ::: FlightReservationImpl:: start() ::UDP Server Thread Started
+Sun Dec 04 05:38:31 EST 2016 : Start FlightReservationImpl:: run() method
+Sun Dec 04 05:38:31 EST 2016 : udpServerPort---6792
+Sun Dec 04 05:38:31 EST 2016 : Ndl server ::: End FlightReservationImpl:: start() method

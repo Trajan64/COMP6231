@@ -36,6 +36,7 @@ public class FrontEnd extends FlightReservationPOA {
 		
 		public Request(String methodName) {
 			m_components = new LinkedList<String>();
+			m_components.add(methodName);
 		}
 		
 		public void addArgument(String argument) {

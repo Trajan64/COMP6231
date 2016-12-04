@@ -10,7 +10,7 @@ import org.omg.CosNaming.NamingContextExtHelper;
 
 import FlightReservationApp.FlightReservation;
 import FlightReservationApp.FlightReservationHelper;
-import FlightReservationApp.ServerInit;
+//import FlightReservationApp.ServerInit;
 
 import com.reliableudp.OperationMessage;
 import com.reliableudp.OperationMessageProcessorInterface;
@@ -47,10 +47,12 @@ public class ReplicaClient extends Thread implements OperationMessageProcessorIn
 	private	ORB					m_orb;
 	
 	private	SynchronizedLogger	m_logger;
+	private int m_id;
 	
 	
-	public ReplicaClient(int implementationId, int outPort, ReplicaManagerInformation parentReplicaManagerInformation, int mode) {
+	public ReplicaClient(int implementationId, int outPort, ReplicaManagerInformation parentReplicaManagerInformation, int mode, int id) {
 		
+		m_id = id;
 
 		m_erroneousBehavior = false;
 		
@@ -128,22 +130,25 @@ public class ReplicaClient extends Thread implements OperationMessageProcessorIn
 		break;
 		
 		case IMPLEMENTATION_VALERIE:
+			
+			//System.out.println("ID for naming service:" + m_parentReplicaManagerInformation);
+			
 			switch (city) {
 			case "MTL":
-				StartServerMTL serverImplMtl = new StartServerMTL();
+				StartServerMTL serverImplMtl = new StartServerMTL(m_id + "");
 				Thread threadMTL = new Thread(serverImplMtl);
 				threadMTL.start();
 				break;
 
 			case "WST":
 
-				StartServerWST serverImplWst = new StartServerWST();
+				StartServerWST serverImplWst = new StartServerWST(m_id  + "");
 				Thread threadWST = new Thread(serverImplWst);
 				threadWST.start();
 
 				break;
 			case "NDL":
-				StartServerNDL serverImplNdl = new StartServerNDL();
+				StartServerNDL serverImplNdl = new StartServerNDL(m_id + "");
 				Thread threadNDL = new Thread(serverImplNdl);
 				threadNDL.start();
 				break;
@@ -227,12 +232,15 @@ public class ReplicaClient extends Thread implements OperationMessageProcessorIn
 			objRef = m_orb.resolve_initial_references("NameService");
 			NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
 			
-			 server = FlightReservationHelper.narrow(ncRef.resolve_str(toCity + "_" + m_currentImplementationId));
+			m_logger.log("ncref " + toCity + "_" + m_id);
+			System.out.println("ncref " + toCity + "_" + m_id);
+			server = FlightReservationHelper.narrow(ncRef.resolve_str(toCity + "_" + m_id));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+		m_logger.log("Method to be called:" + methodName + ". City is : " + toCity);
 				
 		String response = null;
 		
@@ -245,9 +253,14 @@ public class ReplicaClient extends Thread implements OperationMessageProcessorIn
 			String 	phone = args[3];
 			String 	destination = args[4];
 			String 	date = args[5];
-			int		classType = Integer.parseInt(args[6]);
+			String		classType = args[6];
 			
-			response = server.bookFlight(firstName, lastName, address, phone, destination, date, classType+"");
+			m_logger.log("Method bookFlight about to be called.");
+			for (int i = 0; i < 7;i++) {
+				m_logger.log("Argument " + i + ":" + args[i]);
+			}
+			
+			response = server.bookFlight(firstName, lastName, address, phone, destination, date, classType);
 			
 		}
 		
@@ -329,7 +342,7 @@ public class ReplicaClient extends Thread implements OperationMessageProcessorIn
 			
 			String response;
 			
-			if (m_erroneousBehavior = true) { 
+			if (m_erroneousBehavior == true) { 
 				
 				m_logger.log("Responding with errneous data.");
 				 response = "errorneous output"; 
@@ -354,10 +367,14 @@ public class ReplicaClient extends Thread implements OperationMessageProcessorIn
 			// Reply to the front end.
 			OperationMessage replyToCallee = new OperationMessage(OperationMessage.RESPONSE);
 			
-			replyToCallee.addMessageComponent(frontEndCallee.getAddressString());
-			replyToCallee.addMessageComponent(frontEndCallee.getPortString());			
+			replyToCallee.addMessageComponent(m_parentReplicaManagerInformation.getAddressString());
+			replyToCallee.addMessageComponent(m_parentReplicaManagerInformation.getPortString());			
 			
 			replyToCallee.addMessageComponent(response);
+			
+			replyToCallee.buildMessage();
+			
+			m_logger.log("Reply to front end is:" + replyToCallee.getMessage());
 			
 			ReliableUDPSender sender = new ReliableUDPSender(frontEndCallee.getAddress(), frontEndCallee.getPort());
 			

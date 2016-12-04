@@ -14,8 +14,15 @@ import com.server.FlightReservationImplMtl;
 import FlightReservationApp.*;
 
 public class StartServerMTL implements Runnable {
+	
+public String id = "";
+	
+	public StartServerMTL(String id) {
+		this.id= id;
+	}
+	
 	public static void main(String[] args) {
-		StartServerMTL serverMTL = new StartServerMTL();
+		StartServerMTL serverMTL = new StartServerMTL("2");
 		Thread thread = new Thread(serverMTL);
 		thread.start();
 	}
@@ -51,7 +58,8 @@ public class StartServerMTL implements Runnable {
 			NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
 
 			// bind the Object Reference in Naming
-			String name = Constants.MTL;
+			String name = Constants.MTL+"_"+id;
+			System.out.println(Constants.MTL+"_"+id);
 			NameComponent path[] = ncRef.to_name(name);
 			ncRef.rebind(path, sref);
 

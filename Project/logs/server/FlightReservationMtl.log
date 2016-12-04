@@ -1,0 +1,16 @@
+Sun Dec 04 05:38:31 EST 2016 : Mtl server ::: Start FlightReservationImpl:: start() method
+Sun Dec 04 05:38:31 EST 2016 : Start FlightReservationImpl:: run() method
+Sun Dec 04 05:38:31 EST 2016 : udpServerPort---6790
+Sun Dec 04 05:38:31 EST 2016 : Mtl server ::: FlightReservationImpl:: start() ::UDP Server Thread Started
+Sun Dec 04 05:38:31 EST 2016 : Mtl server ::: End FlightReservationImpl:: start() method
+Sun Dec 04 05:38:53 EST 2016 : Start FlightReservationImpl:: bookFlight() method
+Sun Dec 04 05:38:53 EST 2016 : firstName : dsdas
+Sun Dec 04 05:38:53 EST 2016 : lastName : dasdas
+Sun Dec 04 05:38:53 EST 2016 : address : sdasd
+Sun Dec 04 05:38:53 EST 2016 : phone : dasdas
+Sun Dec 04 05:38:53 EST 2016 : destination : NDL
+Sun Dec 04 05:38:53 EST 2016 : Date : 12/12/2016
+Sun Dec 04 05:38:53 EST 2016 : FlightClass : 2
+Sun Dec 04 05:38:53 EST 2016 : Record Id for passenger :: Default1
+Sun Dec 04 05:38:54 EST 2016 : No flight available for Destination=NDL on date=12/12/2016
+Sun Dec 04 05:38:54 EST 2016 : End FlightReservationImpl:: bookFlight() method

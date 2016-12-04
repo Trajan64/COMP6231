@@ -12,8 +12,16 @@ import com.config.Constants;
 import FlightReservationApp.*;
 
 public class StartServerNDL implements Runnable {
+	
+public String id = "";
+	
+	public StartServerNDL(String id) {
+		this.id= id;
+	}
+	
+	
 	public static void main(String[] args) {
-		StartServerNDL serverNDL = new StartServerNDL();
+		StartServerNDL serverNDL = new StartServerNDL("2");
 		Thread thread = new Thread(serverNDL);
 		thread.start();
 	}
@@ -49,7 +57,8 @@ public class StartServerNDL implements Runnable {
 			NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
 
 			// bind the Object Reference in Naming
-			String name = Constants.NDL;
+			String name = Constants.NDL+"_"+id;
+			System.out.println("NDL server ncref " + name);
 			NameComponent path[] = ncRef.to_name(name);
 			ncRef.rebind(path, sref);
 

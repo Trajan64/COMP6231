@@ -1,0 +1,254 @@
+07/11/2016 02:37:57 -------------------
+07/11/2016 02:37:57 Server is now live.
+07/11/2016 02:41:58 -------------------
+07/11/2016 02:41:58 Server is now live.
+07/11/2016 02:42:42 - editFlightRecord called with arguments: (1, create, 1 null MTL 2 3 4 01/01/2020)
+07/11/2016 02:42:42 Flight ID1 created; [ Dest: MTL, SFC: 2, SBC: 3, SBC: 4, Date: Wed Jan 01 00:00:00 EST 2020 ]
+07/11/2016 02:43:01 - getBookedFlight called with arguments: (1)
+07/11/2016 02:43:01 Counting booked records for first class (1) type: 0
+07/11/2016 02:48:26 - editFlightRecord called with arguments: (1, create, 1 null MTL 2 3 4 01/01/2020)
+07/11/2016 02:48:26 Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 02:48:26 - editFlightRecord called with arguments: (3, create, 3 null MTL 1 2 3 01/06/2020)
+07/11/2016 02:48:26 Flight ID3 created; [ Dest: MTL, SFC: 1, SBC: 2, SBC: 3, Date: Mon Jan 06 00:00:00 EST 2020 ]
+07/11/2016 02:48:26 - editFlightRecord called with arguments: (2, create, 2 null WST 2 3 4 01/02/2020)
+07/11/2016 02:48:26 Flight ID2 created; [ Dest: WST, SFC: 2, SBC: 3, SBC: 4, Date: Thu Jan 02 00:00:00 EST 2020 ]
+07/11/2016 02:48:27 - editFlightRecord called with arguments: (3, create, 3 null MTL 1 2 3 01/03/2020)
+07/11/2016 02:48:27 Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 02:48:27 - editFlightRecord called with arguments: (4, create, 4 null WST 1 2 3 01/07/2020)
+07/11/2016 02:48:27 Flight ID4 created; [ Dest: WST, SFC: 1, SBC: 2, SBC: 3, Date: Tue Jan 07 00:00:00 EST 2020 ]
+07/11/2016 02:48:27 - editFlightRecord called with arguments: (5, create, 5 null WST 1 2 3 01/08/2020)
+07/11/2016 02:48:27 Flight ID5 created; [ Dest: WST, SFC: 1, SBC: 2, SBC: 3, Date: Wed Jan 08 00:00:00 EST 2020 ]
+07/11/2016 02:48:27 - bookFlight called with arguments: (Dharmendu, Veeramany, 1245_Tehas_St, 4422881122, MTL, 01/06/2020, 2)
+07/11/2016 02:48:27 Successfull booking for flight with ID: 3 for class type: buisness class (2); New passenger record has ID 0
+07/11/2016 02:48:27 - bookFlight called with arguments: (Tej, Yadavalli, 9565_Haryana_St, 7428888822, MTL, 01/06/2020, 2)
+07/11/2016 02:48:27 Successfull booking for flight with ID: 3 for class type: buisness class (2); New passenger record has ID 1
+07/11/2016 02:48:27 UDP packet received: REQ getBookedFlights 0
+07/11/2016 02:48:27 Counting booked records for all classes (0) type: 2
+07/11/2016 02:48:27 UDP packet received: REQ getBookedFlights 1
+07/11/2016 02:48:27 Counting booked records for first class (1) type: 0
+07/11/2016 02:48:27 UDP packet received: REQ getBookedFlights 2
+07/11/2016 02:48:27 Counting booked records for buisness class (2) type: 2
+07/11/2016 02:48:27 UDP packet received: REQ getBookedFlights 3
+07/11/2016 02:48:27 Counting booked records for economy class (3) type: 0
+07/11/2016 03:21:39 Server stopped.
+07/11/2016 03:22:27 -------------------
+07/11/2016 03:22:27 Server is now live.
+07/11/2016 03:22:38 - editFlightRecord called with arguments: (3, create, 3 null MTL 1 2 3 01/06/2020)
+07/11/2016 03:22:38 - editFlightRecord called with arguments: (1, create, 1 null MTL 2 3 4 01/01/2020)
+07/11/2016 03:22:38 Flight ID3 created; [ Dest: MTL, SFC: 1, SBC: 2, SBC: 3, Date: Mon Jan 06 00:00:00 EST 2020 ]
+07/11/2016 03:22:38 Flight ID1 created; [ Dest: MTL, SFC: 2, SBC: 3, SBC: 4, Date: Wed Jan 01 00:00:00 EST 2020 ]
+07/11/2016 03:22:38 - editFlightRecord called with arguments: (2, create, 2 null WST 2 3 4 01/02/2020)
+07/11/2016 03:22:38 - editFlightRecord called with arguments: (4, create, 4 null WST 1 2 3 01/07/2020)
+07/11/2016 03:22:38 Flight ID2 created; [ Dest: WST, SFC: 2, SBC: 3, SBC: 4, Date: Thu Jan 02 00:00:00 EST 2020 ]
+07/11/2016 03:22:38 Flight ID4 created; [ Dest: WST, SFC: 1, SBC: 2, SBC: 3, Date: Tue Jan 07 00:00:00 EST 2020 ]
+07/11/2016 03:22:38 - editFlightRecord called with arguments: (3, create, 3 null MTL 1 2 3 01/03/2020)
+07/11/2016 03:22:38 - editFlightRecord called with arguments: (5, create, 5 null WST 1 2 3 01/08/2020)
+07/11/2016 03:22:38 Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:22:38 Flight ID5 created; [ Dest: WST, SFC: 1, SBC: 2, SBC: 3, Date: Wed Jan 08 00:00:00 EST 2020 ]
+07/11/2016 03:22:39 - bookFlight called with arguments: (Dharmendu, Veeramany, 1245_Tehas_St, 4422881122, MTL, 01/06/2020, 2)
+07/11/2016 03:22:39 Successfull booking for flight with ID: 3 for class type: buisness class (2); New passenger record has ID 0
+07/11/2016 03:22:39 - bookFlight called with arguments: (Tej, Yadavalli, 9565_Haryana_St, 7428888822, MTL, 01/06/2020, 2)
+07/11/2016 03:22:39 Successfull booking for flight with ID: 3 for class type: buisness class (2); New passenger record has ID 1
+07/11/2016 03:22:39 UDP packet received: REQ getBookedFlights 0
+07/11/2016 03:22:39 Counting booked records for all classes (0) type: 2
+07/11/2016 03:22:39 UDP packet received: REQ getBookedFlights 1
+07/11/2016 03:22:39 Counting booked records for first class (1) type: 0
+07/11/2016 03:22:39 UDP packet received: REQ getBookedFlights 2
+07/11/2016 03:22:39 Counting booked records for buisness class (2) type: 2
+07/11/2016 03:22:39 UDP packet received: REQ getBookedFlights 3
+07/11/2016 03:22:39 Counting booked records for economy class (3) type: 0
+07/11/2016 03:24:25 - editFlightRecord called with arguments: (3, create, 3 null MTL 1 2 3 01/06/2020)
+07/11/2016 03:24:25 Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:24:25 - editFlightRecord called with arguments: (1, create, 1 null MTL 2 3 4 01/01/2020)
+07/11/2016 03:24:25 Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:24:25 - editFlightRecord called with arguments: (2, create, 2 null WST 2 3 4 01/02/2020)
+07/11/2016 03:24:25 Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:24:25 - editFlightRecord called with arguments: (4, create, 4 null WST 1 2 3 01/07/2020)
+07/11/2016 03:24:25 Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:24:25 - editFlightRecord called with arguments: (3, create, 3 null MTL 1 2 3 01/03/2020)
+07/11/2016 03:24:25 Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:24:25 - editFlightRecord called with arguments: (5, create, 5 null WST 1 2 3 01/06/2020)
+07/11/2016 03:24:25 Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:24:25 - bookFlight called with arguments: (Dharmendu, Veeramany, 1245_Tehas_St, 4422881122, WST, 01/06/2020, 2)
+07/11/2016 03:24:25 Booking failure: No flight found.
+07/11/2016 03:24:25 - transferReservation called with arguments: (0, NDL, MTL)
+07/11/2016 03:24:25 Source city is the same as this server for passenger with ID: 0
+07/11/2016 03:24:25 Received transfer reservation request to MTL for passenger with ID 0
+07/11/2016 03:24:25 Passenger with ID 0 found.
+07/11/2016 03:24:25 Transfer request sent through UDP to MTL for passenger with ID 0
+07/11/2016 03:24:25 Reply received for transfert request from MTL for passenger with ID 0. Reply is: REPLY 0 Transfer unsucessfull for passenger with ID 0: no flights found.
+07/11/2016 03:24:25 Transfer operation on the other city was unsucessful.
+07/11/2016 03:26:19 -------------------
+07/11/2016 03:26:19 Server is now live.
+07/11/2016 03:26:25 - editFlightRecord called with arguments: (1, create, 1 null MTL 2 3 4 01/01/2020)
+07/11/2016 03:26:25 - editFlightRecord called with arguments: (3, create, 3 null MTL 1 2 3 01/06/2020)
+07/11/2016 03:26:25 Flight ID1 created; [ Dest: MTL, SFC: 2, SBC: 3, SBC: 4, Date: Wed Jan 01 00:00:00 EST 2020 ]
+07/11/2016 03:26:25 Flight ID3 created; [ Dest: MTL, SFC: 1, SBC: 2, SBC: 3, Date: Mon Jan 06 00:00:00 EST 2020 ]
+07/11/2016 03:26:25 - editFlightRecord called with arguments: (2, create, 2 null WST 2 3 4 01/02/2020)
+07/11/2016 03:26:25 - editFlightRecord called with arguments: (4, create, 4 null WST 1 2 3 01/07/2020)
+07/11/2016 03:26:25 Flight ID2 created; [ Dest: WST, SFC: 2, SBC: 3, SBC: 4, Date: Thu Jan 02 00:00:00 EST 2020 ]
+07/11/2016 03:26:25 Flight ID4 created; [ Dest: WST, SFC: 1, SBC: 2, SBC: 3, Date: Tue Jan 07 00:00:00 EST 2020 ]
+07/11/2016 03:26:25 - editFlightRecord called with arguments: (5, create, 5 null WST 1 2 3 01/06/2020)
+07/11/2016 03:26:25 Flight ID5 created; [ Dest: WST, SFC: 1, SBC: 2, SBC: 3, Date: Mon Jan 06 00:00:00 EST 2020 ]
+07/11/2016 03:26:25 - editFlightRecord called with arguments: (3, create, 3 null MTL 1 2 3 01/03/2020)
+07/11/2016 03:26:25 Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:26:25 - bookFlight called with arguments: (Dharmendu, Veeramany, 1245_Tehas_St, 4422881122, WST, 01/06/2020, 2)
+07/11/2016 03:26:25 Successfull booking for flight with ID: 5 for class type: buisness class (2); New passenger record has ID 0
+07/11/2016 03:26:25 - transferReservation called with arguments: (0, NDL, MTL)
+07/11/2016 03:26:25 Source city is the same as this server for passenger with ID: 0
+07/11/2016 03:26:25 Received transfer reservation request to MTL for passenger with ID 0
+07/11/2016 03:26:25 Passenger with ID 0 found.
+07/11/2016 03:26:25 Transfer request sent through UDP to MTL for passenger with ID 0
+07/11/2016 03:26:25 Reply received for transfert request from MTL for passenger with ID 0. Reply is: REPLY 2 Transfer sucessfull for passenger with ID 0: Passenger has now ID 1; booked flight has ID: 7
+07/11/2016 03:26:25 Transfer operation on the other city was sucessful.
+07/11/2016 03:26:25 Passenger with ID 0 removed from flight with ID 5
+07/11/2016 03:31:33 -------------------
+07/11/2016 03:31:33 Server is now live.
+07/11/2016 03:31:38 Server stopped.
+07/11/2016 03:33:50 -------------------
+07/11/2016 03:33:50 Server is now live.
+07/11/2016 03:34:00 - editFlightRecord called with arguments: (3, create, 3 null MTL 1 2 3 01/06/2020)
+07/11/2016 03:34:00 - editFlightRecord called with arguments: (1, create, 1 null MTL 2 3 4 01/01/2020)
+07/11/2016 03:34:00 Flight ID3 created; [ Dest: MTL, SFC: 1, SBC: 2, SBC: 3, Date: Mon Jan 06 00:00:00 EST 2020 ]
+07/11/2016 03:34:00 Flight ID1 created; [ Dest: MTL, SFC: 2, SBC: 3, SBC: 4, Date: Wed Jan 01 00:00:00 EST 2020 ]
+07/11/2016 03:34:00 - editFlightRecord called with arguments: (4, create, 4 null WST 1 2 3 01/07/2020)
+07/11/2016 03:34:00 Flight ID4 created; [ Dest: WST, SFC: 1, SBC: 2, SBC: 3, Date: Tue Jan 07 00:00:00 EST 2020 ]
+07/11/2016 03:34:00 - editFlightRecord called with arguments: (2, create, 2 null WST 2 3 4 01/02/2020)
+07/11/2016 03:34:00 Flight ID2 created; [ Dest: WST, SFC: 2, SBC: 3, SBC: 4, Date: Thu Jan 02 00:00:00 EST 2020 ]
+07/11/2016 03:34:00 - editFlightRecord called with arguments: (5, create, 5 null WST 1 2 3 01/06/2020)
+07/11/2016 03:34:00 Flight ID5 created; [ Dest: WST, SFC: 1, SBC: 2, SBC: 3, Date: Mon Jan 06 00:00:00 EST 2020 ]
+07/11/2016 03:34:00 - editFlightRecord called with arguments: (3, create, 3 null MTL 1 2 3 01/03/2020)
+07/11/2016 03:34:00 Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:34:00 - bookFlight called with arguments: (Dharmendu, Veeramany, 1245_Tehas_St, 4422881122, WST, 01/06/2020, 2)
+07/11/2016 03:34:00 Successfull booking for flight with ID: 5 for class type: buisness class (2); New passenger record has ID 0
+07/11/2016 03:34:00 - transferReservation called with arguments: (0, NDL, MTL)
+07/11/2016 03:34:00 Source city is the same as this server for passenger with ID: 0
+07/11/2016 03:34:00 Received transfer reservation request to MTL for passenger with ID 0
+07/11/2016 03:34:00 Passenger with ID 0 found.
+07/11/2016 03:34:00 Transfer request sent through UDP to MTL for passenger with ID 0
+07/11/2016 03:34:00 Reply received for transfert request from MTL for passenger with ID 0. Reply is: REPLY 2 Transfer sucessfull for passenger with ID 0: Passenger has now ID 1; booked flight has ID: 7
+07/11/2016 03:34:00 Transfer operation on the other city was sucessful.
+07/11/2016 03:34:00 Passenger with ID 0 removed from flight with ID 5
+07/11/2016 03:36:01 -------------------
+07/11/2016 03:36:01 Server is now live.
+07/11/2016 03:36:06 Server stopped.
+07/11/2016 03:37:30 -------------------
+07/11/2016 03:37:30 Server is now live.
+07/11/2016 03:37:36 Server stopped.
+07/11/2016 03:40:04 -------------------
+07/11/2016 03:40:04 Server is now live.
+07/11/2016 03:40:07 - editFlightRecord called with arguments: (3, create, 3 null MTL 1 2 3 01/06/2020)
+07/11/2016 03:40:07 Flight ID3 created; [ Dest: MTL, SFC: 1, SBC: 2, SBC: 3, Date: Mon Jan 06 00:00:00 EST 2020 ]
+07/11/2016 03:40:07 - editFlightRecord called with arguments: (1, create, 1 null MTL 2 3 4 01/01/2020)
+07/11/2016 03:40:07 Flight ID1 created; [ Dest: MTL, SFC: 2, SBC: 3, SBC: 4, Date: Wed Jan 01 00:00:00 EST 2020 ]
+07/11/2016 03:40:07 - editFlightRecord called with arguments: (2, create, 2 null WST 2 3 4 01/02/2020)
+07/11/2016 03:40:07 Flight ID2 created; [ Dest: WST, SFC: 2, SBC: 3, SBC: 4, Date: Thu Jan 02 00:00:00 EST 2020 ]
+07/11/2016 03:40:07 - editFlightRecord called with arguments: (3, create, 3 null MTL 1 2 3 01/03/2020)
+07/11/2016 03:40:07 Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:40:07 - editFlightRecord called with arguments: (4, create, 4 null WST 1 2 3 01/07/2020)
+07/11/2016 03:40:07 Flight ID4 created; [ Dest: WST, SFC: 1, SBC: 2, SBC: 3, Date: Tue Jan 07 00:00:00 EST 2020 ]
+07/11/2016 03:40:07 - editFlightRecord called with arguments: (5, create, 5 null WST 1 2 3 01/06/2020)
+07/11/2016 03:40:07 Flight ID5 created; [ Dest: WST, SFC: 1, SBC: 2, SBC: 3, Date: Mon Jan 06 00:00:00 EST 2020 ]
+07/11/2016 03:40:08 - bookFlight called with arguments: (Dharmendu, Veeramany, 1245_Tehas_St, 4422881122, WST, 01/06/2020, 2)
+07/11/2016 03:40:08 Successfull booking for flight with ID: 5 for class type: buisness class (2); New passenger record has ID 0
+07/11/2016 03:40:08 - transferReservation called with arguments: (0, NDL, MTL)
+07/11/2016 03:40:08 Source city is the same as this server for passenger with ID: 0
+07/11/2016 03:40:08 Received transfer reservation request to MTL for passenger with ID 0
+07/11/2016 03:40:08 Passenger with ID 0 found.
+07/11/2016 03:40:08 Transfer request sent through UDP to MTL for passenger with ID 0
+07/11/2016 03:40:08 Reply received for transfert request from MTL for passenger with ID 0. Reply is: REPLY 2 Transfer sucessfull for passenger with ID 0: Passenger has now ID 1; booked flight has ID: 7
+07/11/2016 03:40:08 Transfer operation on the other city was sucessful.
+07/11/2016 03:40:08 Passenger with ID 0 removed from flight with ID 5
+07/11/2016 03:40:20 - editFlightRecord called with arguments: (3, create, 3 null MTL 1 2 3 01/06/2020)
+07/11/2016 03:40:20 Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:40:20 - editFlightRecord called with arguments: (1, create, 1 null MTL 2 3 4 01/01/2020)
+07/11/2016 03:40:20 Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:40:20 - editFlightRecord called with arguments: (2, create, 2 null WST 2 3 4 01/02/2020)
+07/11/2016 03:40:20 Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:40:20 - editFlightRecord called with arguments: (4, create, 4 null WST 1 2 3 01/07/2020)
+07/11/2016 03:40:20 Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:40:20 - editFlightRecord called with arguments: (3, create, 3 null MTL 1 2 3 01/03/2020)
+07/11/2016 03:40:20 Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:40:20 - editFlightRecord called with arguments: (5, create, 5 null WST 1 2 3 01/06/2020)
+07/11/2016 03:40:20 Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:40:21 - bookFlight called with arguments: (Dharmendu, Veeramany, 1245_Tehas_St, 4422881122, WST, 01/06/2020, 2)
+07/11/2016 03:40:21 Successfull booking for flight with ID: 5 for class type: buisness class (2); New passenger record has ID 1
+07/11/2016 03:40:21 - transferReservation called with arguments: (0, NDL, MTL)
+07/11/2016 03:40:21 Source city is the same as this server for passenger with ID: 0
+07/11/2016 03:40:21 Received transfer reservation request to MTL for passenger with ID 0
+07/11/2016 03:40:21 Passenger with ID 0 not found at NDL server.
+07/11/2016 03:41:51 Server stopped.
+07/11/2016 03:41:57 -------------------
+07/11/2016 03:41:57 Server is now live.
+07/11/2016 03:42:01 - editFlightRecord called with arguments: (1, create, 1 null MTL 2 3 4 01/01/2020)
+07/11/2016 03:42:01 - editFlightRecord called with arguments: (3, create, 3 null MTL 1 2 3 01/06/2020)
+07/11/2016 03:42:01 Flight ID1 created; [ Dest: MTL, SFC: 2, SBC: 3, SBC: 4, Date: Wed Jan 01 00:00:00 EST 2020 ]
+07/11/2016 03:42:01 Flight ID3 created; [ Dest: MTL, SFC: 1, SBC: 2, SBC: 3, Date: Mon Jan 06 00:00:00 EST 2020 ]
+07/11/2016 03:42:01 - editFlightRecord called with arguments: (2, create, 2 null WST 2 3 4 01/02/2020)
+07/11/2016 03:42:01 Flight ID2 created; [ Dest: WST, SFC: 2, SBC: 3, SBC: 4, Date: Thu Jan 02 00:00:00 EST 2020 ]
+07/11/2016 03:42:01 - editFlightRecord called with arguments: (4, create, 4 null WST 1 2 3 01/07/2020)
+07/11/2016 03:42:01 Flight ID4 created; [ Dest: WST, SFC: 1, SBC: 2, SBC: 3, Date: Tue Jan 07 00:00:00 EST 2020 ]
+07/11/2016 03:42:01 - editFlightRecord called with arguments: (3, create, 3 null MTL 1 2 3 01/03/2020)
+07/11/2016 03:42:01 Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:42:01 - editFlightRecord called with arguments: (5, create, 5 null WST 1 2 3 01/06/2020)
+07/11/2016 03:42:01 Flight ID5 created; [ Dest: WST, SFC: 1, SBC: 2, SBC: 3, Date: Mon Jan 06 00:00:00 EST 2020 ]
+07/11/2016 03:42:01 - bookFlight called with arguments: (Dharmendu, Veeramany, 1245_Tehas_St, 4422881122, WST, 01/06/2020, 2)
+07/11/2016 03:42:01 Successfull booking for flight with ID: 5 for class type: buisness class (2); New passenger record has ID 0
+07/11/2016 03:42:02 - transferReservation called with arguments: (0, NDL, MTL)
+07/11/2016 03:42:02 Source city is the same as this server for passenger with ID: 0
+07/11/2016 03:42:02 Received transfer reservation request to MTL for passenger with ID 0
+07/11/2016 03:42:02 Passenger with ID 0 found.
+07/11/2016 03:42:02 Transfer request sent through UDP to MTL for passenger with ID 0
+07/11/2016 03:42:02 Reply received for transfert request from MTL for passenger with ID 0. Reply is: REPLY 2 Transfer sucessfull for passenger with ID 0: Passenger has now ID 1; booked flight has ID: 7
+07/11/2016 03:42:02 Transfer operation on the other city was sucessful.
+07/11/2016 03:42:02 Passenger with ID 0 removed from flight with ID 5
+07/11/2016 03:44:21 Server stopped.
+07/11/2016 03:44:28 -------------------
+07/11/2016 03:44:28 Server is now live.
+07/11/2016 03:45:17 - editFlightRecord called with arguments: (1, create, 1 null MTL 2 3 4 01/01/2020)
+07/11/2016 03:45:17 Flight ID1 created; [ Dest: MTL, SFC: 2, SBC: 3, SBC: 4, Date: Wed Jan 01 00:00:00 EST 2020 ]
+07/11/2016 03:45:17 - editFlightRecord called with arguments: (3, create, 3 null MTL 1 2 3 01/06/2020)
+07/11/2016 03:45:17 Flight ID3 created; [ Dest: MTL, SFC: 1, SBC: 2, SBC: 3, Date: Mon Jan 06 00:00:00 EST 2020 ]
+07/11/2016 03:45:17 - editFlightRecord called with arguments: (2, create, 2 null WST 2 3 4 01/02/2020)
+07/11/2016 03:45:17 Flight ID2 created; [ Dest: WST, SFC: 2, SBC: 3, SBC: 4, Date: Thu Jan 02 00:00:00 EST 2020 ]
+07/11/2016 03:45:17 - editFlightRecord called with arguments: (4, create, 4 null WST 1 2 3 01/07/2020)
+07/11/2016 03:45:17 Flight ID4 created; [ Dest: WST, SFC: 1, SBC: 2, SBC: 3, Date: Tue Jan 07 00:00:00 EST 2020 ]
+07/11/2016 03:45:17 - editFlightRecord called with arguments: (3, create, 3 null MTL 1 2 3 01/03/2020)
+07/11/2016 03:45:17 Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:45:17 - editFlightRecord called with arguments: (5, create, 5 null WST 1 2 3 01/06/2020)
+07/11/2016 03:45:17 Flight ID5 created; [ Dest: WST, SFC: 1, SBC: 2, SBC: 3, Date: Mon Jan 06 00:00:00 EST 2020 ]
+07/11/2016 03:45:17 - bookFlight called with arguments: (Dharmendu, Veeramany, 1245_Tehas_St, 4422881122, WST, 01/06/2020, 2)
+07/11/2016 03:45:17 Successfull booking for flight with ID: 5 for class type: buisness class (2); New passenger record has ID 0
+07/11/2016 03:45:17 - transferReservation called with arguments: (0, NDL, MTL)
+07/11/2016 03:45:17 Source city is the same as this server for passenger with ID: 0
+07/11/2016 03:45:17 Received transfer reservation request to MTL for passenger with ID 0
+07/11/2016 03:45:17 Passenger with ID 0 found.
+07/11/2016 03:45:17 Transfer request sent through UDP to MTL for passenger with ID 0
+07/11/2016 03:45:17 Reply received for transfert request from MTL for passenger with ID 0. Reply is: REPLY 2 Transfer sucessfull for passenger with ID 0: Passenger has now ID 1; booked flight has ID: 7
+07/11/2016 03:45:17 Transfer operation on the other city was sucessful.
+07/11/2016 03:45:17 Passenger with ID 0 removed from flight with ID 5
+07/11/2016 03:52:30 Server stopped.
+07/11/2016 03:52:37 -------------------
+07/11/2016 03:52:37 Server is now live.
+07/11/2016 03:52:42 - editFlightRecord called with arguments: (1, create, 1 null MTL 2 3 4 01/01/2020)
+07/11/2016 03:52:42 Flight ID1 created; [ Dest: MTL, SFC: 2, SBC: 3, SBC: 4, Date: Wed Jan 01 00:00:00 EST 2020 ]
+07/11/2016 03:52:42 - editFlightRecord called with arguments: (3, create, 3 null MTL 1 2 3 01/06/2020)
+07/11/2016 03:52:42 Flight ID3 created; [ Dest: MTL, SFC: 1, SBC: 2, SBC: 3, Date: Mon Jan 06 00:00:00 EST 2020 ]
+07/11/2016 03:52:42 - editFlightRecord called with arguments: (2, create, 2 null WST 2 3 4 01/02/2020)
+07/11/2016 03:52:42 Flight ID2 created; [ Dest: WST, SFC: 2, SBC: 3, SBC: 4, Date: Thu Jan 02 00:00:00 EST 2020 ]
+07/11/2016 03:52:42 - editFlightRecord called with arguments: (4, create, 4 null WST 1 2 3 01/07/2020)
+07/11/2016 03:52:42 Flight ID4 created; [ Dest: WST, SFC: 1, SBC: 2, SBC: 3, Date: Tue Jan 07 00:00:00 EST 2020 ]
+07/11/2016 03:52:42 - editFlightRecord called with arguments: (3, create, 3 null MTL 1 2 3 01/03/2020)
+07/11/2016 03:52:42 Could not create flight (provided identifier for flight is already in-use)
+07/11/2016 03:52:42 - editFlightRecord called with arguments: (5, create, 5 null WST 1 2 3 01/06/2020)
+07/11/2016 03:52:42 Flight ID5 created; [ Dest: WST, SFC: 1, SBC: 2, SBC: 3, Date: Mon Jan 06 00:00:00 EST 2020 ]
+07/11/2016 03:52:42 - bookFlight called with arguments: (Dharmendu, Veeramany, 1245_Tehas_St, 4422881122, WST, 01/06/2020, 2)
+07/11/2016 03:52:42 Successfull booking for flight with ID: 5 for class type: buisness class (2); New passenger record has ID 0
+07/11/2016 03:52:42 - transferReservation called with arguments: (0, NDL, MTL)
+07/11/2016 03:52:42 Source city is the same as this server for passenger with ID: 0
+07/11/2016 03:52:42 Received transfer reservation request to MTL for passenger with ID 0
+07/11/2016 03:52:42 Passenger with ID 0 found.
+07/11/2016 03:52:42 Transfer request sent through UDP to MTL for passenger with ID 0
+07/11/2016 03:52:42 Reply received for transfert request from MTL for passenger with ID 0. Reply is: REPLY 2 Transfer sucessfull for passenger with ID 0: Passenger has now ID 1; booked flight has ID: 7
+07/11/2016 03:52:42 Transfer operation on the other city was sucessful.
+07/11/2016 03:52:42 Passenger with ID 0 removed from flight with ID 5

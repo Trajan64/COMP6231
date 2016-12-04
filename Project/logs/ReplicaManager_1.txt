@@ -1,0 +1,272 @@
+04/12/2016 03:37:43 -----------------
+04/12/2016 03:37:44 Replica started.
+04/12/2016 03:37:45 Initializing new heartbeat:
+04/12/2016 03:37:45 	Monitored replica has id: 0
+04/12/2016 03:37:45 	Collaborating replica manager has id: 2
+04/12/2016 03:37:45 Initializing new heartbeat:
+04/12/2016 03:37:45 	Monitored replica has id: 2
+04/12/2016 03:37:45 	Collaborating replica manager has id: 0
+04/12/2016 03:56:21 -----------------
+04/12/2016 03:56:21 Replica started.
+04/12/2016 03:56:22 Initializing new heartbeat:
+04/12/2016 03:56:22 	Monitored replica has id: 0
+04/12/2016 03:56:22 	Collaborating replica manager has id: 2
+04/12/2016 03:56:22 Initializing new heartbeat:
+04/12/2016 03:56:22 	Monitored replica has id: 2
+04/12/2016 03:56:22 	Collaborating replica manager has id: 0
+04/12/2016 03:56:44 LISTENER> New message received: 1 2 1 localhost 60438 MTL dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 03:56:44 LISTENER> New message processed as REQUEST.
+04/12/2016 03:56:44 LISTENER> Replica manager is available and ready to process the request.
+04/12/2016 03:56:44 LISTENER> Request has requestId 1. Last validated id is: 0
+04/12/2016 03:56:44 LISTENER> Request is the immediate successor of previous request id.
+04/12/2016 03:56:44 LISTENER> Proceeding to see if other buffered requests can be freed up..
+04/12/2016 03:56:44 LISTENER> Proceeding to put in request to request queue: 1 2 1 localhost 60438 MTL dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 03:56:44 MAIN THREAD> New message in queue to be processed by main thread: 1 2 1 localhost 60438 MTL dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 03:56:44 MAIN THREAD> Passing request to replica client.
+04/12/2016 04:02:49 -----------------
+04/12/2016 04:02:50 Replica started.
+04/12/2016 04:02:50 Initializing new heartbeat:
+04/12/2016 04:02:50 	Monitored replica has id: 0
+04/12/2016 04:02:50 	Collaborating replica manager has id: 2
+04/12/2016 04:02:50 Initializing new heartbeat:
+04/12/2016 04:02:50 	Monitored replica has id: 2
+04/12/2016 04:02:50 	Collaborating replica manager has id: 0
+04/12/2016 04:03:24 LISTENER> New message received: 1 2 1 localhost 55384 MTL dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 04:03:24 LISTENER> New message processed as REQUEST.
+04/12/2016 04:03:24 LISTENER> Replica manager is available and ready to process the request.
+04/12/2016 04:03:24 LISTENER> Request has requestId 1. Last validated id is: 0
+04/12/2016 04:03:24 LISTENER> Request is the immediate successor of previous request id.
+04/12/2016 04:03:24 LISTENER> Proceeding to see if other buffered requests can be freed up..
+04/12/2016 04:03:24 LISTENER> Proceeding to put in request to request queue: 1 2 1 localhost 55384 MTL dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 04:03:24 MAIN THREAD> New message in queue to be processed by main thread: 1 2 1 localhost 55384 MTL dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 04:03:24 MAIN THREAD> Passing request to replica client.
+04/12/2016 04:08:00 -----------------
+04/12/2016 04:08:01 Replica started.
+04/12/2016 04:08:01 Initializing new heartbeat:
+04/12/2016 04:08:01 	Monitored replica has id: 0
+04/12/2016 04:08:01 	Collaborating replica manager has id: 2
+04/12/2016 04:08:01 Initializing new heartbeat:
+04/12/2016 04:08:01 	Monitored replica has id: 2
+04/12/2016 04:08:01 	Collaborating replica manager has id: 0
+04/12/2016 04:08:50 LISTENER> New message received: 1 4 1 localhost 55519 MTL dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 04:08:50 LISTENER> New message processed as REQUEST.
+04/12/2016 04:08:50 LISTENER> Replica manager is available and ready to process the request.
+04/12/2016 04:08:50 LISTENER> Request has requestId 1. Last validated id is: 0
+04/12/2016 04:08:50 LISTENER> Request is the immediate successor of previous request id.
+04/12/2016 04:08:50 LISTENER> Proceeding to see if other buffered requests can be freed up..
+04/12/2016 04:08:50 LISTENER> Proceeding to put in request to request queue: 1 4 1 localhost 55519 MTL dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 04:08:50 MAIN THREAD> New message in queue to be processed by main thread: 1 4 1 localhost 55519 MTL dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 04:08:50 MAIN THREAD> Passing request to replica client.
+04/12/2016 04:20:16 -----------------
+04/12/2016 04:20:19 Replica started.
+04/12/2016 04:20:19 Initializing new heartbeat:
+04/12/2016 04:20:19 	Monitored replica has id: 0
+04/12/2016 04:20:19 	Collaborating replica manager has id: 2
+04/12/2016 04:20:19 Initializing new heartbeat:
+04/12/2016 04:20:19 	Monitored replica has id: 2
+04/12/2016 04:20:19 	Collaborating replica manager has id: 0
+04/12/2016 04:20:43 LISTENER> New message received: 1 2 1 localhost 53420 MTL dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 04:20:43 LISTENER> New message processed as REQUEST.
+04/12/2016 04:20:43 LISTENER> Replica manager is available and ready to process the request.
+04/12/2016 04:20:43 LISTENER> Request has requestId 1. Last validated id is: 0
+04/12/2016 04:20:43 LISTENER> Request is the immediate successor of previous request id.
+04/12/2016 04:20:43 LISTENER> Proceeding to see if other buffered requests can be freed up..
+04/12/2016 04:20:43 LISTENER> Proceeding to put in request to request queue: 1 2 1 localhost 53420 MTL dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 04:20:43 MAIN THREAD> New message in queue to be processed by main thread: 1 2 1 localhost 53420 MTL dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 04:20:43 MAIN THREAD> Passing request to replica client.
+04/12/2016 04:27:34 -----------------
+04/12/2016 04:27:36 Replica started.
+04/12/2016 04:27:37 Initializing new heartbeat:
+04/12/2016 04:27:37 	Monitored replica has id: 0
+04/12/2016 04:27:37 	Collaborating replica manager has id: 2
+04/12/2016 04:27:37 Initializing new heartbeat:
+04/12/2016 04:27:37 	Monitored replica has id: 2
+04/12/2016 04:27:37 	Collaborating replica manager has id: 0
+04/12/2016 04:27:59 LISTENER> New message received: 1 2 1 localhost 57741 MTL bookFlight dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 04:27:59 LISTENER> New message processed as REQUEST.
+04/12/2016 04:27:59 LISTENER> Replica manager is available and ready to process the request.
+04/12/2016 04:27:59 LISTENER> Request has requestId 1. Last validated id is: 0
+04/12/2016 04:27:59 LISTENER> Request is the immediate successor of previous request id.
+04/12/2016 04:27:59 LISTENER> Proceeding to see if other buffered requests can be freed up..
+04/12/2016 04:27:59 LISTENER> Proceeding to put in request to request queue: 1 2 1 localhost 57741 MTL bookFlight dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 04:27:59 MAIN THREAD> New message in queue to be processed by main thread: 1 2 1 localhost 57741 MTL bookFlight dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 04:27:59 MAIN THREAD> Passing request to replica client.
+04/12/2016 04:32:51 -----------------
+04/12/2016 04:32:53 Replica started.
+04/12/2016 04:32:53 Initializing new heartbeat:
+04/12/2016 04:32:53 	Monitored replica has id: 0
+04/12/2016 04:32:53 	Collaborating replica manager has id: 2
+04/12/2016 04:32:53 Initializing new heartbeat:
+04/12/2016 04:32:53 	Monitored replica has id: 2
+04/12/2016 04:32:53 	Collaborating replica manager has id: 0
+04/12/2016 04:33:19 LISTENER> New message received: 1 2 1 localhost 51016 MTL bookFlight dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 04:33:19 LISTENER> New message processed as REQUEST.
+04/12/2016 04:33:19 LISTENER> Replica manager is available and ready to process the request.
+04/12/2016 04:33:19 LISTENER> Request has requestId 1. Last validated id is: 0
+04/12/2016 04:33:19 LISTENER> Request is the immediate successor of previous request id.
+04/12/2016 04:33:19 LISTENER> Proceeding to see if other buffered requests can be freed up..
+04/12/2016 04:33:19 LISTENER> Proceeding to put in request to request queue: 1 2 1 localhost 51016 MTL bookFlight dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 04:33:19 MAIN THREAD> New message in queue to be processed by main thread: 1 2 1 localhost 51016 MTL bookFlight dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 04:33:19 MAIN THREAD> Passing request to replica client.
+04/12/2016 04:40:54 -----------------
+04/12/2016 04:40:57 Replica started.
+04/12/2016 04:40:57 Initializing new heartbeat:
+04/12/2016 04:40:57 	Monitored replica has id: 0
+04/12/2016 04:40:57 	Collaborating replica manager has id: 2
+04/12/2016 04:40:57 Initializing new heartbeat:
+04/12/2016 04:40:57 	Monitored replica has id: 2
+04/12/2016 04:40:57 	Collaborating replica manager has id: 0
+04/12/2016 04:42:00 -----------------
+04/12/2016 04:42:04 Replica started.
+04/12/2016 04:42:04 Initializing new heartbeat:
+04/12/2016 04:42:04 	Monitored replica has id: 0
+04/12/2016 04:42:04 	Collaborating replica manager has id: 2
+04/12/2016 04:42:04 Initializing new heartbeat:
+04/12/2016 04:42:04 	Monitored replica has id: 2
+04/12/2016 04:42:04 	Collaborating replica manager has id: 0
+04/12/2016 04:42:36 -----------------
+04/12/2016 04:42:39 Replica started.
+04/12/2016 04:42:39 Initializing new heartbeat:
+04/12/2016 04:42:39 	Monitored replica has id: 0
+04/12/2016 04:42:39 	Collaborating replica manager has id: 2
+04/12/2016 04:42:39 Initializing new heartbeat:
+04/12/2016 04:42:39 	Monitored replica has id: 2
+04/12/2016 04:42:39 	Collaborating replica manager has id: 0
+04/12/2016 04:43:58 -----------------
+04/12/2016 04:44:00 Replica started.
+04/12/2016 04:44:00 Initializing new heartbeat:
+04/12/2016 04:44:00 	Monitored replica has id: 0
+04/12/2016 04:44:00 	Collaborating replica manager has id: 2
+04/12/2016 04:44:00 Initializing new heartbeat:
+04/12/2016 04:44:00 	Monitored replica has id: 2
+04/12/2016 04:44:00 	Collaborating replica manager has id: 0
+04/12/2016 04:44:22 LISTENER> New message received: 1 2 1 localhost 61367 MTL bookFlight dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 04:44:22 LISTENER> New message processed as REQUEST.
+04/12/2016 04:44:22 LISTENER> Replica manager is available and ready to process the request.
+04/12/2016 04:44:22 LISTENER> Request has requestId 1. Last validated id is: 0
+04/12/2016 04:44:22 LISTENER> Request is the immediate successor of previous request id.
+04/12/2016 04:44:22 LISTENER> Proceeding to see if other buffered requests can be freed up..
+04/12/2016 04:44:22 LISTENER> Proceeding to put in request to request queue: 1 2 1 localhost 61367 MTL bookFlight dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 04:44:22 MAIN THREAD> New message in queue to be processed by main thread: 1 2 1 localhost 61367 MTL bookFlight dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 04:44:22 MAIN THREAD> Passing request to replica client.
+04/12/2016 04:57:12 -----------------
+04/12/2016 04:57:14 Replica started.
+04/12/2016 04:57:15 Initializing new heartbeat:
+04/12/2016 04:57:15 	Monitored replica has id: 0
+04/12/2016 04:57:15 	Collaborating replica manager has id: 2
+04/12/2016 04:57:15 Initializing new heartbeat:
+04/12/2016 04:57:15 	Monitored replica has id: 2
+04/12/2016 04:57:15 	Collaborating replica manager has id: 0
+04/12/2016 04:57:53 LISTENER> New message received: 1 2 1 localhost 58154 MTL bookFlight dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 04:57:53 LISTENER> New message processed as REQUEST.
+04/12/2016 04:57:53 LISTENER> Replica manager is available and ready to process the request.
+04/12/2016 04:57:53 LISTENER> Request has requestId 1. Last validated id is: 0
+04/12/2016 04:57:53 LISTENER> Request is the immediate successor of previous request id.
+04/12/2016 04:57:53 LISTENER> Proceeding to see if other buffered requests can be freed up..
+04/12/2016 04:57:53 LISTENER> Proceeding to put in request to request queue: 1 2 1 localhost 58154 MTL bookFlight dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 04:57:53 MAIN THREAD> New message in queue to be processed by main thread: 1 2 1 localhost 58154 MTL bookFlight dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 04:57:53 MAIN THREAD> Passing request to replica client.
+04/12/2016 05:00:27 -----------------
+04/12/2016 05:00:29 Replica started.
+04/12/2016 05:00:29 Initializing new heartbeat:
+04/12/2016 05:00:29 	Monitored replica has id: 0
+04/12/2016 05:00:29 	Collaborating replica manager has id: 2
+04/12/2016 05:00:29 Initializing new heartbeat:
+04/12/2016 05:00:29 	Monitored replica has id: 2
+04/12/2016 05:00:29 	Collaborating replica manager has id: 0
+04/12/2016 05:00:48 LISTENER> New message received: 1 2 1 localhost 53920 MTL bookFlight dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 05:00:48 LISTENER> New message processed as REQUEST.
+04/12/2016 05:00:48 LISTENER> Replica manager is available and ready to process the request.
+04/12/2016 05:00:48 LISTENER> Request has requestId 1. Last validated id is: 0
+04/12/2016 05:00:48 LISTENER> Request is the immediate successor of previous request id.
+04/12/2016 05:00:48 LISTENER> Proceeding to see if other buffered requests can be freed up..
+04/12/2016 05:00:48 LISTENER> Proceeding to put in request to request queue: 1 2 1 localhost 53920 MTL bookFlight dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 05:00:48 MAIN THREAD> New message in queue to be processed by main thread: 1 2 1 localhost 53920 MTL bookFlight dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 05:00:48 MAIN THREAD> Passing request to replica client.
+04/12/2016 05:04:13 -----------------
+04/12/2016 05:04:15 Replica started.
+04/12/2016 05:04:16 Initializing new heartbeat:
+04/12/2016 05:04:16 	Monitored replica has id: 0
+04/12/2016 05:04:16 	Collaborating replica manager has id: 2
+04/12/2016 05:04:16 Initializing new heartbeat:
+04/12/2016 05:04:16 	Monitored replica has id: 2
+04/12/2016 05:04:16 	Collaborating replica manager has id: 0
+04/12/2016 05:04:36 LISTENER> New message received: 1 2 1 localhost 55046 MTL bookFlight dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 05:04:36 LISTENER> New message processed as REQUEST.
+04/12/2016 05:04:36 LISTENER> Replica manager is available and ready to process the request.
+04/12/2016 05:04:36 LISTENER> Request has requestId 1. Last validated id is: 0
+04/12/2016 05:04:36 LISTENER> Request is the immediate successor of previous request id.
+04/12/2016 05:04:36 LISTENER> Proceeding to see if other buffered requests can be freed up..
+04/12/2016 05:04:36 LISTENER> Proceeding to put in request to request queue: 1 2 1 localhost 55046 MTL bookFlight dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 05:04:36 MAIN THREAD> New message in queue to be processed by main thread: 1 2 1 localhost 55046 MTL bookFlight dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 05:04:36 MAIN THREAD> Passing request to replica client.
+04/12/2016 05:07:37 -----------------
+04/12/2016 05:07:39 Replica started.
+04/12/2016 05:07:39 Initializing new heartbeat:
+04/12/2016 05:07:39 	Monitored replica has id: 0
+04/12/2016 05:07:39 	Collaborating replica manager has id: 2
+04/12/2016 05:07:39 Initializing new heartbeat:
+04/12/2016 05:07:39 	Monitored replica has id: 2
+04/12/2016 05:07:39 	Collaborating replica manager has id: 0
+04/12/2016 05:07:59 LISTENER> New message received: 1 2 1 localhost 54734 MTL bookFlight dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 05:07:59 LISTENER> New message processed as REQUEST.
+04/12/2016 05:07:59 LISTENER> Replica manager is available and ready to process the request.
+04/12/2016 05:07:59 LISTENER> Request has requestId 1. Last validated id is: 0
+04/12/2016 05:07:59 LISTENER> Request is the immediate successor of previous request id.
+04/12/2016 05:07:59 LISTENER> Proceeding to see if other buffered requests can be freed up..
+04/12/2016 05:07:59 LISTENER> Proceeding to put in request to request queue: 1 2 1 localhost 54734 MTL bookFlight dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 05:07:59 MAIN THREAD> New message in queue to be processed by main thread: 1 2 1 localhost 54734 MTL bookFlight dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 05:07:59 MAIN THREAD> Passing request to replica client.
+04/12/2016 05:16:14 -----------------
+04/12/2016 05:21:26 -----------------
+04/12/2016 05:22:12 -----------------
+04/12/2016 05:29:37 -----------------
+04/12/2016 05:29:39 Replica started.
+04/12/2016 05:29:39 Initializing new heartbeat:
+04/12/2016 05:29:39 	Monitored replica has id: 0
+04/12/2016 05:29:39 	Collaborating replica manager has id: 2
+04/12/2016 05:29:39 Initializing new heartbeat:
+04/12/2016 05:29:39 	Monitored replica has id: 2
+04/12/2016 05:29:39 	Collaborating replica manager has id: 0
+04/12/2016 05:29:59 LISTENER> New message received: 1 2 1 localhost 59268 MTL bookFlight dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 05:29:59 LISTENER> New message processed as REQUEST.
+04/12/2016 05:29:59 LISTENER> Replica manager is available and ready to process the request.
+04/12/2016 05:29:59 LISTENER> Request has requestId 1. Last validated id is: 0
+04/12/2016 05:29:59 LISTENER> Request is the immediate successor of previous request id.
+04/12/2016 05:29:59 LISTENER> Proceeding to see if other buffered requests can be freed up..
+04/12/2016 05:29:59 LISTENER> Proceeding to put in request to request queue: 1 2 1 localhost 59268 MTL bookFlight dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 05:29:59 MAIN THREAD> New message in queue to be processed by main thread: 1 2 1 localhost 59268 MTL bookFlight dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 05:29:59 MAIN THREAD> Passing request to replica client.
+04/12/2016 05:34:21 -----------------
+04/12/2016 05:34:23 Replica started.
+04/12/2016 05:34:23 Initializing new heartbeat:
+04/12/2016 05:34:23 	Monitored replica has id: 0
+04/12/2016 05:34:23 	Collaborating replica manager has id: 2
+04/12/2016 05:34:23 Initializing new heartbeat:
+04/12/2016 05:34:23 	Monitored replica has id: 2
+04/12/2016 05:34:23 	Collaborating replica manager has id: 0
+04/12/2016 05:36:19 -----------------
+04/12/2016 05:36:21 Replica started.
+04/12/2016 05:36:21 Initializing new heartbeat:
+04/12/2016 05:36:21 	Monitored replica has id: 0
+04/12/2016 05:36:21 	Collaborating replica manager has id: 2
+04/12/2016 05:36:21 Initializing new heartbeat:
+04/12/2016 05:36:21 	Monitored replica has id: 2
+04/12/2016 05:36:21 	Collaborating replica manager has id: 0
+04/12/2016 05:38:29 -----------------
+04/12/2016 05:38:31 Replica started.
+04/12/2016 05:38:31 Initializing new heartbeat:
+04/12/2016 05:38:31 	Monitored replica has id: 0
+04/12/2016 05:38:31 	Collaborating replica manager has id: 2
+04/12/2016 05:38:31 Initializing new heartbeat:
+04/12/2016 05:38:31 	Monitored replica has id: 2
+04/12/2016 05:38:31 	Collaborating replica manager has id: 0
+04/12/2016 05:38:52 LISTENER> New message received: 1 2 1 localhost 50262 MTL bookFlight dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 05:38:52 LISTENER> New message processed as REQUEST.
+04/12/2016 05:38:52 LISTENER> Replica manager is available and ready to process the request.
+04/12/2016 05:38:52 LISTENER> Request has requestId 1. Last validated id is: 0
+04/12/2016 05:38:52 LISTENER> Request is the immediate successor of previous request id.
+04/12/2016 05:38:52 LISTENER> Proceeding to see if other buffered requests can be freed up..
+04/12/2016 05:38:52 LISTENER> Proceeding to put in request to request queue: 1 2 1 localhost 50262 MTL bookFlight dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 05:38:52 MAIN THREAD> New message in queue to be processed by main thread: 1 2 1 localhost 50262 MTL bookFlight dsdas dasdas sdasd dasdas NDL 12/12/2016 2
+04/12/2016 05:38:52 MAIN THREAD> Passing request to replica client.

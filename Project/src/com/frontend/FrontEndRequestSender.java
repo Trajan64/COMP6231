@@ -73,6 +73,8 @@ public class FrontEndRequestSender implements OperationMessageProcessorInterface
 			request.addMessageComponent(requestComponents.get(i));
 		}
 		
+		m_logger.log("Request created: " + request.getMessage());
+		
 		// Send request to sequencer.
 		ReliableUDPSender sender = new ReliableUDPSender(m_sequencerInformation.getAddress(), m_sequencerInformation.getPort());
 		try { sender.send(request); } catch (TimeoutException e) { e.printStackTrace(); }
@@ -90,11 +92,16 @@ public class FrontEndRequestSender implements OperationMessageProcessorInterface
 			
 			// Extract proper response and set contact information.
 			
-			LinkedList<String> components = response.getContentComponents();
+			m_logger.log("Response instance cerated with response: " + response.getMessage());
+			
+			m_responseComponents = response.getContentComponents();
 			
 			InetAddress address	= null;
-			int			port	= Integer.parseInt(components.get(1));
-			try { address = InetAddress.getByName(components.get(0)); } catch (UnknownHostException e) { e.printStackTrace(); }
+			int			port	= Integer.parseInt(m_responseComponents.get(1));
+			try { address = InetAddress.getByName(m_responseComponents.get(0)); } catch (UnknownHostException e) { e.printStackTrace(); }
+			
+			m_logger.log("Replica client address and port: " + address + ":" + port);
+
 			
 			m_replicaManagerInformation = new ContactInformation(address, port);
 			

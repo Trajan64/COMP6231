@@ -1,0 +1,7 @@
+07/11/2016 02:42:23 ------------
+07/11/2016 02:42:23 Manager NDL1111 logged in.
+07/11/2016 02:42:42 Command executed: createflight 1 MTL  2 3 4 01/01/2020
+07/11/2016 02:42:42 Flight created with ID: 1
+07/11/2016 02:42:54 Command executed: getbookedflightcount
+07/11/2016 02:43:01 Command executed: getbookedflightcount 1
+07/11/2016 02:43:01 NDL 0, MTL 0, WST 0

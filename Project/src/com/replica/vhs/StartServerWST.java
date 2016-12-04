@@ -13,9 +13,15 @@ import com.config.Constants;
 import FlightReservationApp.*;
 
 public class StartServerWST implements Runnable{
+	
+	public String id = "";
+		
+		public StartServerWST(String id) {
+			this.id= id;
+		}
 	public static void main(String[] args) {
 
-			StartServerWST serverWST = new StartServerWST();
+			StartServerWST serverWST = new StartServerWST("2");
 			Thread thread = new Thread(serverWST);
 			thread.start();
 
@@ -51,7 +57,8 @@ public class StartServerWST implements Runnable{
 			NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
 
 			// bind the Object Reference in Naming
-			String name = Constants.WST;
+			String name = Constants.WST +"_"+id;
+			System.out.println("WST server ncref " + name);
 			NameComponent path[] = ncRef.to_name(name);
 			ncRef.rebind(path, sref);
 

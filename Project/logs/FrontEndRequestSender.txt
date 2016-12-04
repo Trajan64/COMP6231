@@ -1,0 +1,142 @@
+04/12/2016 03:56:44 -----------------
+04/12/2016 03:56:44 Gathering responses in error recovery code..
+04/12/2016 03:56:44 Message received.9 7 localhost/127.0.0.1 60438 errorneous output
+04/12/2016 03:56:44 Message processed as response.
+04/12/2016 03:56:44 Response counter updated:1. Expected number of responses is: 3
+04/12/2016 03:56:44 Message received.9 8 localhost/127.0.0.1 60438 errorneous output
+04/12/2016 03:56:44 Message processed as response.
+04/12/2016 03:56:44 Response counter updated:2. Expected number of responses is: 3
+04/12/2016 03:56:44 Message received.9 9 localhost/127.0.0.1 60438 errorneous output
+04/12/2016 03:56:44 Message processed as response.
+04/12/2016 03:56:44 Response counter updated:3. Expected number of responses is: 3
+04/12/2016 03:56:44 Received expected amount of responses
+04/12/2016 04:03:24 -----------------
+04/12/2016 04:03:24 Gathering responses in error recovery code..
+04/12/2016 04:03:24 Message received.9 4 localhost/127.0.0.1 55384 null
+04/12/2016 04:03:24 Message processed as response.
+04/12/2016 04:03:24 Response counter updated:1. Expected number of responses is: 3
+04/12/2016 04:03:24 Message received.9 6 localhost/127.0.0.1 55384 null
+04/12/2016 04:03:24 Message processed as response.
+04/12/2016 04:03:24 Response counter updated:2. Expected number of responses is: 3
+04/12/2016 04:03:24 Message received.9 9 localhost/127.0.0.1 55384 null
+04/12/2016 04:03:24 Message processed as response.
+04/12/2016 04:03:24 Response counter updated:3. Expected number of responses is: 3
+04/12/2016 04:03:24 Received expected amount of responses
+04/12/2016 04:08:49 -----------------
+04/12/2016 04:08:50 Gathering responses in error recovery code..
+04/12/2016 04:08:50 Message received.9 3 localhost/127.0.0.1 8000 null
+04/12/2016 04:08:50 Message processed as response.
+04/12/2016 04:08:50 Response counter updated:1. Expected number of responses is: 3
+04/12/2016 04:08:50 Message received.9 8 localhost/127.0.0.1 8001 null
+04/12/2016 04:08:50 Message processed as response.
+04/12/2016 04:08:50 Response counter updated:2. Expected number of responses is: 3
+04/12/2016 04:08:50 Message received.9 9 localhost/127.0.0.1 8002 null
+04/12/2016 04:08:50 Message processed as response.
+04/12/2016 04:08:50 Response counter updated:3. Expected number of responses is: 3
+04/12/2016 04:08:50 Received expected amount of responses
+04/12/2016 04:20:42 -----------------
+04/12/2016 04:20:43 Gathering responses in error recovery code..
+04/12/2016 04:20:43 Message received.9 7 localhost/127.0.0.1 8002 null
+04/12/2016 04:20:43 Message processed as response.
+04/12/2016 04:20:43 Response counter updated:1. Expected number of responses is: 3
+04/12/2016 04:20:43 Message received.9 8 localhost/127.0.0.1 8000 null
+04/12/2016 04:20:43 Message processed as response.
+04/12/2016 04:20:43 Response counter updated:2. Expected number of responses is: 3
+04/12/2016 04:20:43 Message received.9 9 localhost/127.0.0.1 8001 null
+04/12/2016 04:20:43 Message processed as response.
+04/12/2016 04:20:43 Response counter updated:3. Expected number of responses is: 3
+04/12/2016 04:20:43 Received expected amount of responses
+04/12/2016 04:27:58 -----------------
+04/12/2016 04:27:58 Request created: null
+04/12/2016 04:27:59 Gathering responses in error recovery code..
+04/12/2016 04:33:19 -----------------
+04/12/2016 04:33:19 Request created: null
+04/12/2016 04:33:19 Gathering responses in error recovery code..
+04/12/2016 04:33:19 Message received.9 7 localhost/127.0.0.1 8002 null
+04/12/2016 04:33:19 Message processed as response.
+04/12/2016 04:33:19 Response counter updated:1. Expected number of responses is: 3
+04/12/2016 04:33:19 Message received.9 8 localhost/127.0.0.1 8001 null
+04/12/2016 04:33:19 Message processed as response.
+04/12/2016 04:33:19 Response counter updated:2. Expected number of responses is: 3
+04/12/2016 04:33:19 Message received.9 9 localhost/127.0.0.1 8000 null
+04/12/2016 04:33:19 Message processed as response.
+04/12/2016 04:33:19 Response counter updated:3. Expected number of responses is: 3
+04/12/2016 04:33:20 Received expected amount of responses
+04/12/2016 04:44:21 -----------------
+04/12/2016 04:44:21 Request created: null
+04/12/2016 04:44:21 Gathering responses in error recovery code..
+04/12/2016 04:44:22 Message received.9 8 localhost/127.0.0.1 8000 false
+04/12/2016 04:44:22 Message processed as response.
+04/12/2016 04:44:22 Response counter updated:1. Expected number of responses is: 3
+04/12/2016 04:44:22 Message received.9 7 localhost/127.0.0.1 8002 false
+04/12/2016 04:44:22 Message processed as response.
+04/12/2016 04:44:22 Response counter updated:2. Expected number of responses is: 3
+04/12/2016 04:44:22 Message received.9 9 localhost/127.0.0.1 8001 false
+04/12/2016 04:44:22 Message processed as response.
+04/12/2016 04:44:22 Response counter updated:3. Expected number of responses is: 3
+04/12/2016 04:44:22 Received expected amount of responses
+04/12/2016 04:57:52 -----------------
+04/12/2016 04:57:53 Request created: null
+04/12/2016 04:57:53 Gathering responses in error recovery code..
+04/12/2016 04:57:53 Message received.9 7 localhost/127.0.0.1 8002 false
+04/12/2016 04:57:53 Message processed as response.
+04/12/2016 04:57:53 Response counter updated:1. Expected number of responses is: 3
+04/12/2016 04:57:53 Message received.9 8 localhost/127.0.0.1 8001 false
+04/12/2016 04:57:53 Message processed as response.
+04/12/2016 04:57:53 Response counter updated:2. Expected number of responses is: 3
+04/12/2016 04:57:53 Message received.9 9 localhost/127.0.0.1 8000 false
+04/12/2016 04:57:53 Message processed as response.
+04/12/2016 04:57:53 Response counter updated:3. Expected number of responses is: 3
+04/12/2016 04:57:53 Received expected amount of responses
+04/12/2016 04:57:53 Response instance cerated with response: 9 7 localhost/127.0.0.1 8002 false
+04/12/2016 05:00:48 -----------------
+04/12/2016 05:00:48 Request created: null
+04/12/2016 05:00:48 Gathering responses in error recovery code..
+04/12/2016 05:00:49 Message received.9 7 localhost/127.0.0.1 8000 false
+04/12/2016 05:00:49 Message processed as response.
+04/12/2016 05:00:49 Response counter updated:1. Expected number of responses is: 3
+04/12/2016 05:00:49 Message received.9 8 localhost/127.0.0.1 8002 false
+04/12/2016 05:00:49 Message processed as response.
+04/12/2016 05:00:49 Response counter updated:2. Expected number of responses is: 3
+04/12/2016 05:00:49 Message received.9 9 localhost/127.0.0.1 8001 false
+04/12/2016 05:00:49 Message processed as response.
+04/12/2016 05:00:49 Response counter updated:3. Expected number of responses is: 3
+04/12/2016 05:00:49 Received expected amount of responses
+04/12/2016 05:00:49 Response instance cerated with response: 9 7 localhost/127.0.0.1 8000 false
+04/12/2016 05:00:49 Replica client address and port: null:8000
+04/12/2016 05:00:49 Response 0: false
+04/12/2016 05:00:49 Response instance cerated with response: 9 8 localhost/127.0.0.1 8002 false
+04/12/2016 05:00:49 Replica client address and port: null:8002
+04/12/2016 05:00:49 Response 1: false
+04/12/2016 05:00:49 Response instance cerated with response: 9 9 localhost/127.0.0.1 8001 false
+04/12/2016 05:00:49 Replica client address and port: null:8001
+04/12/2016 05:00:49 Response 2: false
+04/12/2016 05:00:49 Three responss were gathered. We need to verify if we have an erroneous response.
+04/12/2016 05:00:49 Sending response back to FrontEnd.
+04/12/2016 05:04:36 -----------------
+04/12/2016 05:04:36 Request created: null
+04/12/2016 05:04:36 Gathering responses in error recovery code..
+04/12/2016 05:04:37 Message received.9 7 localhost/127.0.0.1 8001 false
+04/12/2016 05:04:37 Message processed as response.
+04/12/2016 05:04:37 Response counter updated:1. Expected number of responses is: 3
+04/12/2016 05:07:59 -----------------
+04/12/2016 05:07:59 Request created: null
+04/12/2016 05:07:59 Gathering responses in error recovery code..
+04/12/2016 05:08:00 Message received.9 7 localhost/127.0.0.1 8001 false
+04/12/2016 05:08:00 Message processed as response.
+04/12/2016 05:08:00 Response counter updated:1. Expected number of responses is: 3
+04/12/2016 05:29:59 -----------------
+04/12/2016 05:29:59 Request created: null
+04/12/2016 05:29:59 Gathering responses in error recovery code..
+04/12/2016 05:30:00 Message received.9 7 localhost/127.0.0.1 8001 false
+04/12/2016 05:30:00 Message processed as response.
+04/12/2016 05:30:00 Response counter updated:1. Expected number of responses is: 3
+04/12/2016 05:38:52 -----------------
+04/12/2016 05:38:52 Request created: null
+04/12/2016 05:38:52 Gathering responses in error recovery code..
+04/12/2016 05:38:53 Message received.9 7 localhost/127.0.0.1 8001 false
+04/12/2016 05:38:53 Message processed as response.
+04/12/2016 05:38:53 Response counter updated:1. Expected number of responses is: 3
+04/12/2016 05:38:54 Message received.9 8 localhost/127.0.0.1 8002 fail
+04/12/2016 05:38:54 Message processed as response.
+04/12/2016 05:38:54 Response counter updated:2. Expected number of responses is: 3
