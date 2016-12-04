@@ -36,7 +36,7 @@ public class ReplicaManager extends Thread implements OperationMessageProcessorI
 	private	HashMap<Integer, OperationMessage>	m_requestBuffer;
 	private	ContactInformation					m_replicaClientInformation;
 	private	ContactInformation					m_sequencerInformation;
-	private	LinkedList<OperationMessage>		m_requestQueue;
+	private	ConcurrentLinkedQueue<OperationMessage>		m_requestQueue;
 	private	boolean								m_listenerIsProcessingRequest;
 	private	ReplicaManagerHeartbeat[]			m_heartbeat;
 	private	ReplicaClient						m_replicaClient;
@@ -67,7 +67,7 @@ public class ReplicaManager extends Thread implements OperationMessageProcessorI
 		
 		m_savedRequests = new LinkedList<OperationMessage>();
 		m_requestBuffer = new HashMap<Integer, OperationMessage>();
-		m_requestQueue = new LinkedList<OperationMessage>();
+		m_requestQueue = new ConcurrentLinkedQueue<OperationMessage>();
 		
 		m_heartbeat = new ReplicaManagerHeartbeat[2];
 		
@@ -119,7 +119,7 @@ public class ReplicaManager extends Thread implements OperationMessageProcessorI
 	public void startReplica() {
 		
 		m_replicaClient = new ReplicaClient(m_currentImplementationId, m_replicaClientPort, m_replicaManagerInformations[m_id], m_mode);
-		m_replicaClient.start();	
+		//m_replicaClient.start();	
 		
 		m_logger.log("Replica started.");
 	}
@@ -147,26 +147,35 @@ public class ReplicaManager extends Thread implements OperationMessageProcessorI
 			
 			m_logger.log("MAIN THREAD> Proceeding to clean queue from left-over requests..");
 			
+			ConcurrentLinkedQueue<OperationMessage> buffer = new ConcurrentLinkedQueue<OperationMessage>();
+			
 			// Secondly, we clean the queue from any leftover requests and inform the respective FEs.
+			//TODO: Remove left-overs SOFTWAREFAILURE messages ?
 			for (int i = 0; i < m_requestQueue.size(); i++) {
 				
-				OperationMessage message = m_requestQueue.get(i);
+				OperationMessage message = m_requestQueue.poll();
 				
 				if (message.getOpid() == OperationMessage.REQUEST) {
 					
-					m_logger.log("\tRequest with requestId " + message.getContentComponents().get(0) + " removed from request queue.");
+					m_logger.log("MAIN THREAD> Request with requestId " + message.getContentComponents().get(0) + " removed from request queue.");
 					
 					// Inform the FE that it will not receive a response from this request.
 					notifyUnavavailabilityToFrontEnd(message);
 					
 					m_logger.log("MAIN THREAD> Message removed from queue: " + message.getMessage());
 					
-					// Remove request from queue.
-					m_requestQueue.remove(i);
 					i--;
 				}
 				
+				else {
+					// Rebuild the queue.
+					buffer.add(message);
+				}
+				
 			}
+			
+			// Set buffer as new request queue.
+			m_requestQueue = buffer;
 		
 			// Restart error count.
 			m_errorCount = 0;
@@ -531,6 +540,8 @@ public class ReplicaManager extends Thread implements OperationMessageProcessorI
 				// We assume here that the mode has been set to error detection without verification as the front end would not have been able to send this message otherwise.
 				
 				// Increase error counter.
+				
+				//TODO: Ignore if system is set to unavailable.
 				m_errorCount++;
 				
 				if (m_errorCount == MAXERROR) {

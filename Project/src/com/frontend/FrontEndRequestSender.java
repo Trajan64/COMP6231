@@ -13,6 +13,7 @@ import com.reliableudp.ReliableUDPSender;
 import com.replicamanager.ReplicaManagerInformation;
 import com.systeminitializer.SystemInitializer;
 import com.utils.ContactInformation;
+import com.utils.SynchronizedLogger;
 
 public class FrontEndRequestSender implements OperationMessageProcessorInterface {
 
@@ -28,6 +29,8 @@ public class FrontEndRequestSender implements OperationMessageProcessorInterface
 	private int								m_numOfResponses;
 	
 	private String							m_methodName;
+	
+	private SynchronizedLogger				m_logger;
 
 	
 	FrontEndRequestSender(int mode, String city, ReplicaManagerInformation[] replicaManagers, ContactInformation sequencerInformation, LinkedList<String> requestComponents, InetAddress thisAddress) {
@@ -47,13 +50,15 @@ public class FrontEndRequestSender implements OperationMessageProcessorInterface
 		
 		m_methodName = requestComponents.get(0);
 		
+		m_logger = new SynchronizedLogger("FrontEndRequestSender");
+		
 		m_city = city;
 		
 		// Create the request packet.
 		OperationMessage request = new OperationMessage(OperationMessage.REQUEST);
 		
 		// Add information about the address and port in the packet.
-		request.addMessageComponent(thisAddress.toString());
+		request.addMessageComponent("localhost");
 		request.addMessageComponent(Integer.toString(m_listeningPort));
 		
 		// Add city to request.
@@ -237,10 +242,15 @@ public class FrontEndRequestSender implements OperationMessageProcessorInterface
 			// We fetch the fastest reply.
 			while (m_numOfResponses < 1) { continue; }
 			
+			
+			
 			// We have at least one response inside the buffer.
 			response = new Response(m_responseBuffer.poll(), m_methodName);
 			
 		}
+		
+		m_logger.log("Sending response back to FrontEnd.");
+
 
 		return response.getResponse();
 		
@@ -253,6 +263,8 @@ public class FrontEndRequestSender implements OperationMessageProcessorInterface
 	
 	public OperationMessage processRequest(OperationMessage request) {
 		
+		m_logger.log("Message received." + request.getMessage());
+		
 		switch (request.getOpid()) {
 		
 			case OperationMessage.RMUNAVAILABLE:
@@ -264,6 +276,8 @@ public class FrontEndRequestSender implements OperationMessageProcessorInterface
 				return new OperationMessage(OperationMessage.ACK);
 			
 			case OperationMessage.RESPONSE:
+				
+				m_logger.log("Message processed as response.");
 				
 				// We have received a response from one of the replica managers.
 				

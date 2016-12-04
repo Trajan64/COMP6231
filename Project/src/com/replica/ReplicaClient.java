@@ -18,6 +18,7 @@ import com.reliableudp.ReliableUDPSender;
 import com.replicamanager.ReplicaManagerInformation;
 import com.systeminitializer.SystemInitializer;
 import com.utils.ContactInformation;
+import com.utils.SynchronizedLogger;
 
 public class ReplicaClient extends Thread implements OperationMessageProcessorInterface {
 
@@ -36,13 +37,24 @@ public class ReplicaClient extends Thread implements OperationMessageProcessorIn
 	
 	private	ORB					m_orb;
 	
+	private	SynchronizedLogger	m_logger;
+	
 	
 	public ReplicaClient(int implementationId, int outPort, ReplicaManagerInformation parentReplicaManagerInformation, int mode) {
 		
 		loadImplementation(implementationId);
 		m_port = outPort;
+		
 		m_listener = new ReliableUDPListener(this, m_port);
+		m_listener.start();
+		
 		m_mode = mode;
+		
+		m_logger = new SynchronizedLogger("ReplicaClient_" + parentReplicaManagerInformation.getId());
+		
+		m_logger.addStartLine();
+		m_logger.log("Replica is live.");
+		m_logger.log("Replica is listening on port:" + m_port);
 		
 		m_parentReplicaManagerInformation = parentReplicaManagerInformation;
 		
@@ -68,6 +80,8 @@ public class ReplicaClient extends Thread implements OperationMessageProcessorIn
 	private void initializeDRFSAtCity(int implementationId, String city) {
 		
 		
+		
+		
 //		POA rootPOA = POAHelper.narrow(m_orb.resolve_initial_references("RootPOA"));
 //		rootPOA.the_POAManager().activate();
 //		
@@ -85,7 +99,34 @@ public class ReplicaClient extends Thread implements OperationMessageProcessorIn
 //				int WST_UDP_SERVER_PORT = 6791;
 //				int NDL_UDP_SERVER_PORT = 6792;
 //				
-//				break;
+//				case "mtl":
+		
+		// server = new FlightReservationImpl("Mtl", MTL_UDP_SERVER_PORT, WST_UDP_SERVER_PORT, NDL_UDP_SERVER_PORT);
+		// server.start();
+		/*switch (city){
+		case "MTL":
+		FlightReservationImplMtl flightReservationImplMtl = new FlightReservationImplMtl();
+		Thread t = new Thread(flightReservationImplMtl);
+		t.start();
+		
+		break;
+		
+		case "wst":
+		
+		FlightReservationImplWst FlightReservationImplWst = new FlightReservationImplWst();
+		Thread t1 = new Thread(FlightReservationImplWst);
+		t1.start();
+		
+		break;
+		
+		case "ndl":
+		FlightReservationImplNdl FlightReservationImplNdl = new FlightReservationImplNdl();
+		Thread t2 = new Thread(FlightReservationImplNdl);
+		t2.start();
+		break;	
+		default: 
+		break;
+		}*/
 //		
 //		}
 //		
@@ -159,8 +200,8 @@ public class ReplicaClient extends Thread implements OperationMessageProcessorIn
 //			
 //		}
 		
-		
-		return response;
+		return "response";
+		//return response;
 		
 	}
 	
@@ -197,23 +238,31 @@ public class ReplicaClient extends Thread implements OperationMessageProcessorIn
 	
 		// The replica client has the responsibility of answering to alive messages sent by other replicaManagers.
 		
+		m_logger.log("Message received: " + request.getMessage());
+
 		
 		switch(request.getOpid()) {
 			
 		case OperationMessage.REQUEST:
-						
+			
+			m_logger.log("Request received.");
+			
 			String response = unmarshallAndProcessRequest(request);
+			
+			m_logger.log("Response from [unmarshallAndProcessRequest] method is: " +response);
 			
 			// Fetch contact information about the front end who initiated the request.
 			LinkedList<String> content = request.getContentComponents();
 			
 			ContactInformation frontEndCallee = new ContactInformation(content.get(1), content.get(2));
-						
+			
+			m_logger.log("Extracted front end address and port is: " + frontEndCallee.getAddressString() + ":" + frontEndCallee.getPortString());
+			
 			// Reply to the front end.
 			OperationMessage replyToCallee = new OperationMessage(OperationMessage.RESPONSE);
 			
-			replyToCallee.addMessageComponent(m_parentReplicaManagerInformation.getAddressString());
-			replyToCallee.addMessageComponent(m_parentReplicaManagerInformation.getPortString());			
+			replyToCallee.addMessageComponent(frontEndCallee.getAddressString());
+			replyToCallee.addMessageComponent(frontEndCallee.getPortString());			
 			
 			replyToCallee.addMessageComponent(response);
 			

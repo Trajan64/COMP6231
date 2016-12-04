@@ -25,10 +25,11 @@ public class ReliableUDPListener extends Thread {
 		
 		m_packetBuffer = new HashMap<Integer, OperationMessage>();
 		
-			
+		
 		try { m_socket = new DatagramSocket(m_port); } catch (SocketException e) { e.printStackTrace(); }
 
-		
+		System.out.println("Listener setup at port: " + port);	
+
 	}	
 	
 	public ReliableUDPListener(OperationMessageProcessorInterface processor) {
@@ -40,7 +41,7 @@ public class ReliableUDPListener extends Thread {
 		// Let DatagramSocket pick an available port for us.
 		try { m_socket = new DatagramSocket(); } catch (SocketException e) { e.printStackTrace(); }
 		
-		m_port = m_socket.getPort();
+		m_port = m_socket.getLocalPort();
 	}
 
 	
@@ -53,7 +54,7 @@ public class ReliableUDPListener extends Thread {
 	
 	public void run() {
 		
-		System.out.println("Server listener succesfully setup");
+		System.out.println("Server listener succesfully setup (" + m_port + ")");
 				
 		try {
 			while(true) {
@@ -150,6 +151,9 @@ public class ReliableUDPListener extends Thread {
 			if (m_socket != null) { m_socket.close(); }
 		}	
 		
+		
+		System.out.println("Listener shutting down..");	
+
 	}
 		
 	

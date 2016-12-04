@@ -60,7 +60,20 @@ public class ClientInterface {
 		
 		if (args.length > 0) {
 			// Option was supplied.
-			
+			if(args[0].equals("testing")){
+				ORB orb = org.omg.CORBA.ORB.init(options, null);
+				
+				// Run the console in normal mode.
+				
+				m_clientManager = new ClientManager(orb);
+				
+				String inputString = "login passenger MTL";
+				m_clientManager.process(inputString);
+				
+				inputString = "bookaflight dsdas dasdas sdasd dasdas NDL 12/12/2016 2";
+				m_clientManager.process(inputString);
+
+			}
 			if (args[0].equals("-multitest")) {
 				
 				
