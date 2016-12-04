@@ -38,8 +38,8 @@ public class SystemInitializer extends Thread {
 	private static int m_mode;
 
 	private static final int STARTING_IMPLEMENTATION_REPLICA_1 = ReplicaClient.IMPLEMENTATION_MANDEEP;
-	private static final int STARTING_IMPLEMENTATION_REPLICA_2 = ReplicaClient.IMPLEMENTATION_MANDEEP;
-	private static final int STARTING_IMPLEMENTATION_REPLICA_3 = ReplicaClient.IMPLEMENTATION_MANDEEP;
+	private static final int STARTING_IMPLEMENTATION_REPLICA_2 = ReplicaClient.IMPLEMENTATION_VALERIE;
+	private static final int STARTING_IMPLEMENTATION_REPLICA_3 = ReplicaClient.IMPLEMENTATION_JEROME;
 
 	private String	m_city;
 	private ReplicaManagerInformation[] m_replicaManagerInformations;

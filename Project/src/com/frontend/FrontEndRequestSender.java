@@ -51,6 +51,8 @@ public class FrontEndRequestSender implements OperationMessageProcessorInterface
 		m_methodName = requestComponents.get(0);
 		
 		m_logger = new SynchronizedLogger("FrontEndRequestSender");
+
+		m_logger.addStartLine();
 		
 		m_city = city;
 		
@@ -164,15 +166,22 @@ public class FrontEndRequestSender implements OperationMessageProcessorInterface
 		
 		Response response = null;		
 		
+		
 		if (m_mode == SystemInitializer.MODE_ERROR_RECOVERY) {
 		
+			m_logger.log("Gathering responses in error recovery code..");
+			
 			while (m_numOfResponses < m_numOfRMs) { continue; }
 			
+			m_logger.log("Received expected amount of responses");
+
 			
 			// The method response of getBookedFlight require re-formatting to ensure that they have all the same formats.
 			Response[] responses = new Response[3];
 			for (int i = 0; i < m_numOfResponses; i++) {
 				responses[i] = new Response(m_responseBuffer.poll(), m_methodName);
+				m_logger.log("Response " + i + ": " + responses[i].getResponse());
+
 			}
 			
 			
@@ -180,12 +189,14 @@ public class FrontEndRequestSender implements OperationMessageProcessorInterface
 			
 			// Check the number of available replicas.
 			if (m_numOfRMs == 2) {
+				m_logger.log("Only two replicas are up and have responded. Sending either one of the two results.");
 				// If only two replicas are available, then we only send the result from either of the two.
 				return responses[0].getResponse();
 				
 			}
 			
 			if (m_numOfRMs == 3) {
+				m_logger.log("Three responss were gathered. We need to verify if we have an erroneous response.");
 				// If all the replicas are available, then we compare the three responses.
 				// If one mismatch happens, then the system should send a message to the replica that failed indicating it of the software failure.
 								
@@ -222,6 +233,8 @@ public class FrontEndRequestSender implements OperationMessageProcessorInterface
 				if (erroneousResponse != null) {
 					// We encountered an erroneous response.
 					// We have to inform the respective replica manager of the failure.
+					
+					m_logger.log("Erroneous response:" + erroneousResponse.getResponse());
 					
 					OperationMessage softwareFailureMessage = new OperationMessage(OperationMessage.SOFTWAREFAILURE);
 					
@@ -286,6 +299,7 @@ public class FrontEndRequestSender implements OperationMessageProcessorInterface
 					// Not all responses gathered. We need to wait.
 					m_responseBuffer.add(request);
 					m_numOfResponses++;
+					m_logger.log("Response counter updated:" + m_numOfResponses + ". Expected number of responses is: " + m_numOfRMs);
 					
 					return new OperationMessage(OperationMessage.ACK);
 				

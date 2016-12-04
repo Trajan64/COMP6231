@@ -1,21 +1,18 @@
 package com.replica;
 
-import java.net.InetAddress;
 import java.util.LinkedList;
 import java.util.concurrent.TimeoutException;
 
 import org.omg.CORBA.ORB;
-import org.omg.CosNaming.NameComponent;
-import org.omg.CosNaming.NamingContextExt;
-import org.omg.CosNaming.NamingContextExtHelper;
-import org.omg.PortableServer.POA;
-import org.omg.PortableServer.POAHelper;
 
 import com.reliableudp.OperationMessage;
 import com.reliableudp.OperationMessageProcessorInterface;
 import com.reliableudp.ReliableUDPListener;
 import com.reliableudp.ReliableUDPSender;
 import com.replicamanager.ReplicaManagerInformation;
+import com.server.FlightReservationImplMtl;
+import com.server.FlightReservationImplNdl;
+import com.server.FlightReservationImplWst;
 import com.systeminitializer.SystemInitializer;
 import com.utils.ContactInformation;
 import com.utils.SynchronizedLogger;
@@ -79,7 +76,35 @@ public class ReplicaClient extends Thread implements OperationMessageProcessorIn
 	
 	private void initializeDRFSAtCity(int implementationId, String city) {
 		
+		switch(implementationId){
 		
+		case IMPLEMENTATION_MANDEEP:
+
+			switch(city){
+		case "MTL":
+			FlightReservationImplMtl flightReservationImplMtl = new FlightReservationImplMtl();
+			Thread t = new Thread(flightReservationImplMtl);
+			t.start();
+			break;
+			
+		case "WST":
+			
+			FlightReservationImplWst FlightReservationImplWst = new FlightReservationImplWst();
+			Thread t1 = new Thread(FlightReservationImplWst);
+			t1.start();
+			
+			break;
+		case "NDL":
+			FlightReservationImplNdl FlightReservationImplNdl = new FlightReservationImplNdl();
+			Thread t2 = new Thread(FlightReservationImplNdl);
+			t2.start();
+			break;	
+			default: 
+			break;	
+			
+			}
+		
+		}
 		
 		
 //		POA rootPOA = POAHelper.narrow(m_orb.resolve_initial_references("RootPOA"));
