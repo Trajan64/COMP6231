@@ -1,0 +1,7 @@
+# program args as "-highavaiability" or "-error_recovery" while running SystemInitializer.java
+# start orbd -ORBInitialPort 1050
+# create flight request convention #######################
+# StringflightRecord=flightId+","+source+","+destination+","+date+","+busniessClassSeats+","+economyClassSeats+","+firstClassSeats;
+# flightid,MTL,NDL,12/12/2016,10,10,10
+# String result = manager.editFlightRecord(flightId,  FlightReservationConstants.CREATE_FLIGHT, flightRecord);
+
