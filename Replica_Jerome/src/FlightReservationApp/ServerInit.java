@@ -34,7 +34,7 @@ public class ServerInit extends Thread {
 		for (i = 0; servers[i] != null; i++) {
 								
 			// Start the servers
-			ServerInit serverInit = new ServerInit(servers[i].getCity(), "");
+			ServerInit serverInit = new ServerInit(servers[i].getCity(), servers[i].getCity()+"_0");
 			serverInit.start();			
 		}
 
@@ -60,12 +60,13 @@ public class ServerInit extends Thread {
 			ServerImpl server = new ServerImpl(city);
 			
 			org.omg.CORBA.Object ref = rootPOA.servant_to_reference(server);
-			server href = serverHelper.narrow(ref);
+			FlightReservation href = FlightReservationHelper.narrow(ref);
 			
 			
 			org.omg.CORBA.Object objRef = orb.resolve_initial_references("NameService");
 			NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
-			
+			//name = city +"_"+ name;
+			System.out.println("Jeromes -----"+name);
 			NameComponent path[] = ncRef.to_name(name);
 			ncRef.rebind(path, href);
 			

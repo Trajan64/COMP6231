@@ -14,7 +14,7 @@ public class ClientManager {
 	@SuppressWarnings("unused")
 	private String m_managerCity;
 	private String m_location;
-	private server m_server;
+	private FlightReservation m_server;
 	private ServerInformation[] m_serverInformations;
 	
 	private MyLogger m_logger; 
@@ -90,13 +90,13 @@ public class ClientManager {
 		try {
 		
 			//int port = server.getPort();
-			String name = server.getCity();
+			String name = server.getCity()+"_0";
 								
 			
 			org.omg.CORBA.Object objRef = m_orb.resolve_initial_references("NameService");
 			NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
 			
-			m_server = serverHelper.narrow(ncRef.resolve_str(name));
+			m_server = FlightReservationHelper.narrow(ncRef.resolve_str(name));
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -262,10 +262,10 @@ public class ClientManager {
 							return false;
 						}
 						
-						int passengerId;
+						String passengerId;
 						
 						try {
-							passengerId = Integer.parseInt(command[1]);
+							passengerId = command[1];
 						} catch (Exception e) {
 							message = "Non-integer paramater supplied";
 							System.out.println(message);
@@ -292,10 +292,10 @@ public class ClientManager {
 							return false;
 						}
 						
-						int recordType;
+						String recordType;
 						
 						try {
-							recordType = Integer.parseInt(command[1]);
+							recordType = command[1];
 						} catch (Exception e) {
 							message = "Non-integer paramater supplied";
 							System.out.println(message);
@@ -303,7 +303,7 @@ public class ClientManager {
 							return false;
 						}
 						
-						String serverReply = m_server.getBookedFlight(recordType);
+						String serverReply = m_server.getBookedFlightCount(recordType);
 						
 						System.out.println(serverReply);
 						m_logger.log(serverReply);
@@ -318,10 +318,10 @@ public class ClientManager {
 							return false;	
 						}
 						
-						int recordId;
+						String recordId;
 						
 						try {
-							recordId = Integer.parseInt(command[1]);
+							recordId = command[1];
 						} catch (Exception e) {
 							message = "Non-integer paramater supplied";
 							System.out.println(message);
@@ -348,7 +348,7 @@ public class ClientManager {
 							
 							if 	(checkNumberofParamaters(command, 7)) {
 								
-								int recordId;
+								String recordId;
 								String destination = command[2];
 								int seatsFirstClass;
 								int seatsBuisnessClass;
@@ -357,7 +357,7 @@ public class ClientManager {
 								
 								try {
 								
-									recordId = Integer.parseInt(command[1]);
+									recordId = command[1];
 									seatsFirstClass = Integer.parseInt(command[3]);
 									seatsBuisnessClass = Integer.parseInt(command[4]);
 									seatsEconomyClass = Integer.parseInt(command[5]);
@@ -369,7 +369,7 @@ public class ClientManager {
 									return false;
 								}
 								
-								String flightCreationString = command[1] + " " + m_location + " " + command[2] + " " + command[3] + " " + command[4] + " " + command[5] + " " + command[6];
+								String flightCreationString = command[1] + "," + m_location + "," + command[2] + "," + command[3] + "," + command[4] + "," + command[5] + "," + command[6];
 																
 								
 								//Flight newFlight = new Flight(recordId, m_location, destination, seatsFirstClass, seatsBuisnessClass, seatsEconomyClass, timeOfDeparture);
@@ -396,11 +396,11 @@ public class ClientManager {
 							return false;	
 						}
 						
-						int recordId;
+						String recordId;
 						
 						try {
 	
-							recordId = Integer.parseInt(command[1]);
+							recordId = command[1];
 							
 						} catch (Exception e) {
 							System.out.println("Non-integer paramater supplied");
@@ -433,10 +433,10 @@ public class ClientManager {
 						String phone = command[4];
 						String destination = command[5];
 						String date = command[6];
-						int classType;
+						String classType;
 												
 						try {
-							classType = Integer.parseInt(command[7]);
+							classType = command[7];
 						} catch (Exception e) {
 							System.out.println("Non-integer paramater supplied");
 							return false;
